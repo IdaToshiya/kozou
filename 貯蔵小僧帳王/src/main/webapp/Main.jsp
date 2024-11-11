@@ -14,6 +14,6 @@
 	</form>
 </center>
 
-<p>aaa</p>
+<p>bbb</p>
 
 <%@include file="../footer.html" %>
