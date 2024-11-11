@@ -2,7 +2,7 @@
 <%@include file="../header.html" %>
 
 
-<hr width=100% size=5 noshade>
+
 <center>
 	<form action="" method="get">
 		
