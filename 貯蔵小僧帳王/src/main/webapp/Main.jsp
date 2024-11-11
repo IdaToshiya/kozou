@@ -16,6 +16,6 @@
 
 <p>追記しました</p>
 
-<p>追記しました</p>
+<p>cccccccc</p>
 
 <%@include file="../footer.html" %>
