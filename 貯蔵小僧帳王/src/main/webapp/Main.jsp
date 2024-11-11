@@ -13,7 +13,7 @@
 	
 	</form>
 </center>
-<hr width=100% size=5 noshade>
+
 
 
 <%@include file="../footer.html" %>
