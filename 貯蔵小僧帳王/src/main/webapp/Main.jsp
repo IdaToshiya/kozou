@@ -2,23 +2,31 @@
 <%@include file="../header.html" %>
 
 
-
-<center>
-	<form action="" method="get">
+	<form action="" method="post">
 		
 		<h1>貯蔵小僧帳王</h1>
-		<p>ニックネーム<input type="text" name=""></p>
-		<p>パスワード<input type="text" name=""></p>
-		<input type="submit" value="ログイン" class="button">
+			<div class="">
+				<p>ニックネーム&nbsp;<input type="text" name=""></p>
+			</div>
+			<div class="">
+				<p>パスワード&nbsp;<input type="text" name=""></p>
+			</div>
+			<div class="">
+				<input type="submit" value="ログイン" class="button">
+			</div>
 	
 	</form>
-</center>
+	
+	<br>
+	
+	<form action="">
+	
+			<div>
+				<a href=“”>新規登録</a>
+			</div>
+	
+	</form>
 
-<p>追記しました</p>
 
-
-<p>cccccccc</p>
-
-<p>bbbbbb</p>
 
 <%@include file="../footer.html" %>
