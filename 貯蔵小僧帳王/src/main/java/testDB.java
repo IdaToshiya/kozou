@@ -17,7 +17,7 @@ public class testDB {
 		
 		
 		 Connection conn = null;
-	        Statement stmt = null;
+	     Statement stmt = null;
 
 	        try {
 	            // データベースに接続
@@ -25,11 +25,11 @@ public class testDB {
 	            stmt = conn.createStatement();
 
 	            // データベースが存在するか確認し、無ければ作成
-	            String checkDatabaseQuery = "SELECT * FROM user_table";
+	            String checkDatabaseQuery = "SELECT * FROM user_name";
 	            ResultSet rs = stmt.executeQuery(checkDatabaseQuery);
 	           
 	            while (rs.next()) {
-                    System.out.println(rs.getInt("id"));
+                    System.out.println(rs.getString("nickname"));
 	            } 
 	        }catch (SQLException e) {
 	            e.printStackTrace();

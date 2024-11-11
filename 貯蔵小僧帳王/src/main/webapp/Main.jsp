@@ -2,14 +2,14 @@
 <%@include file="../header.html" %>
 
 
-	<form action="" method="post">
+	<form action="LoginAction" method="post">
 		
 		<h1>貯蔵小僧帳王</h1>
 			<div class="">
-				<p>ニックネーム&nbsp;<input type="text" name=""></p>
+				<p>ニックネーム&nbsp;<input type="text" name="nickname"></p>
 			</div>
 			<div class="">
-				<p>パスワード&nbsp;<input type="text" name=""></p>
+				<p>パスワード&nbsp;<input type="text" name=password""></p>
 			</div>
 			<div class="">
 				<input type="submit" value="ログイン" class="button">
