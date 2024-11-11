@@ -1,31 +1,26 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>管理者画面</title>
-</head>
-<body>
-貯蔵小僧帳王 管理画面
+<%@ page contentType="text/html; charset=UTF-8"%>
+<%@include file="../header.html" %>
 
 
-<a href=""><button>商品登録</button></a> 
-<a href=""><button>ダッシュボード</button></a>
+<form action="LoginAction" method="post">
+<h1>貯蔵小僧帳王 管理画面</h1>
+
+
+<a href=""><button>商品登録</button></a>&nbsp;<a href=""><button>ダッシュボード</button></a>
+
 <!--// 検索画面 //-->
-<form action="" method =""><input type="text">
-<input type="submit" value="検索">
+<form action="" method ="post">
+<div class=""><input type="text"><input type="submit" value="検索"></div>
 </form>
-<div style="text-align:center">
- 			<h2 style="text-align:center">一覧/検索結果 表示</h2>
- 			
- 			
- 			
- 			
- 			</table>
- 			<br>
- 		</div>
+
+<!--一覧画面-->
+<div class="">
+<h2>一覧/検索結果 表示</h2>
+<c:forEach var="p" items="${list}">
+	${""}  ${""}  ${""}<br>
+</c:forEach>
 
 
-</body>
-</html>
+</div>
+
+<%@include file="../footer.html" %>
