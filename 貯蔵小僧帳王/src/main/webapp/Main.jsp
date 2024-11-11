@@ -14,6 +14,7 @@
 	</form>
 </center>
 
+<p>追記しました</p>
 
 
 <%@include file="../footer.html" %>
