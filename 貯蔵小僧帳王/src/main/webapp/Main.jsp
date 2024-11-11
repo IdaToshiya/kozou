@@ -15,5 +15,6 @@
 </center>
 <hr width=100% size=5 noshade>
 
+<p>追記しました</p>
 
 <%@include file="../footer.html" %>
