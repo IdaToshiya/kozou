@@ -12,6 +12,21 @@ public class Bean implements java.io.Serializable {
 	private int age;
 	private Date dateOfBirth;
 	private String emailAddress;
+	private int productNumber;
+	private String productName;
+	private int productOfRegistrations;
+	private int stock;
+	private Date startUsing;
+	private Date endOfUse;
+	private int periodDenominator;
+	private int periodNumerator;
+	private int activeNomber;
+
+
+
+
+
+
 	
 	public String getNickname() {
 		return nickname;
