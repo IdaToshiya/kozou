@@ -32,4 +32,25 @@ public class KozouDAO extends DAO {
 
 		return bean;
 	}
+	
+	public int instert(String nickname, String password, String emailAddress, String dateOfBirth, String sex, String prefectures)
+			throws Exception {
+			
+			Connection con=getConnection();
+
+			PreparedStatement st;
+			st=con.prepareStatement("insert into user_table(nickname, password, emailAddress, dateOfBirth, sex, prefectures) values(?, ?, ?, ?, ?, ?) ");
+			st.setString(1, nickname);
+			st.setString(2, password);
+			st.setString(3, emailAddress);
+			st.setString(4, dateOfBirth);
+			st.setString(5, sex);
+			st.setString(6, prefectures);
+			int line=st.executeUpdate();
+
+			st.close();
+			con.close();
+
+			return line;
+		}
 }
