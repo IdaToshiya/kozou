@@ -9,7 +9,7 @@
 				<p>ニックネーム&nbsp;<input type="text" name="nickname"></p>
 			</div>
 			<div class="">
-				<p>パスワード&nbsp;<input type="text" name=password""></p>
+				<p>パスワード&nbsp;<input type="text" name="password"></p>
 			</div>
 			<div class="">
 				<input type="submit" value="ログイン" class="button">
