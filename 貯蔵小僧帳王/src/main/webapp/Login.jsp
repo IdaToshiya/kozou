@@ -13,6 +13,7 @@
 			</div>
 			<div class="">
 				<input type="submit" value="ログイン" class="button">
+
 			</div>
 	
 	</form>
@@ -22,7 +23,7 @@
 	<form action="">
 	
 			<div>
-				<a href=“”>新規登録</a>
+				<a href=new.jsp>新規登録</a>
 			</div>
 	
 	</form>
