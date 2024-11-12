@@ -3,11 +3,12 @@
 
 </head>
 <body>
-商品編集画面
-<p>商品名<input type=text name=""></input></p>
-<p>商品番号<input type=text name=""></input></p>
-<p><input type="submit" value="編集"></p>
-
+<h1>商品編集画面</h1>
+<form action="" method="post">
+<div class=""><p>商品名&nbsp;<input type=text name=""></input></p></div>
+<div class=""><p>商品番号&nbsp;<input type=text name=""></input></p></div>
+<input type="button" value="編集"  name ="" onClick="" class="">
+</form>
 
 
 

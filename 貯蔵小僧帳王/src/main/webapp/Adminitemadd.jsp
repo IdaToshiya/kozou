@@ -3,16 +3,16 @@
 
 </head>
 <body>
-<p>アイテム追加</p>
+<h1>アイテム追加</h1>
 <form action="" method="post">
 <p>カテゴリー&nbsp;<select>
-  <option value="選択肢1の値">1.シャンプー</option>
-  <option value="選択肢2の値">2.リンス</option>
-  <option value="選択肢3の値">3.石鹸</option>
+  <option value="1">1.シャンプー</option>
+  <option value="2">2.リンス</option>
+  <option value="3">3.石鹸</option>
 </select></p>
 <p>商品名&nbsp;<input type="text" name=""></p>
 <p>商品番号&nbsp;<input tyoe="text" name=""></p>
-<p><input type="submit" value="追加"></p>
+<input type="button" value="追加"  name ="" onClick="" class="">
 </form>
 
 
