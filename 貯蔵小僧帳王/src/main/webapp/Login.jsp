@@ -2,7 +2,7 @@
 <%@include file="../header.html" %>
 
 
-	<form action="LoginAction" method="post">
+	<form action="Login.action" method="post">
 		
 		<h1>貯蔵小僧帳王</h1>
 			<div class="">
