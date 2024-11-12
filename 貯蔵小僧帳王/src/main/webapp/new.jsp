@@ -2,17 +2,17 @@
 <%@include file="../header.html" %>
 
 	<section>
-		<form action="" method="post">
+		<form action="Insert.action" method="post">
 			<h1>新規登録</h1>
 				
 				<div class="">
-					<p>ニックネーム&nbsp;<input type="text" name=""></p>
+					<p>ニックネーム&nbsp;<input type="text" name="nickname"></p>
 				</div>
 				<div class="">
-					<p>パスワード&nbsp;<input type="text" name=""></p>
+					<p>パスワード&nbsp;<input type="text" name="password"></p>
 				</div>
 				<div class="">
-					<p>メールアドレス&nbsp;<input type="text" name=""></p>
+					<p>メールアドレス&nbsp;<input type="text" name="emailAddress"></p>
 				</div>
 				<div style="text-align:center" class="birthday">
 	        		<p>生年月日</p>
@@ -20,11 +20,11 @@
 				</div>
 				<div style="text-align:center">
 					<p>性別</p>
-					<input type="radio" name="gender" value="female">女性&nbsp;<input type="radio" name="gender" value="male">男性&nbsp;<input type="radio" name="gender" value="empty" checked>未指定
+					<input type="radio" name="sex" value="female">女性&nbsp;<input type="radio" name="sex" value="male">男性&nbsp;<input type="radio" name="sex" value="empty" checked>未指定
 				</div>
 				<div class="">
 					<p>都道府県</p>
-					<select name="都道府県">
+					<select name="prefectures">
 				    <option value="" selected>選択してください</option>
 				    <option value="北海道">北海道</option>
 				    <option value="青森県">青森県</option>
