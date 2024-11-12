@@ -7,7 +7,7 @@
 <form action="" method="post">
 <div class=""><p>商品名&nbsp;<input type=text name=""></input></p></div>
 <div class=""><p>商品番号&nbsp;<input type=text name=""></input></p></div>
-<input type="button" value="編集"  name ="" onClick="" class="">
+<div style="text-align:center" ><input type="button" value="編集"  name ="" onClick="" class="">
 </form>
 
 

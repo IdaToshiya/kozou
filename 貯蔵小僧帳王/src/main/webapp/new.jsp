@@ -14,11 +14,11 @@
 				<div class="">
 					<p>メールアドレス&nbsp;<input type="text" name=""></p>
 				</div>
-				<div class="">
+				<div style="text-align:center" class="birthday">
 	        		<p>生年月日</p>
-	        		<input name="year" id="year">&nbsp;年&nbsp;<input name="month" id="month">&nbsp;月&nbsp;<input name="day" id="day">&nbsp;日&nbsp;
+	        		<input name="year" id="year" size="10">&nbsp;年&nbsp;<input name="month" id="month" size="5">&nbsp;月&nbsp;<input name="day" id="day" size="5">&nbsp;日&nbsp;
 				</div>
-				<div class="">
+				<div style="text-align:center">
 					<p>性別</p>
 					<input type="radio" name="gender" value="female">女性&nbsp;<input type="radio" name="gender" value="male">男性&nbsp;<input type="radio" name="gender" value="empty" checked>未指定
 				</div>
@@ -77,7 +77,7 @@
 				</div>
 				
 				<br>
-				<div class="">
+				<div style="text-align:center">
 					<input type="submit" value="登録" class="button">
 				</div>
 		

@@ -1,0 +1,37 @@
+@charset "UTF-8";
+
+p{
+	text-align: center;
+	
+}
+
+h1 {
+	font-size: 50px;
+	text-align: center;
+}
+select{
+		display: flex;
+	  margin: 0 auto;
+	  
+	
+}
+.category{
+	display: flex;
+	justify-content: center;
+	margin: 0 auto;
+}
+
+.green{
+	background-color: green;
+	color:white;
+	width: 150px;
+	height: 50px;
+	font-size: 20px;
+}
+.red{
+	background-color: firebrick;
+	color:white;
+	width: 150px;
+	height: 50px;
+	font-size: 20px;
+}

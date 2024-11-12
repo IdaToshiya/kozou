@@ -5,10 +5,9 @@
 
 <section>
 		<form action="" method="post">
-				
-				<div class="">
-					<p>カテゴリー</p>
-					<select name="カテゴリー">
+				<p>カテゴリー</p>
+				<div class="select">
+					<p><select name="カテゴリー">
 				    <option value="" selected>選択してください</option>
 				    <option value="1">シャンプー</option>
 				    <option value="2">リンス</option>
@@ -16,8 +15,8 @@
 					</select>
 				</div>
 				
-				<div class="">
-					<p>商品名</p>
+				<p>商品名</p>
+				<div class="select">
 					<select name="商品名">
 				    <option value="" selected>選択してください</option>
 				    
@@ -30,8 +29,8 @@
 					<p>個数&nbsp;<input type="text" name="">&nbsp;個</p>
 				</div>
 				
-				<div class="">
-					<input type="submit" value="追加" class="button">
+				<div style="text-align:center">
+				<input type="submit" value="追加" class="green">
 				</div>
 		
 		</form>
