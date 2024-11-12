@@ -25,7 +25,7 @@ public class testDB {
 	            stmt = conn.createStatement();
 
 	            // データベースが存在するか確認し、無ければ作成
-	            String checkDatabaseQuery = "SELECT * FROM user_name";
+	            String checkDatabaseQuery = "SELECT * FROM user_table";
 	            ResultSet rs = stmt.executeQuery(checkDatabaseQuery);
 	           
 	            while (rs.next()) {

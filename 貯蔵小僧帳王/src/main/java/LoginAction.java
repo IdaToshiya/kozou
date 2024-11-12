@@ -1,46 +1,33 @@
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.List;
-
-import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
-import bean.bean;
+import bean.Bean;
 import dao.KozouDAO;
-import tool.Page;
+import tool.Action;
 
-@WebServlet(urlPatterns={"/LoginAction"})
-public class LoginAction extends HttpServlet {
 
-	public void doGet (
+public class LoginAction extends Action {
+
+	public String execute (
 		HttpServletRequest request, HttpServletResponse response
-	) throws ServletException, IOException {
-		PrintWriter out=response.getWriter();
-		Page.header(out);
-		try {
+	) throws Exception{
+		HttpSession session=request.getSession();		
+
 
 			String nickname=request.getParameter("nickname");
 			String password=request.getParameter("password");
-			
-			bean p=new bean();
-			p.setNickName(nickname);
-			p.setPassword(password);
-			
+		
 			KozouDAO dao=new KozouDAO();
-			List<bean> list=dao.search();
+			Bean bean=dao.search(nickname, password);
 			
-			for (bean p1 : list) {
-				System.out.println(p1.getNickName());
-				System.out.println(p1.getPassword());
-			
+			if (bean!=null) {
+				session.setAttribute("bean", bean);
+				return "test.jsp";
 			}
+			
+			return "Login.jsp";
 
-		} catch (Exception e) {
-			e.printStackTrace(out);
-		}
-		Page.footer(out);
+		
 	}
 }

@@ -1,12 +1,12 @@
 package bean;
 
 
-public class bean implements java.io.Serializable {
+public class Bean implements java.io.Serializable {
 	
 	private String nickname;
 	private String password;
 	
-	public String getNickName() {
+	public String getNickname() {
 		return nickname;
 	}
 	
@@ -15,7 +15,7 @@ public class bean implements java.io.Serializable {
 	}
 	
 	
-	public void setNickName(String nickname) {
+	public void setNickname(String nickname) {
 		this.nickname=nickname;
 	}
 	
