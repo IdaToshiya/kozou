@@ -21,13 +21,26 @@ select{
 	margin: 0 auto;
 }
 
+/*.green{*/
+/*	background-color: green;*/
+/*	color:white;*/
+/*	width: 150px;*/
+/*	height: 50px;*/
+/*	font-size: 20px;*/
+/*}*/
+
 .green{
-	background-color: green;
-	color:white;
-	width: 150px;
-	height: 50px;
-	font-size: 20px;
+	border-radius: 100px;
+	    width: 200px;
+	    padding: 15px;
+	    box-sizing: border-box;
+	    background: green;
+	    color: #FFF;
+	    text-decoration: none;
+	    margin: 10px 0;
+		font-size: 20px;
 }
+
 .red{
 	background-color: firebrick;
 	color:white;
@@ -43,10 +56,18 @@ select{
 	font-size: 20px;
 }
 
-.gray{
-	background-color: #A6B5A5;
-	color:white;
-	width: 130px;
-	height: 40px;
-	font-size: 15px;
+
+.btn-flat-logo {
+  position: relative;
+  display: inline-block;
+  font-weight: bold;
+  padding: 0.25em 0.5em;
+  text-decoration: none;
+  color: #FFF;
+  background: #A1A3A6;
+  transition: .4s;
+}
+
+.btn-flat-logo:hover {
+  background: #A1A3A6;
 }
