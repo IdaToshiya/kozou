@@ -1,10 +1,17 @@
 package bean;
 
+import java.util.Date;
+
 
 public class Bean implements java.io.Serializable {
 	
 	private String nickname;
 	private String password;
+	private String prefectures;
+	private String sex;
+	private int age;
+	private Date dateOfBirth;
+	private String emailAddress;
 	
 	public String getNickname() {
 		return nickname;
@@ -14,6 +21,25 @@ public class Bean implements java.io.Serializable {
 		return password;
 	}
 	
+	public String getEmailAddress() {
+		return emailAddress;
+	}
+	
+	public String getSex() {
+		return sex;
+	}
+	
+	public int getAge() {
+		return age;
+	}
+	
+	public Date getDateOfBirth() {
+		return dateOfBirth;
+	}
+	
+	public String getPrefectures() {
+		return prefectures;
+	}
 	
 	public void setNickname(String nickname) {
 		this.nickname=nickname;
@@ -21,5 +47,25 @@ public class Bean implements java.io.Serializable {
 	
 	public void setPassword(String password) {
 		this.password=password;
+	}
+	
+	public void setPrefectures(String prefectures) {
+		this.prefectures=prefectures;
+	}
+	
+	public void setSex(String sex) {
+		this.sex=sex;
+	}
+	
+	public void setAge(int age) {
+		this.age=age;
+	}
+	
+	public void setDateOfBirth(Date dateOfBirth) {
+		this.dateOfBirth=dateOfBirth;
+	}
+	
+	public void setEmailAddress(String emailAddress) {
+		this.emailAddress=emailAddress;
 	}
 }
