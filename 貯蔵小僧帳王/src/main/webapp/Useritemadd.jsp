@@ -30,7 +30,7 @@
 				</div>
 				
 				<div style="text-align:center">
-				<input type="submit" value="追加" class="green">
+				<input type="submit" value="追加" class="blue">
 				</div>
 		
 		</form>
