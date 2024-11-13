@@ -1,0 +1,67 @@
+@charset "UTF-8";
+body{
+	background-color: #fff5e9;
+	font-family: "Hachi Maru Pop", cursive;
+	
+}
+/*girl*/
+.hachi-maru-pop-regular {
+  font-family: "Hachi Maru Pop", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+p{
+	text-align: center;
+}
+
+h1 {
+	font-size: 50px;
+	text-align: center;
+}
+
+select{
+	 display: flex;
+	 margin: 0 auto;
+		  
+	
+}
+.category{
+	display: flex;
+	justify-content: center;
+	margin: 0 auto;
+}
+
+.add {
+	border-radius: 100px;
+	width: 200px;
+	padding: 15px;
+	box-sizing: border-box;
+	background: #edb5d2;
+	color: #e57b87;
+	text-decoration: none;
+	margin: 10px 0;
+	font-size: 20px;
+	font-family: "Hachi Maru Pop", cursive;
+	}
+
+.delete{
+	border-radius: 100px;
+	background-color:#c8a8da;
+	color:white;
+	width: 150px;
+	height: 50px;
+	font-size: 20px;
+	font-family: "Hachi Maru Pop", cursive;
+}
+.plus{
+	border-radius: 100px;
+	background-color: #ead2df;
+	color:white;
+	width: 150px;
+	height: 50px;
+	font-size: 20px;
+	font-family: "Hachi Maru Pop", cursive;
+}
+
+
