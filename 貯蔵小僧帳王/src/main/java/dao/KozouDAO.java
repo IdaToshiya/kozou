@@ -4,6 +4,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+import org.apache.tomcat.jakartaee.commons.lang3.builder.ToStringBuilder;
+import org.apache.tomcat.jakartaee.commons.lang3.builder.ToStringStyle;
+
 import bean.Bean;
 
 public class KozouDAO extends DAO {
@@ -12,10 +15,13 @@ public class KozouDAO extends DAO {
 		throws Exception {
 		Bean bean=null;
 		
+		System.out.println(hashedPassword);
+
+		
 		Connection con=getConnection();
 
 		PreparedStatement st;
-		st=con.prepareStatement("select * from user_table where nickname=? AND password=?");
+		st=con.prepareStatement("select * from user_table LEFT JOIN stock_table ON user_table.emailaddress = stock_table.emailaddress where nickname = ? AND password = ?");
 		st.setString(1, nickname);
 		st.setString(2, hashedPassword);
 		ResultSet rs=st.executeQuery();
@@ -24,15 +30,20 @@ public class KozouDAO extends DAO {
 			bean =new Bean();
 			bean.setNickname(rs.getString("nickname"));
 			bean.setPassword(rs.getString("password"));
-//			bean.setPrefectures(rs.getString("prefectures"));
-//			bean.setSex(rs.getString("sex"));
-//			bean.setDateOfBirth(rs.getDate("dateOfBirth"));
-//			bean.setEmailAddress(rs.getString("emailAddress"));
-//			bean.setProductNumber(rs.getString("productNumber"));
+			bean.setPrefectures(rs.getString("prefectures"));
+			bean.setSex(rs.getString("sex"));
+			bean.setDateofbirth(rs.getDate("dateofbirth"));
+			bean.setEmailaddress(rs.getString("emailaddress"));
+			bean.setProductnumber(rs.getString("productnumber"));
 		}
 		
 		st.close();
 		con.close();
+		
+
+		// こんな風にすれば Bean の中身がログに出力できる
+		String bbb =( ToStringBuilder.reflectionToString(bean, ToStringStyle.DEFAULT_STYLE) );
+		System.out.println(bbb);
 
 		return bean;
 	}
