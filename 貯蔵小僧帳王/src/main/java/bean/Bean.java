@@ -1,7 +1,6 @@
 package bean;
 
-import java.util.Date;
-
+import java.sql.Date;
 
 public class Bean implements java.io.Serializable {
 	
@@ -11,7 +10,7 @@ public class Bean implements java.io.Serializable {
 	private String sex;
 	private Date dateOfBirth;
 	private String emailAddress;
-	private int productNumber;
+	private String productNumber;
 	private int stock;
 	private Date startUsing;
 	private Date endUse;
@@ -46,7 +45,7 @@ public class Bean implements java.io.Serializable {
 		return emailAddress;
 	}
 	
-	public int getProductNumber() {
+	public String getProductNumber() {
 		return productNumber;
 	}
 	
@@ -110,7 +109,7 @@ public class Bean implements java.io.Serializable {
 		this.emailAddress=emailAddress;
 	}
 	
-	public void setProductNumber(int productNumber) {
+	public void setProductNumber(String productNumber) {
 		this.productNumber=productNumber;
 	}
 	
