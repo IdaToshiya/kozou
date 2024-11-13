@@ -29,14 +29,16 @@ public class LoginAction extends Action {
 			
 			// こんな風にすれば Bean の中身がログに出力できる
 			String aaa =( ToStringBuilder.reflectionToString(bean, ToStringStyle.DEFAULT_STYLE) );
-			System.out.println(aaa);
 			
-			if (aaa!=null) {
+			  if (aaa.contains("kannrininn@icloud.com"))
+		        {
+		            System.out.println("emailaddress");
+					return "test.jsp";
+
+		        }else if (aaa!=null) {
 				session.setAttribute("bean", bean);
 				return "test.jsp";
-			}else {
-				
-			}
+		        }
 			
 			return "Login.jsp";
 
