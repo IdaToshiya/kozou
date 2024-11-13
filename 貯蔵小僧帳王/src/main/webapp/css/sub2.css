@@ -1,0 +1,15 @@
+@charset "UTF-8";
+
+
+body {
+    margin: 0;
+    background-repeat: no-repeat;
+    background-image: url("TOPmiyazaki.png");
+	background-position: center center;
+	background-attachment: fixed;
+	background-size: cover;
+	background-color: #464646;
+}
+
+
+
