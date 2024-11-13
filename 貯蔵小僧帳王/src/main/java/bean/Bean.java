@@ -6,11 +6,12 @@ public class Bean implements java.io.Serializable {
 	
 	private String nickname;
 	private String password;
+	private String hashedPassword;
 	private String prefectures;
 	private String sex;
-	private Date dateOfBirth;
-	private String emailAddress;
-	private String productNumber;
+	private Date dateofbirth;
+	private String emailaddress;
+	private String productnumber;
 	private int stock;
 	private Date startUsing;
 	private Date endUse;
@@ -29,6 +30,10 @@ public class Bean implements java.io.Serializable {
 		return password;
 	}
 	
+	public String getHashedPassword() {
+		return hashedPassword;
+	}
+	
 	public String getPrefectures() {
 		return prefectures;
 	}
@@ -37,16 +42,16 @@ public class Bean implements java.io.Serializable {
 		return sex;
 	}
 	
-	public Date getDateOfBirth() {
-		return dateOfBirth;
+	public Date getDateofbirth() {
+		return dateofbirth;
 	}
 	
-	public String getEmailAddress() {
-		return emailAddress;
+	public String getEmailaddress() {
+		return emailaddress;
 	}
 	
-	public String getProductNumber() {
-		return productNumber;
+	public String getProductnumber() {
+		return productnumber;
 	}
 	
 	public int getStock() {
@@ -93,6 +98,10 @@ public class Bean implements java.io.Serializable {
 		this.password=password;
 	}
 	
+	public void setHashedPassword(String hashedPassword) {
+		this.hashedPassword=hashedPassword;
+	}
+	
 	public void setPrefectures(String prefectures) {
 		this.prefectures=prefectures;
 	}
@@ -101,16 +110,16 @@ public class Bean implements java.io.Serializable {
 		this.sex=sex;
 	}
 	
-	public void setDateOfBirth(Date dateOfBirth) {
-		this.dateOfBirth=dateOfBirth;
+	public void setDateofbirth(Date dateofbirth) {
+		this.dateofbirth=dateofbirth;
 	}
 	
-	public void setEmailAddress(String emailAddress) {
-		this.emailAddress=emailAddress;
+	public void setEmailaddress(String emailaddress) {
+		this.emailaddress=emailaddress;
 	}
 	
-	public void setProductNumber(String productNumber) {
-		this.productNumber=productNumber;
+	public void setProductnumber(String productnumber) {
+		this.productnumber=productnumber;
 	}
 	
 	public void setStock(int stock) {

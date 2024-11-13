@@ -25,7 +25,7 @@ public class LoginAction extends Action {
 			KozouDAO dao=new KozouDAO();
 			Bean bean=dao.search(nickname, hashedPassword);
 			
-			System.out.println(bean);
+//			System.out.println(bean);
 			
 			// こんな風にすれば Bean の中身がログに出力できる
 			String aaa =( ToStringBuilder.reflectionToString(bean, ToStringStyle.DEFAULT_STYLE) );
