@@ -1,8 +1,8 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
-<%@include file="../header.html" %>
+<%@include file="../header-2.html" %>
 
 </head>
-
+<body>
 <div class="select">
 <h1>アイテム追加</h1>
 <form action="" method="post"><div class="category">
@@ -17,11 +17,11 @@
 <p>商品名&nbsp;<input type="text" name=""></p>
 <p>商品番号&nbsp;<input tyoe="text" name=""></p>
 <div style="text-align:center" >
-<input type="button" value="追加"  name ="" onClick="" class="">
+<input type="button" value="追加"  name ="" onClick="" class="add">
 </div>
 </form>
 
 </div>
-
+</body>
 <%@include file="../footer.html" %>
 
