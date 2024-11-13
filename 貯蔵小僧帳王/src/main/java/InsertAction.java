@@ -23,9 +23,7 @@ public class InsertAction extends Action {
         String dateOfBirth = date.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
 		
 		String nickname=request.getParameter("nickname");
-//		String password=request.getParameter("hashedPassword");
 		String emailAddress=request.getParameter("emailAddress");
-//		String dateOfBirth=request.getParameter("dateOfBirth");
 		String sex=request.getParameter("sex");
 		String prefectures=request.getParameter("prefectures");
 		

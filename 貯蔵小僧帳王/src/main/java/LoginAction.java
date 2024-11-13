@@ -15,13 +15,15 @@ public class LoginAction extends Action {
 	public String execute (
 		HttpServletRequest request, HttpServletResponse response
 	) throws Exception{
-		HttpSession session=request.getSession();		
+		HttpSession session=request.getSession();
+			
+			String password = request.getParameter("password");
+			String hashedPassword = HashUtil.hashPassword(password);
 
 			String nickname=request.getParameter("nickname");
-			String password=request.getParameter("password");
 		
 			KozouDAO dao=new KozouDAO();
-			Bean bean=dao.search(nickname, password);
+			Bean bean=dao.search(nickname, hashedPassword);
 			
 			System.out.println(bean);
 			

@@ -8,7 +8,7 @@ import bean.Bean;
 
 public class KozouDAO extends DAO {
 	
-	public Bean search(String nickname, String password)
+	public Bean search(String nickname, String hashedPassword)
 		throws Exception {
 		Bean bean=null;
 		
@@ -17,18 +17,18 @@ public class KozouDAO extends DAO {
 		PreparedStatement st;
 		st=con.prepareStatement("select * from user_table where nickname=? AND password=?");
 		st.setString(1, nickname);
-		st.setString(2, password);
+		st.setString(2, hashedPassword);
 		ResultSet rs=st.executeQuery();
 
 		while (rs.next()) {
 			bean =new Bean();
 			bean.setNickname(rs.getString("nickname"));
 			bean.setPassword(rs.getString("password"));
-			bean.setPrefectures(rs.getString("prefectures"));
-			bean.setSex(rs.getString("sex"));
-			bean.setDateOfBirth(rs.getDate("dateOfBirth"));
-			bean.setEmailAddress(rs.getString("emailAddress"));
-			bean.setProductNumber(rs.getString("productNumber"));
+//			bean.setPrefectures(rs.getString("prefectures"));
+//			bean.setSex(rs.getString("sex"));
+//			bean.setDateOfBirth(rs.getDate("dateOfBirth"));
+//			bean.setEmailAddress(rs.getString("emailAddress"));
+//			bean.setProductNumber(rs.getString("productNumber"));
 		}
 		
 		st.close();
