@@ -7,7 +7,7 @@
 <form action="LoginAction" method="post">
 <h1>貯蔵小僧帳王 管理画面</h1>
 
-<button class ="" onclick="location.href='../貯蔵小僧帳王/Adminitemadd.jsp'">商品登録</button>&nbsp;<button class ="" onclick="location.href='../貯蔵小僧帳王/Dashboard.jsp'">ダッシュボード</button>
+<button class ="red" onclick="location.href='Adminitemadd.jsp'">商品登録</button>&nbsp;<button class ="blue" onclick="location.href='Dashboard.jsp'">ダッシュボード</button>
 
 <div class="">
 		<aside class="search">

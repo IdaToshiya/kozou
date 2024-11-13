@@ -24,6 +24,11 @@ public class KozouDAO extends DAO {
 			bean =new Bean();
 			bean.setNickname(rs.getString("nickname"));
 			bean.setPassword(rs.getString("password"));
+			bean.setPrefectures(rs.getString("prefectures"));
+			bean.setSex(rs.getString("sex"));
+			bean.setDateOfBirth(rs.getDate("dateOfBirth"));
+			bean.setEmailAddress(rs.getString("emailAddress"));
+			bean.setProductNumber(rs.getString("productNumber"));
 		}
 		
 		st.close();
