@@ -24,7 +24,6 @@ public class KozouDAO extends DAO {
 			bean =new Bean();
 			bean.setNickname(rs.getString("nickname"));
 			bean.setPassword(rs.getString("password"));
-			System.out.println(rs.getString("password"));
 		}
 		
 		st.close();
@@ -33,19 +32,20 @@ public class KozouDAO extends DAO {
 		return bean;
 	}
 	
-	public int instert(String nickname, String password, String emailAddress, String dateOfBirth, String sex, String prefectures)
+	public int instert(String nickname, String hashedPassword, String emailAddress, String dateOfBirth, String sex, String prefectures)
 			throws Exception {
 			
+			System.out.println(hashedPassword);
 			Connection con=getConnection();
 
 			PreparedStatement st;
-			st=con.prepareStatement("insert into user_table(nickname, password, emailAddress, dateOfBirth, sex, prefectures) values(?, ?, ?, ?, ?, ?) ");
+			st=con.prepareStatement("insert into user_table(nickname, password, prefectures, sex, dateofbirth, emailaddress) values(?, ?, ?, ?, ?, ?) ");
 			st.setString(1, nickname);
-			st.setString(2, password);
-			st.setString(3, emailAddress);
-			st.setString(4, dateOfBirth);
-			st.setString(5, sex);
-			st.setString(6, prefectures);
+			st.setString(2, hashedPassword);
+			st.setString(3, prefectures);
+			st.setString(4, sex);
+			st.setString(5, dateOfBirth);
+			st.setString(6, emailAddress);
 			int line=st.executeUpdate();
 
 			st.close();
