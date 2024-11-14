@@ -9,16 +9,16 @@ Bean User = (Bean)request.getAttribute("bean");
 String emailaddress = User.getEmailaddress();
 %>
 
-
-
 <h1>HOME</h1>
+
 
 <div class="">
 	<input type="submit" value="削除済みアイテム" class="button">
 </div>
 
 <sql:query var="list" dataSource="jdbc/kozou">
-	select * FROM stock_table LEFT JOIN product_table ON stock_table.productnumber = product_table.productnumber where emailaddress = '<%= emailaddress %>';
+	select * FROM stock_table LEFT JOIN product_table ON stock_table.productnumber = product_table.productnumber
+	 where emailaddress = '<%= emailaddress %>' AND stock <= 1;
 </sql:query>
 
 <p>なくなりそうなもの</p>
