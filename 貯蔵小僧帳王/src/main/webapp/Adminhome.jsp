@@ -21,7 +21,7 @@
 			</div>
 
 <sql:query var="list" dataSource="jdbc/kozou">
-	select * from product_table where status IS NULL;
+	select * from product_table;
 </sql:query>
 
 <p>一覧/検索結果 表示</p>
