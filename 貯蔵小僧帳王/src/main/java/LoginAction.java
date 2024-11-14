@@ -25,21 +25,17 @@ public class LoginAction extends Action {
 			KozouDAO dao=new KozouDAO();
 			Bean bean=dao.search(nickname, hashedPassword);
 			
-//			System.out.println(bean);
-			
 			// こんな風にすれば Bean の中身がログに出力できる
 			String aaa =( ToStringBuilder.reflectionToString(bean, ToStringStyle.DEFAULT_STYLE) );
 			
-			  if (aaa.contains("kannrininn@icloud.com"))
-		        {
-		            System.out.println("emailaddress");
-					return "test.jsp";
-
-		        }else if (aaa!=null) {
-				session.setAttribute("bean", bean);
+			if (aaa.contains("管理人") && aaa.contains("bc252ca239c1056c615e4742ede7a786f22598dfcd68c501e788ccdf388d3e32")){
+	            System.out.println("emailaddress");
 				return "test.jsp";
-		        }
-			
+	        }else if (bean!=null) {
+	        	session.setAttribute("bean", bean);
+	        	return "test.jsp";
+	        } 
+//	       
 			return "Login.jsp";
 
 		
