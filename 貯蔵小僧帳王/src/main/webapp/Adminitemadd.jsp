@@ -3,9 +3,9 @@
 <h1>アイテム追加</h1>
 
 <section>
-	<form action="" method="post" class="center">
+	<form action="Adminadd.action" method="post" class="center">
 		<div class="select">
-			<label>カテゴリー</label> <select name="カテゴリー">
+			<label>カテゴリー</label> <select name="categorynumber">
 				<option value="" selected>選択してください</option>
 				<option value="1">シャンプー</option>
 				<option value="2">リンス</option>
@@ -16,7 +16,7 @@
 		<br>
 
 		<div class="select">
-			<label>商品名</label> <input type="text" name="">
+			<label>商品名</label> <input type="text" name="productname">
 		</div>
 
 		<br>
