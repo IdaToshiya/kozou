@@ -23,8 +23,11 @@ h1 {
 select{
 	 display: flex;
 	 margin: 0 auto;
-		  
 	
+}
+
+.input{
+	text-align: center;
 }
 .category{
 	display: flex;
@@ -91,7 +94,9 @@ select{
 
 .newfont{
 	font-size: 25px;
-	
 }
 
+back {
+	font-size: 20px;
+}
 

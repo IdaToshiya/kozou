@@ -15,14 +15,13 @@
 					<p>メールアドレス&nbsp;<input type="email" name="emailAddress" required placeholder="例）-_- @gmail.com"></p>
 				</div>
 				<div style="text-align:center" class="birthday" required>
-	        		<p>生年月日</p>
+	        		<p>生年月日&nbsp;
 	        		<input name="year" id="year" size="10" required pattern="^[1-9][0-9]*$" maxlength="4" minlength="4" placeholder="例）2000">&nbsp;年&nbsp;
 	        		<input name="month" id="month" size="5" required type="number"min="01"max="12" placeholder="例）08">&nbsp;月&nbsp;
 	        		<input name="day" id="day" size="5" type="number"min="01"max="31" oninput="javascript: this.value = this.value.slice(0, 2);" required  placeholder="例）08">&nbsp;日&nbsp;
-				</div>
+				</div></p>
 				<div style="text-align:center">
-					<p>性別</p>
-					<input type="radio" name="sex" value="female">女性&nbsp;<input type="radio" name="sex" value="male">男性&nbsp;<input type="radio" name="sex" value="empty" checked>未指定
+					<p>性別&nbsp;<input type="radio" name="sex" value="female">女性&nbsp;<input type="radio" name="sex" value="male">男性&nbsp;<input type="radio" name="sex" value="empty" checked>未指定</p>
 				</div>
 				<div class="">
 					<p>都道府県</p>
@@ -80,6 +79,11 @@
 				<div style="text-align:center">
 					<input type="submit" value="登録" class="green">
 				</div>
+				
+				<div class="back" style="text-align:center">
+					<a href=Login.jsp>戻る</a>
+				</div>
+				
 		
 		</form>
 	</section>

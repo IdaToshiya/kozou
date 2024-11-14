@@ -26,7 +26,7 @@
 				<br>
 				
 				<div class="">
-					<p>個数&nbsp;<input type="text" name="">&nbsp;個</p>
+					<p>個数&nbsp;<input type="text" name="" required min="1" placeholder="個数を入力" size="8" >&nbsp;個</p>
 				</div>
 				
 				<div style="text-align:center">
