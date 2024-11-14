@@ -3,7 +3,7 @@
 <%@taglib prefix="sql" uri="jakarta.tags.sql" %>
 <%@include file="../header.html" %>
 
-
+<body>
 
 
 <form action="Login.action" method="post">
@@ -48,4 +48,5 @@
 
 </form>
 
+</body>
 <%@include file="../footer.html" %>
