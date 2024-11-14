@@ -18,8 +18,11 @@
 <p>商品番号&nbsp;<input tyoe="text" name=""></p>
 <div style="text-align:center" >
 <input type="button" value="追加"  name ="" onClick="" class="delete">
+<a href="" class="btn btn--orange btn--cubic btn--shadow">PUSH！</a>
+<input type="button" value ="追加" name="" onClick="" class="delete delete--color delete--shadow">
 </div>
 </form>
+
 
 </div>
 </body>

@@ -77,10 +77,8 @@
 				    <option value="沖縄県">沖縄県</option>
 					</select>
 				</div>
-				
-				<br>
 				<div style="text-align:center">
-					<input type="submit" value="登録" class="button">
+					<input type="submit" value="登録" class="green">
 				</div>
 		
 		</form>
