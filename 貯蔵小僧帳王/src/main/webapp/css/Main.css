@@ -20,14 +20,15 @@ h1 {
 	text-align: center;
 }
 
-select{
-	 display: flex;
-	 margin: 0 auto;
+/*select{*/
+/*	 display: flex;*/
+/*	 margin: 0 auto;*/
 	
-}
+/*}*/
 
-.input{
+input{
 	text-align: center;
+	vertical-align:top;
 }
 .category{
 	display: flex;
@@ -96,7 +97,17 @@ select{
 	font-size: 25px;
 }
 
-back {
+.back {
 	font-size: 20px;
 }
 
+.center {
+	width: fit-content;
+	  margin: auto;
+}
+
+label {
+    display: inline-block;
+    width: 130px;
+    vertical-align: top;
+}

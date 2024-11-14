@@ -2,29 +2,35 @@
 <%@include file="../header.html" %>
 
 	<section>
-		<form action="Insert.action" method="post">
+		<form action="Insert.action" method="post" class="center">
 			<h1>新規登録</h1>
 				
 				<div class="">
-					<p>ニックネーム&nbsp;<input type="text" name="nickname" maxlength="10" required placeholder='入力してください'></p>
+					<label>ニックネーム</label>
+					<input type="text" name="nickname" maxlength="10" required placeholder='入力してください'>
 				</div>
+				<br>
 				<div class="">
-					<p>パスワード&nbsp;<input type="text" name="password" minlength="12" maxlength="20" pattern="^[0-9A-Za-z!-~]+$" required placeholder='12文字以上 / 半角英数記号'></p>
+					<label>パスワード</label><input type="text" name="password" minlength="12" maxlength="20" pattern="^[0-9A-Za-z!-~]+$" required placeholder='12文字以上 / 半角英数記号'>
 				</div>
+				<br>
 				<div class="">
-					<p>メールアドレス&nbsp;<input type="email" name="emailAddress" required placeholder="例）-_- @gmail.com"></p>
+					<label>メールアドレス</label><input type="email" name="emailAddress" required placeholder="例）-_- @gmail.com">
 				</div>
-				<div style="text-align:center" class="birthday" required>
-	        		<p>生年月日&nbsp;
+				<br>
+				<div  required>
+				<label>生年月日</label>
 	        		<input name="year" id="year" size="10" required pattern="^[1-9][0-9]*$" maxlength="4" minlength="4" placeholder="例）2000">&nbsp;年&nbsp;
 	        		<input name="month" id="month" size="5" required type="number"min="01"max="12" placeholder="例）08">&nbsp;月&nbsp;
 	        		<input name="day" id="day" size="5" type="number"min="01"max="31" oninput="javascript: this.value = this.value.slice(0, 2);" required  placeholder="例）08">&nbsp;日&nbsp;
-				</div></p>
-				<div style="text-align:center">
-					<p>性別&nbsp;<input type="radio" name="sex" value="female">女性&nbsp;<input type="radio" name="sex" value="male">男性&nbsp;<input type="radio" name="sex" value="empty" checked>未指定</p>
 				</div>
+				<br>
+				<div >
+					<label>性別</label><input type="radio" name="sex" value="female">女性&nbsp;<input type="radio" name="sex" value="male">男性&nbsp;<input type="radio" name="sex" value="empty" checked>未指定
+				</div>
+				<br>
 				<div class="">
-					<p>都道府県</p>
+					<label>都道府県</label>
 					<select name="prefectures" required>
 				    <option value="" selected>選択してください</option>
 				    <option value="北海道">北海道</option>
@@ -76,6 +82,9 @@
 				    <option value="沖縄県">沖縄県</option>
 					</select>
 				</div>
+				
+				<br>
+				
 				<div style="text-align:center">
 					<input type="submit" value="登録" class="green">
 				</div>
