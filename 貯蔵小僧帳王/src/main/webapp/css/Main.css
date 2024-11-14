@@ -20,23 +20,11 @@ h1 {
 	text-align: center;
 }
 
-/*select{*/
-/*	 display: flex;*/
-/*	 margin: 0 auto;*/
-	
-/*}*/
 
 input{
 	text-align: center;
 	vertical-align:top;
 }
-.category{
-	display: flex;
-	justify-content: center;
-	margin: 0 auto;
-}
-
-
 
 .green{
 	border-radius: 0.5rem;

@@ -1,38 +1,30 @@
 @charset "UTF-8";
 /*girl*/
 body{
-	background-color: #f5c4d3;
-	font-family: "Hachi Maru Pop", cursive;
-	background-image: url("lace3.png");
+	background-color: #d2cbb4;
+	font-family: "Yuji Syuku", serif;
+	
 }
 
-.hachi-maru-pop-regular {
-  font-family: "Hachi Maru Pop", cursive;
-  font-weight: 400;
-  font-style: normal;
+.yuji-syuku-regular {
+  	font-family: "Yuji Syuku", serif;
+  	font-weight: 400;
+  	font-style: normal;
 }
 
 p{
 	text-align: center;
-	font-weight: 600;
-	color: #cfa7cc;
 }
 
 h1 {
 	font-size: 50px;
-	font-weight: 900;
 	text-align: center;
-	color: #cfa7cc;
 }
 
-select{
-	 display: flex;
-	 margin: 0 auto;
-}
-.category{
-	display: flex;
-	justify-content: center;
-	margin: 0 auto;
+
+input{
+	text-align: center;
+	vertical-align:top;
 }
 
 .add{
@@ -62,21 +54,7 @@ select{
 	font-family: "Hachi Maru Pop", cursive;
 	font-weight: 900
 }
-.delete--shadow {
-  	-webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
-  	box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
-}
-.delete--color {
-  	color: #99e3d1;
-  	background-color: #cfa7cc;
-  	border-bottom: 5px solid #bacadd;
-}
-.delete--colore:hover {
- 	margin-top: 3px;
-  	color: #99e3d1;
-  	background: #cfa7cc;
-  	border-bottom: 2px solid #bacadd;
-}
+
 .plus{
 	border-radius: 0.5rem;
 	width: 200px;
@@ -90,21 +68,7 @@ select{
 	font-family: "Hachi Maru Pop", cursive;
 	font-weight: 900
 }
-.plus--shadow {
-  	-webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
-  	box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
-}
-.plus--color {
-  	color: #f4acac;
-  	background-color: #d3def1;
-  	border-bottom: 5px solid #bacadd;
-}
-.plus--colore:hover {
- 	margin-top: 3px;
-  	color: #f4acac;
-  	background: #d3def1;
-  	border-bottom: 2px solid #bacadd;
-}
+
 
 .btn-flat-logo {
 	position: relative;
@@ -123,5 +87,19 @@ select{
 
 .newfont{
 	font-size: 25px;
-	
+}
+
+.back {
+	font-size: 20px;
+}
+
+.center {
+	width: fit-content;
+	  margin: auto;
+}
+
+label {
+    display: inline-block;
+    width: 130px;
+    vertical-align: top;
 }

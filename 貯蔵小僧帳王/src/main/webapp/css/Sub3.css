@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*boy*/
 body{
-	background-color: #F4F5F7;
+	background-color: #d2cbb4;
 	font-family: "Yuji Syuku", serif;
 	
 }
@@ -21,26 +21,18 @@ h1 {
 	text-align: center;
 }
 
-select{
-	 display: flex;
-	 margin: 0 auto;
-		  
-	
-}
-.category{
-	display: flex;
-	justify-content: center;
-	margin: 0 auto;
-}
 
-
+input{
+	text-align: center;
+	vertical-align:top;
+}
 
 .add{
 	border-radius: 0.5rem;
 	width: 200px;
 	padding: 10px;
 	box-sizing: border-box;
-	background: green;
+	background: #485946;
 	color: #FFF;
 	text-decoration: none;
 	margin: 10px 0;
@@ -53,7 +45,7 @@ select{
 	width: 200px;
 	padding: 10px;
 	box-sizing: border-box;
-	background: firebrick;
+	background: #7b042d;
 	color: #FFF;
 	text-decoration: none;
 	margin: 10px 0;
@@ -65,7 +57,7 @@ select{
 	width: 200px;
 	padding: 10px;
 	box-sizing: border-box;
-	background: darkblue;
+	background: #3e4759;
 	color: #FFF;
 	text-decoration: none;
 	margin: 10px 0;
@@ -92,7 +84,19 @@ select{
 
 .newfont{
 	font-size: 25px;
-	
 }
 
+.back {
+	font-size: 20px;
+}
 
+.center {
+	width: fit-content;
+	  margin: auto;
+}
+
+label {
+    display: inline-block;
+    width: 130px;
+    vertical-align: top;
+}
