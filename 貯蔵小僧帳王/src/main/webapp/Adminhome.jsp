@@ -9,7 +9,8 @@
 <form action="Login.action" method="post">
 <h1>貯蔵小僧帳王 管理画面</h1>
 
-<button class ="red" onclick="location.href='Adminitemadd.jsp'">商品登録</button>&nbsp;<button class ="blue" onclick="location.href='Dashboard.jsp'">ダッシュボード</button>
+<button class ="red" onclick="location.href='Adminitemadd.jsp'">商品登録</button>
+&nbsp;<button class ="blue" onclick="location.href='Dashboard.jsp'">ダッシュボード</button>
 
 <div class="">
 		<aside class="search">
@@ -37,7 +38,7 @@
 	<td>${list.productname}</td>
 <!--	<td>${list.categorynumber}</td>-->
 <!--	<td>${list.numberofregistrations}</td>-->
-	<td><a href="Adminitemedit.jsp?productnumber=${list.productnumber}">編集</a></td>
+	<td><a href="Adminitemedit.jsp?productnumber=${list.productnumber}&productname=${list.productname}">編集</a></td>
 	<td><a href="Delete?productnumber=${list.productnumber}">削除</a></td>
 	</tr>
 </c:forEach>
