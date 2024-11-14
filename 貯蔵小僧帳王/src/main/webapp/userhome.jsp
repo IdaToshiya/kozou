@@ -1,6 +1,8 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@include file="../header.html" %>
 <%@taglib prefix="sql" uri="jakarta.tags.sql" %>
+<%@taglib prefix="c" uri="jakarta.tags.core" %>
+
 
 <h1>HOME</h1>
 
@@ -8,44 +10,60 @@
 	<input type="submit" value="削除済みアイテム" class="button">
 </div>
 
-<sql:query var="list" dataSource="jdbc/todo">
-	select * from todolist where status not like '2';
+<sql:query var="list" dataSource="jdbc/kozou">
+	select * FROM stock_table LEFT JOIN product_table ON stock_table.productnumber = product_table.productnumber;
 </sql:query>
 
 <p>なくなりそうなもの</p>
 <table>
 <c:forEach var="list" items="${list.rows}">
 	<tr>
-	<td>${list.id}</td>
-	<td>${list.todo}</td>
-	<td>${list.date}</td>
-	<td>${list.dateend}</td>
-	<td>${list.datecompletion}</td>
-	<td><a href="Completion?id=${list.id}">完了</a></td>
-	<td><a href="Delete?id=${list.id}">削除</a></td>
+	<td>${list.productnumber}</td>
+	<td>${list.stock}</td>
+	<td>
+	<div class="">
+	<input type="submit" value="+" class="button">
+	</div>
+	</td>
+	<td>
+	<div class="">
+	<input type="submit" value="-" class="button">
+	</div>
+	</td>
+	<td><a href="Completion?id=${list.productnumber}">スタート</a></td>
+	<td><progress id="progress" max="${list.perioddenominator}" value="${list.periodnumerator}"></progress></td>
+	<td><a href="Delete?id=${list.productnumber}">削除</a></td>
 	</tr>
 </c:forEach>
 </table>
 
 <div class="">
 	<input type="submit" value="追加" class="button">
-</div>
+	</div>
 
-<sql:query var="list" dataSource="jdbc/todo">
-	select * from todolist where status not like '2';
+<sql:query var="list" dataSource="jdbc/kozou">
+	select * from stock_table;
 </sql:query>
 
 <p>日用品一覧</p>
 <table>
 <c:forEach var="list" items="${list.rows}">
 	<tr>
-	<td>${list.id}</td>
-	<td>${list.todo}</td>
-	<td>${list.date}</td>
-	<td>${list.dateend}</td>
-	<td>${list.datecompletion}</td>
-	<td><a href="Completion?id=${list.id}">完了</a></td>
-	<td><a href="Delete?id=${list.id}">削除</a></td>
+	<td>${list.productnumber}</td>
+	<td>${list.stock}</td>
+	<td>
+	<div class="">
+	<input type="submit" value="+" class="button">
+	</div>
+	</td>
+	<td>
+	<div class="">
+	<input type="submit" value="-" class="button">
+	</div>
+	</td>
+	<td><a href="Completion?productnumber=${list.productnumber}">スタート</a></td>
+	<td><progress id="progress" max="${list.perioddenominator}" value="${list.periodnumerator}"></progress></td>
+	<td><a href="Delete?productnumber=${list.productnumber}">削除</a></td>
 	</tr>
 </c:forEach>
 </table>

@@ -1,3 +1,8 @@
+
+
+
+
+
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
@@ -30,7 +35,7 @@ public class LoginAction extends Action {
 			
 			if (aaa.contains("管理人") && aaa.contains("bc252ca239c1056c615e4742ede7a786f22598dfcd68c501e788ccdf388d3e32")){
 	            System.out.println("emailaddress");
-				return "test.jsp";
+				return "Adminhome.jsp";
 	        }else if (bean!=null) {
 	        	session.setAttribute("bean", bean);
 	        	return "test.jsp";
