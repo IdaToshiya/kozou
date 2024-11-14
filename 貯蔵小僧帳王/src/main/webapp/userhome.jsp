@@ -11,6 +11,7 @@ String emailaddress = User.getEmailaddress();
 
 <h1>HOME</h1>
 
+
 <div class="">
 	<input type="submit" value="削除済みアイテム" class="button">
 </div>
