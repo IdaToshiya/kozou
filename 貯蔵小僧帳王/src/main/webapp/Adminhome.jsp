@@ -12,7 +12,6 @@
 <input class="red" type="button" value="商品登録" onClick="location.href='Adminitemadd.jsp'">
 <input class="blue" type="button" value="ダッシュボード" onClick="location.href='Dashboard.jsp'">
 
-
 <div class="">
 		<aside class="search">
 			<div class="form">
@@ -39,7 +38,7 @@
 	<td>${list.productname}</td>
 <!--	<td>${list.categorynumber}</td>-->
 <!--	<td>${list.numberofregistrations}</td>-->
-	<td><a href="Adminitemedit.jsp?productnumber=${list.productnumber}">編集</a></td>
+	<td><a href="Adminitemedit.jsp?productnumber=${list.productnumber}&productname=${list.productname}">編集</a></td>
 	<td><a href="Delete?productnumber=${list.productnumber}">削除</a></td>
 	</tr>
 </c:forEach>
