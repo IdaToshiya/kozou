@@ -3,7 +3,7 @@
 <%@taglib prefix="sql" uri="jakarta.tags.sql" %>
 <%@include file="../header.html" %>
 
-
+<body>
 
 
 <form action="Login.action" method="post">
@@ -11,7 +11,8 @@
 
 <input class="red" type="button" value="商品登録" onClick="location.href='Adminitemadd.jsp'">
 <input class="blue" type="button" value="ダッシュボード" onClick="location.href='Dashboard.jsp'">
-<!--&nbsp;<button class="blue "onclick="loction.href=''">ダッシュボード</button>-->
+
+
 <div class="">
 		<aside class="search">
 			<div class="form">
@@ -46,4 +47,6 @@
 
 </form>
 
+</body>
 <%@include file="../footer.html" %>
+
