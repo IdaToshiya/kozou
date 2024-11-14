@@ -1,8 +1,9 @@
 @charset "UTF-8";
 /*girl*/
 body{
-	background-color: #fff5e9;
+	background-color: #f5c4d3;
 	font-family: "Hachi Maru Pop", cursive;
+	background-image: url("lace3.png");
 }
 
 .hachi-maru-pop-regular {
@@ -14,13 +15,14 @@ body{
 p{
 	text-align: center;
 	font-weight: 600;
+	color: #cfa7cc;
 }
 
 h1 {
 	font-size: 50px;
 	font-weight: 900;
 	text-align: center;
-	color: #c8a8da;
+	color: #cfa7cc;
 }
 
 select{
@@ -38,12 +40,13 @@ select{
 	width: 200px;
 	padding: 10px;
 	box-sizing: border-box;
-	background: green;
-	color: #FFF;
+	background: #fff79b;
+	color: #cfa7cc;
 	text-decoration: none;
 	margin: 10px 0;
 	font-size: 25px;
-	font-family: "Yuji Syuku", serif;
+	font-family: "Hachi Maru Pop", cursive;
+	font-weight: 900
 }
 
 .delete{
@@ -51,27 +54,57 @@ select{
 	width: 200px;
 	padding: 10px;
 	box-sizing: border-box;
-	background: firebrick;
-	color: #FFF;
+	background: #cfa7cc;
+	color: #99e3d1;
 	text-decoration: none;
 	margin: 10px 0;
 	font-size: 25px;
-	font-family: "Yuji Syuku", serif;
+	font-family: "Hachi Maru Pop", cursive;
+	font-weight: 900
+}
+.delete--shadow {
+  	-webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+  	box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+}
+.delete--color {
+  	color: #99e3d1;
+  	background-color: #cfa7cc;
+  	border-bottom: 5px solid #bacadd;
+}
+.delete--colore:hover {
+ 	margin-top: 3px;
+  	color: #99e3d1;
+  	background: #cfa7cc;
+  	border-bottom: 2px solid #bacadd;
 }
 .plus{
 	border-radius: 0.5rem;
 	width: 200px;
 	padding: 10px;
 	box-sizing: border-box;
-	background: darkblue;
-	color: #FFF;
+	background: #d3def1;
+	color: #f4acac;
 	text-decoration: none;
 	margin: 10px 0;
 	font-size: 25px;
-	font-family: "Yuji Syuku", serif;
+	font-family: "Hachi Maru Pop", cursive;
+	font-weight: 900
 }
-
-
+.plus--shadow {
+  	-webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+  	box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+}
+.plus--color {
+  	color: #f4acac;
+  	background-color: #d3def1;
+  	border-bottom: 5px solid #bacadd;
+}
+.plus--colore:hover {
+ 	margin-top: 3px;
+  	color: #f4acac;
+  	background: #d3def1;
+  	border-bottom: 2px solid #bacadd;
+}
 
 .btn-flat-logo {
 	position: relative;
@@ -92,5 +125,3 @@ select{
 	font-size: 25px;
 	
 }
-
-
