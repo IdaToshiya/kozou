@@ -8,7 +8,7 @@
 		<form action="Adminadd.action" method="post">
 			<div class="category">
 				<div class="select">
-					<select name="カテゴリー">
+					<select name="categorynumber">
 						<option value="" selected>カテゴリー</option>
 						<option value="1">1.シャンプー</option>
 						<option value="2">2.リンス</option>
@@ -17,13 +17,13 @@
 				</div>
 			</div>
 			<p>
-				&nbsp;<input type="text" name="" placeholder="商品名">
+				&nbsp;<input type="text" name="productname" placeholder="商品名">
 			</p>
 			<p>
-				&nbsp;<input tyoe="text" name="" placeholder="商品番号">
+				&nbsp;<input type="text" name="productnumber" placeholder="商品番号">
 			</p>
 			<div style="text-align: center">
-				<input type="button" value="追加" class="delete">
+				<input type="submit" value="追加" class="delete">
 			</div>
 		</form>
 
