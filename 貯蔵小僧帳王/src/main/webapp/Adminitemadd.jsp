@@ -1,5 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
-<%@include file="../header-2.html"%>
+<%@include file="../header.html"%>
 
 
 <body>
@@ -25,9 +25,27 @@
 			<div style="text-align: center">
 				<input type="submit" value="追加" class="delete">
 			</div>
-		</form>
 
+			<br>
 
+			<div class="select">
+				<label>商品名</label> <input type="text" name="" >
+	</select>
 	</div>
+
+	<br>
+
+	<div class="">
+		<label>商品番号</label> <input tyoe="text" name="">
+	</div>
+
+	<br>
+
+	<div style="text-align: center">
+		<input type="submit" value="追加" class="green">
+	</div>
+
+	</form>
+	</section>
 </body>
 <%@include file="../footer.html"%>

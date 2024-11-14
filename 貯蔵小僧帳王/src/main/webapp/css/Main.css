@@ -2,6 +2,7 @@
 body{
 	background-color: #F4F5F7;
 	font-family: "Yuji Syuku", serif;
+	text-align: center;
 	
 }
 
@@ -20,22 +21,11 @@ h1 {
 	text-align: center;
 }
 
-select{
-	 display: flex;
-	 margin: 0 auto;
-	
-}
 
-.input{
+input{
 	text-align: center;
+	vertical-align:top;
 }
-.category{
-	display: flex;
-	justify-content: center;
-	margin: 0 auto;
-}
-
-
 
 .green{
 	border-radius: 0.5rem;
@@ -96,7 +86,17 @@ select{
 	font-size: 25px;
 }
 
-back {
+.back {
 	font-size: 20px;
 }
 
+.center {
+	width: fit-content;
+	  margin: auto;
+}
+
+label {
+    display: inline-block;
+    width: 130px;
+    vertical-align: top;
+}

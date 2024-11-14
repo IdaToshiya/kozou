@@ -37,12 +37,12 @@ public class LoginAction extends Action {
 	            System.out.println("emailaddress");
 				return "Adminhome.jsp";
 	        }else if (bean!=null) {
-	        	session.setAttribute("bean", bean);
-	        	return "test.jsp";
+	        	request.setAttribute("bean", bean);
+//	        	return "test.jsp";
+	        	request.getRequestDispatcher("userhome.jsp").forward(request, response);
 	        } 
 //	       
 			return "Login.jsp";
-
 		
 	}
 }

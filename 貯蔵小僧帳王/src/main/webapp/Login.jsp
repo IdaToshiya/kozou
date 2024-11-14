@@ -2,15 +2,19 @@
 <%@include file="../header.html" %>
 
 
-	<form action="Login.action" method="post">
+	<form action="Login.action" method="post" class="center">
 		
 		<h1>貯蔵小僧帳王</h1>
 			<div class="">
-				<p>ニックネーム&nbsp;<input type="text" name="nickname" maxlength="10" required placeholder='入力してください'></p>
+				<label>ニックネーム</label>
+				<input type="text" name="nickname" maxlength="10" required placeholder='入力してください'>
 			</div>
+			<br>
 			<div class="">
-				<p>パスワード&nbsp;<input type="text" name="password" minlength="12" maxlength="20" pattern="^[0-9A-Za-z!-~]+$" required placeholder='12文字以上 / 半角英数記号'></p>
+				<label>パスワード</label>
+				<input type="text" name="password" minlength="12" maxlength="20" pattern="^[0-9A-Za-z!-~]+$" required placeholder='12文字以上 / 半角英数記号'>
 			</div>
+			<br>
 			<div class="" style="text-align:center">
 				<input type="submit" value="ログイン" class="green">
 			</div>
