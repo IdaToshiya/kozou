@@ -8,6 +8,9 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/sub2.css" type="text/css" media="all">
 </head>
 <body >
-
+<a href=Login.jsp class="btn-emergency-real">
+  <span class="btn-emergency-real-bottom"></span>
+  <span class="btn-emergency-real-top"><span>押す</span></span>
+</a>
 </body>
 </html>

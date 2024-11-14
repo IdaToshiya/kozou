@@ -21,7 +21,7 @@
 			</div>
 
 <sql:query var="list" dataSource="jdbc/kozou">
-	select * from product_table;
+	select * from product_table order by productnumber;
 </sql:query>
 
 <p>一覧/検索結果 表示</p>
