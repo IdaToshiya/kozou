@@ -2,6 +2,13 @@
 <%@include file="../header.html" %>
 <%@taglib prefix="sql" uri="jakarta.tags.sql" %>
 <%@taglib prefix="c" uri="jakarta.tags.core" %>
+<%@ page import="java.util.List, bean.Bean" %>
+<%
+//リクエストスコープからのデータの取得
+Bean User = (Bean)request.getAttribute("bean");
+String emailaddress = User.getEmailaddress();
+%>
+
 
 
 <h1>HOME</h1>
@@ -11,14 +18,14 @@
 </div>
 
 <sql:query var="list" dataSource="jdbc/kozou">
-	select * FROM stock_table LEFT JOIN product_table ON stock_table.productnumber = product_table.productnumber;
+	select * FROM stock_table LEFT JOIN product_table ON stock_table.productnumber = product_table.productnumber where emailaddress = '<%= emailaddress %>';
 </sql:query>
 
 <p>なくなりそうなもの</p>
 <table>
 <c:forEach var="list" items="${list.rows}">
 	<tr>
-	<td>${list.productnumber}</td>
+	<td>${list.productname}</td>
 	<td>${list.stock}</td>
 	<td>
 	<div class="">
@@ -42,14 +49,14 @@
 	</div>
 
 <sql:query var="list" dataSource="jdbc/kozou">
-	select * from stock_table;
+	select * FROM stock_table LEFT JOIN product_table ON stock_table.productnumber = product_table.productnumber where emailaddress = '<%= emailaddress %>';
 </sql:query>
 
 <p>日用品一覧</p>
 <table>
 <c:forEach var="list" items="${list.rows}">
 	<tr>
-	<td>${list.productnumber}</td>
+	<td>${list.productname}</td>
 	<td>${list.stock}</td>
 	<td>
 	<div class="">
