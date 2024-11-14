@@ -13,14 +13,14 @@ public class Bean implements java.io.Serializable {
 	private String emailaddress;
 	private String productnumber;
 	private int stock;
-	private Date startUsing;
-	private Date endUse;
-	private int periodDenominator;
-	private int periodNumerator;
-	private int activeNumber;
-	private String productName;
-	private int categoryNumber;
-	private int numberOfRegistrations;
+	private Date startusing;
+	private Date enduse;
+	private int perioddenominator;
+	private int periodnumerator;
+	private int activenumber;
+	private String productname;
+	private int categorynumber;
+	private int numberofregistrations;
 	
 	public String getNickname() {
 		return nickname;
@@ -58,36 +58,36 @@ public class Bean implements java.io.Serializable {
 		return stock;
 	}
 	
-	public Date getstartUsing() {
-		return startUsing;
+	public Date getStartusing() {
+		return startusing;
 	}
 	
-	public Date getEndUse() {
-		return endUse;
+	public Date getEnduse() {
+		return enduse;
 	}
 	
-	public int getPeriodDenominator() {
-		return periodDenominator;
+	public int getPerioddenominator() {
+		return perioddenominator;
 	}
 	
-	public int getPeriodNumerator() {
-		return periodNumerator;
+	public int getPeriodnumerator() {
+		return periodnumerator;
 	}
 	
-	public int getActiveNumber() {
-		return activeNumber;
+	public int getActivenumber() {
+		return activenumber;
 	}
 	
-	public String getProductName() {
-		return productName;
+	public String getProductname() {
+		return productname;
 	}
 	
-	public int getCategoryNumber() {
-		return categoryNumber;
+	public int getCategorynumber() {
+		return categorynumber;
 	}
 	
-	public int getNumberOfRegistrations() {
-		return numberOfRegistrations;
+	public int getNumberofregistrations() {
+		return numberofregistrations;
 	}
 //	------------------------------------------------------------------------------------
 	public void setNickname(String nickname) {
@@ -126,35 +126,35 @@ public class Bean implements java.io.Serializable {
 		this.stock=stock;
 	}
 	
-	public void setStartUsing(Date startUsing) {
-		this.startUsing=startUsing;
+	public void setStartusing(Date startusing) {
+		this.startusing=startusing;
 	}
 	
-	public void setEndUse(Date endUse) {
-		this.endUse=endUse;
+	public void setEnduse(Date enduse) {
+		this.enduse=enduse;
 	}
 	
-	public void setPeriodDenominator(int periodDenominator) {
-		this.periodDenominator=periodDenominator;
+	public void setPerioddenominator(int perioddenominator) {
+		this.perioddenominator=perioddenominator;
 	}
 	
-	public void setPeriodNumerator(int periodNumerator) {
-		this.periodNumerator=periodNumerator;
+	public void setPeriodnumerator(int periodnumerator) {
+		this.periodnumerator=periodnumerator;
 	}
 	
-	public void setActiveNumber(int activeNumber) {
-		this.activeNumber=activeNumber;
+	public void setActivenumber(int activenumber) {
+		this.activenumber=activenumber;
 	}
 	
-	public void setProductName(String productName) {
-		this.productName=productName;
+	public void setProductname(String productname) {
+		this.productname=productname;
 	}
 	
-	public void setCategoryNumber(int categoryNumber) {
-		this.categoryNumber=categoryNumber;
+	public void setCategorynumber(int categorynumber) {
+		this.categorynumber=categorynumber;
 	}
 	
-	public void setNumberOfRegistrations(int numberOfRegistrations) {
-		this.numberOfRegistrations=numberOfRegistrations;
+	public void setNumberofregistrations(int numberofregistrations) {
+		this.numberofregistrations=numberofregistrations;
 	}
 }

@@ -86,5 +86,25 @@ public class KozouDAO extends DAO {
 		con.close();
 		return line;
 	}
+	
+	public int productinsert(String productnumber, String productname, String categorynumber)
+			throws Exception {
+			
+			Connection con=getConnection();
+
+			PreparedStatement st;
+			st=con.prepareStatement("insert into product_table(productnumber, productname, categorynumber) values(?, ?, ?) ");
+			st.setString(1, productnumber);
+			st.setString(2, productname);
+			st.setString(3, categorynumber);
+//			st.setString(4, numberofregistrations);
+			System.out.println(st);
+			int productline=st.executeUpdate();
+
+			st.close();
+			con.close();
+
+			return productline;
+		}
 }
 
