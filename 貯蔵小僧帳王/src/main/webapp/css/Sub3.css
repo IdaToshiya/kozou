@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*boy*/
 body{
-	background-color: #FDFFFF;
+	background-color: #F4F5F7;
 	font-family: "Yuji Syuku", serif;
 	
 }
@@ -14,7 +14,6 @@ body{
 
 p{
 	text-align: center;
-	
 }
 
 h1 {
@@ -34,37 +33,66 @@ select{
 	margin: 0 auto;
 }
 
-.add {
-	border-radius: 100px;
+
+
+.add{
+	border-radius: 0.5rem;
 	width: 200px;
-	padding: 15px;
+	padding: 10px;
 	box-sizing: border-box;
-	background: #34675C;
-	color: #c6c09c;
+	background: green;
+	color: #FFF;
 	text-decoration: none;
 	margin: 10px 0;
-	font-size: 20px;
+	font-size: 25px;
 	font-family: "Yuji Syuku", serif;
-	}
+}
 
 .delete{
-	border-radius: 100px;
-	background-color:#324851;
-	color:white;
-	width: 150px;
-	height: 50px;
-	font-size: 20px;
+	border-radius: 0.5rem;
+	width: 200px;
+	padding: 10px;
+	box-sizing: border-box;
+	background: firebrick;
+	color: #FFF;
+	text-decoration: none;
+	margin: 10px 0;
+	font-size: 25px;
 	font-family: "Yuji Syuku", serif;
 }
 .plus{
-	border-radius: 100px;
-	background-color: #7DA3A1;
-	color:white;
-	width: 150px;
-	height: 50px;
-	font-size: 20px;
+	border-radius: 0.5rem;
+	width: 200px;
+	padding: 10px;
+	box-sizing: border-box;
+	background: darkblue;
+	color: #FFF;
+	text-decoration: none;
+	margin: 10px 0;
+	font-size: 25px;
 	font-family: "Yuji Syuku", serif;
-	}
+}
+
+
+
+.btn-flat-logo {
+	position: relative;
+	display: inline-block;
+	font-weight: bold;
+	padding: 0.25em 0.5em;
+	text-decoration: none;
+	color: #FFF;
+	background: #A1A3A6;
+	transition: .4s;
+}
+
+.btn-flat-logo:hover {
+	background: #A1A3A6;
+}
+
+.newfont{
+	font-size: 25px;
 	
+}
 
 

@@ -11,17 +11,14 @@
 			<div class="">
 				<p>パスワード&nbsp;<input type="text" name="password"></p>
 			</div>
-			<div class="">
-				<input type="submit" value="ログイン" class="button">
+			<div class="" style="text-align:center">
+				<input type="submit" value="ログイン" class="green">
 			</div>
 	
-	</form>
-	
-	<br>
-	
+	</form>	
 	<form action="">
 	
-			<div>
+			<div class="newfont" style="text-align:center">
 				<a href=new.jsp>新規登録</a>
 			</div>
 	
