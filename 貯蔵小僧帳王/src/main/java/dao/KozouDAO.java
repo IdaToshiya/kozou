@@ -51,7 +51,7 @@ public class KozouDAO extends DAO {
 	public int instert(String nickname, String hashedPassword, String emailAddress, String dateOfBirth, String sex, String prefectures)
 			throws Exception {
 			
-			System.out.println(hashedPassword);
+//			System.out.println(hashedPassword);
 			Connection con=getConnection();
 
 			PreparedStatement st;
@@ -77,11 +77,9 @@ public class KozouDAO extends DAO {
 //			"UPDATE product_table SET status = 2 WHERE productnumber = ?;");
 			"DELETE from product_table where productnumber = ?");
 		st.setString(1, p.getProductnumber());
-		System.out.println(st + " record(s) deleted.");
+//		System.out.println(st + " record(s) deleted.");
 		int line=st.executeUpdate();
 		
-		
-
 		st.close();
 		con.close();
 		return line;
@@ -98,13 +96,31 @@ public class KozouDAO extends DAO {
 			st.setString(2, productname);
 			st.setString(3, categorynumber);
 //			st.setString(4, numberofregistrations);
-			System.out.println(st);
+//			System.out.println(st);
 			int productline=st.executeUpdate();
 
 			st.close();
 			con.close();
 
 			return productline;
+			}
+	public int update(String productnumber, String productname, String productnumbermoto)
+			throws Exception {
+		Connection con=getConnection();
+
+		PreparedStatement st=con.prepareStatement(
+				"UPDATE product_table SET productnumber = ?,productname = ? WHERE productnumber = ?;");
+//				"DELETE from product_table where productnumber = ?");
+			st.setString(1, productnumber);
+			st.setString(2, productname);
+			st.setString(3, productnumbermoto);
+			System.out.println(st + " record(s) deleted.");
+			int line=st.executeUpdate();
+			
+			st.close();
+			con.close();
+			return line;
 		}
+
 }
 
