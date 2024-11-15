@@ -136,6 +136,7 @@ public class KozouDAO extends DAO {
 				bean.setProductname(rs.getString("productname"));
 			}
 			
+			
 			st.close();
 			con.close();
 			
