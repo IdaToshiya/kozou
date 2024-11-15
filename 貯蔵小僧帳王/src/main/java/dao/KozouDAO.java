@@ -117,7 +117,6 @@ public class KozouDAO extends DAO {
 			System.out.println(st + " record(s) deleted.");
 			int line=st.executeUpdate();
 			
-			
 			st.close();
 			con.close();
 			return line;
