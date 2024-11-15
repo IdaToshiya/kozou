@@ -32,7 +32,7 @@ public class UserSerchAction extends Action {
 	        	request.setAttribute("bean", bean);
 	        	request.getRequestDispatcher("userhomeserch.jsp").forward(request, response);
 	        } 
-//	       
+      
 			return null;
 		
 	}

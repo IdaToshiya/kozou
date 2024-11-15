@@ -129,23 +129,21 @@ public class KozouDAO extends DAO {
 			throws Exception {
 			Bean bean=null;
 			
-			System.out.println(productname);
-			System.out.println(nickname);
-			System.out.println(password);
+			String likename = "%" + productname + "%";
 			
 			Connection con=getConnection();
 
 			PreparedStatement st;
-			st=con.prepareStatement("select * from user_table LEFT JOIN stock_table ON user_table.emailaddress = stock_table.emailaddress LEFT JOIN product_table ON stock_table.productnumber = product_table.productnumber where productname = ? AND nickname = ? AND password = ?");
-			st.setString(1, productname);
+			st=con.prepareStatement("select * from user_table LEFT JOIN stock_table ON user_table.emailaddress = stock_table.emailaddress LEFT JOIN product_table ON stock_table.productnumber = product_table.productnumber where productname LIKE ? AND nickname = ? AND password = ?");
+			st.setString(1, likename);
 			st.setString(2, nickname);
 			st.setString(3, password);
 			ResultSet rs=st.executeQuery();
 
 			while (rs.next()) {
 				bean =new Bean();
-//				bean.setNickname(rs.getString("nickname"));
-//				bean.setPassword(rs.getString("password"));
+				bean.setNickname(rs.getString("nickname"));
+				bean.setPassword(rs.getString("password"));
 //				bean.setPrefectures(rs.getString("prefectures"));
 //				bean.setSex(rs.getString("sex"));
 //				bean.setDateofbirth(rs.getDate("dateofbirth"));
