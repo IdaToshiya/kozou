@@ -2,7 +2,6 @@
 body{
 	background-color: #F4F5F7;
 	font-family: "Yuji Syuku", serif;
-	text-align: center;
 	
 }
 
@@ -99,4 +98,40 @@ label {
     display: inline-block;
     width: 130px;
     vertical-align: top;
+}
+/*枠線*/
+.box{
+	padding: 0.5em 1em;
+	margin: 2em 0;
+	color: #2c2c2f;
+	background: #FFFFFF;
+	}
+.box p {
+	margin: 0; 
+	padding: 0;
+	}
+	
+/*検索フォーム*/
+
+.search_container{
+  box-sizing: border-box;
+}
+.search_container input[type="text"]{
+  background: #FFFFFF;
+  border: none;
+  height: 35px;
+  width: 400px;
+}
+.search_container input[type="text"]:focus {
+  outline: 0;
+}
+.search_container input[type="submit"]{
+  cursor: pointer;
+  font-family: FontAwesome;
+  border: none;
+  background: green;
+  color: #fff;
+  outline : none;
+  width: 3.0em;
+  height: 37px;
 }
