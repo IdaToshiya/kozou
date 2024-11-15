@@ -121,6 +121,48 @@ public class KozouDAO extends DAO {
 			con.close();
 			return line;
 		}
+	
+	public Bean usersearch(String productname, String nickname, String password)
+			throws Exception {
+			Bean bean=null;
+			
+			System.out.println(productname);
+			System.out.println(nickname);
+			System.out.println(password);
+			
+			Connection con=getConnection();
 
+			PreparedStatement st;
+			st=con.prepareStatement("select * from user_table LEFT JOIN stock_table ON user_table.emailaddress = stock_table.emailaddress LEFT JOIN product_table ON stock_table.productnumber = product_table.productnumber where productname = ? AND nickname = ? AND password = ?");
+			st.setString(1, productname);
+			st.setString(2, nickname);
+			st.setString(3, password);
+			ResultSet rs=st.executeQuery();
+
+			while (rs.next()) {
+				bean =new Bean();
+//				bean.setNickname(rs.getString("nickname"));
+//				bean.setPassword(rs.getString("password"));
+//				bean.setPrefectures(rs.getString("prefectures"));
+//				bean.setSex(rs.getString("sex"));
+//				bean.setDateofbirth(rs.getDate("dateofbirth"));
+//				bean.setEmailaddress(rs.getString("emailaddress"));
+				bean.setProductnumber(rs.getString("productnumber"));
+				bean.setProductname(rs.getString("productname"));
+			}
+			
+			
+			st.close();
+			con.close();
+			
+
+			// こんな風にすれば Bean の中身がログに出力できる
+			String bbb =( ToStringBuilder.reflectionToString(bean, ToStringStyle.DEFAULT_STYLE) );
+			System.out.println(bbb);
+
+			return bean;
+		}
 }
+
+
 
