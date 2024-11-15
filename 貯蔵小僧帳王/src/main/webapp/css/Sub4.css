@@ -1,17 +1,16 @@
-@charset "UTF-8";
+@charset "UTF-8";@charset "UTF-8";
 /*boy*/
 body{
-	background-color:  #c9d1c8;
-	font-family: "Yuji Syuku", serif;
+	background-color: #F6F7F8;
+	font-family: "Kaisei Opti", serif;
 	
 }
 
-.yuji-syuku-regular {
-  	font-family: "Yuji Syuku", serif;
-  	font-weight: 400;
-  	font-style: normal;
+.kaisei-opti-regular {
+  font-family: "Kaisei Opti", serif;
+  font-weight: 400;
+  font-style: normal;
 }
-
 p{
 	text-align: center;
 }
@@ -27,25 +26,17 @@ input{
 	vertical-align:top;
 }
 
-a:link { /*アクセスしたことのないリンク*/
-color:#3e4759;
-}
-
-a:visited { /*アクセスしたことのあるリンク*/
-color:#7b042d;
-}
-
 .green{
 	border-radius: 0.5rem;
 	width: 200px;
 	padding: 10px;
 	box-sizing: border-box;
-	background: #485946;
-	color: #FFF;
+	background: #F6F7F8;
+	color: #000B00;
 	text-decoration: none;
 	margin: 10px 0;
 	font-size: 25px;
-	font-family: "Yuji Syuku", serif;
+	font-family: "Kaisei Opti", serif;
 }
 
 .red{
@@ -53,24 +44,24 @@ color:#7b042d;
 	width: 200px;
 	padding: 10px;
 	box-sizing: border-box;
-	background: #7b042d;
-	color: #FFF;
+	background: #F6F7F8;
+	color: #000B00;
 	text-decoration: none;
 	margin: 10px 0;
 	font-size: 25px;
-	font-family: "Yuji Syuku", serif;
+	font-family: "Kaisei Opti", serif;
 }
 .blue{
 	border-radius: 0.5rem;
 	width: 200px;
 	padding: 10px;
 	box-sizing: border-box;
-	background: #3e4759;
-	color: #FFF;
+	background: #F6F7F8;
+	color: #000B00;
 	text-decoration: none;
 	margin: 10px 0;
 	font-size: 25px;
-	font-family: "Yuji Syuku", serif;
+	font-family: "Kaisei Opti", serif;
 }
 
 
@@ -81,7 +72,7 @@ color:#7b042d;
 	font-weight: bold;
 	padding: 0.25em 0.5em;
 	text-decoration: none;
-	color: #FFF;
+	color: #000B00;
 	background: #A1A3A6;
 	transition: .4s;
 }
@@ -113,8 +104,8 @@ label {
 .box{
 	padding: 0.5em 1em;
 	margin: 2em 0;
-	color: #2c2c2f;
-	background: #FFFFFF;
+	color: #000B00;
+	background: #FFFEF6;
 	width: 700px;
 	}
 .box p {
@@ -129,7 +120,7 @@ label {
 }
 
 .search_container input[type="text"]{
-  background: #FFFFFF;
+  background: #000B00;
   border: none;
   height: 35px;
   width: 380px;
@@ -141,8 +132,8 @@ label {
   cursor: pointer;
   font-family: FontAwesome;
   border: none;
-  background: #485946;
-  color: #fff;
+  background: #FFFEF6;
+  color: #000B00;
   outline : none;
   width: 4.0em;
   height: 37px;
