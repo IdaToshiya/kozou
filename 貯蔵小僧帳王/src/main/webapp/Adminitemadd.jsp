@@ -28,7 +28,7 @@
 		<br>
 
 		<div style="text-align: center">
-			<input type="submit" value="追加" class="blue">
+			<input type="submit" value="追加" class="green">
 		</div>
 
 	</form>
