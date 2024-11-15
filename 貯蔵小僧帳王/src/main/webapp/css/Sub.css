@@ -2,15 +2,16 @@
 /*girl*/
 body{
 	background-color: #d2cbb4;
-	font-family: "Yuji Syuku", serif;
-	
+	background-image: url("lace3.png");
+	font-family: "Hachi Maru Pop", serif;	
 }
 
-.yuji-syuku-regular {
-  	font-family: "Yuji Syuku", serif;
-  	font-weight: 400;
-  	font-style: normal;
+.hachi-maru-pop-regular {
+  font-family: "Hachi Maru Pop", serif;
+  font-weight: 400;
+  font-style: normal;
 }
+
 
 p{
 	text-align: center;
@@ -27,13 +28,25 @@ input{
 	vertical-align:top;
 }
 
-.add{
+a:link { /*アクセスしたことのないリンク*/
+color:#cfa7cc;
+}
+
+a:visited { /*アクセスしたことのあるリンク*/
+color:#5BC8AC;
+}
+
+.green{
 	border-radius: 0.5rem;
 	width: 200px;
 	padding: 10px;
 	box-sizing: border-box;
 	background: #fff79b;
 	color: #cfa7cc;
+	text-shadow: 1px 1px 0 #ffffff, -1px -1px 0 #ffffff,
+	-1px 1px 0 #ffffff,  1px -1px 0 #ffffff,
+	1px 0 0 #ffffff, -1px  0 0 #ffffff,
+	0 1px 0 #ffffff,  0 -1px 0 #ffffff;
 	text-decoration: none;
 	margin: 10px 0;
 	font-size: 25px;
@@ -41,27 +54,35 @@ input{
 	font-weight: 900
 }
 
-.delete{
+.red{
 	border-radius: 0.5rem;
 	width: 200px;
 	padding: 10px;
 	box-sizing: border-box;
 	background: #cfa7cc;
-	color: #99e3d1;
+	color: #5BC8AC;
+	text-shadow: 1px 1px 0 #ffffff, -1px -1px 0 #ffffff,
+	-1px 1px 0 #ffffff,  1px -1px 0 #ffffff,
+	1px 0 0 #ffffff, -1px  0 0 #ffffff,
+	0 1px 0 #ffffff,  0 -1px 0 #ffffff;
 	text-decoration: none;
 	margin: 10px 0;
 	font-size: 25px;
 	font-family: "Hachi Maru Pop", cursive;
-	font-weight: 900
+	font-weight: 900;
 }
 
-.plus{
+.blue{
 	border-radius: 0.5rem;
 	width: 200px;
 	padding: 10px;
 	box-sizing: border-box;
 	background: #d3def1;
 	color: #f4acac;
+	text-shadow: 1px 1px 0 #ffffff, -1px -1px 0 #ffffff,
+	-1px 1px 0 #ffffff,  1px -1px 0 #ffffff,
+	1px 0 0 #ffffff, -1px  0 0 #ffffff,
+	0 1px 0 #ffffff,  0 -1px 0 #ffffff;
 	text-decoration: none;
 	margin: 10px 0;
 	font-size: 25px;
@@ -103,3 +124,44 @@ label {
     width: 130px;
     vertical-align: top;
 }
+/*枠線*/
+.box{
+	padding: 0.5em 1em;
+	margin: 2em 0;
+	color: #2c2c2f;
+	background: #FFFFFF;
+	width: 700px;
+	}
+.box p {
+	margin: 0; 
+	padding: 0;
+	}
+	
+/*検索フォーム*/
+.search_container{
+  box-sizing: border-box;
+  display: inline-block;
+}
+
+.search_container input[type="text"]{
+  background: #FFFFFF;
+  border: none;
+  height: 35px;
+  width: 380px;
+}
+.search_container input[type="text"]:focus {
+  outline: 0;
+}
+.search_container input[type="submit"]{
+  cursor: pointer;
+  font-family: FontAwesome;
+  border: none;
+  background: #d3def1;
+  color: #fff;
+  outline : none;
+  width: 4.0em;
+  height: 37px;
+  margin-left:15px;
+}
+
+
