@@ -10,34 +10,30 @@ import dao.KozouDAO;
 import tool.Action;
 
 
-public class LoginAction extends Action {
+public class UserSerchAction extends Action {
 
 	public String execute (
 		HttpServletRequest request, HttpServletResponse response
 	) throws Exception{
 		HttpSession session=request.getSession();
 			
+			String productname = request.getParameter("productname");
+			String nickname = request.getParameter("nickname");
 			String password = request.getParameter("password");
-			String hashedPassword = HashUtil.hashPassword(password);
-
-			String nickname=request.getParameter("nickname");
 		
 			KozouDAO dao=new KozouDAO();
-			Bean bean=dao.search(nickname, hashedPassword);
+			Bean bean=dao.usersearch(productname, nickname, password);
 			
 			// こんな風にすれば Bean の中身がログに出力できる
 			String aaa =( ToStringBuilder.reflectionToString(bean, ToStringStyle.DEFAULT_STYLE) );
+			System.out.println(aaa);
 			
-			if (aaa.contains("管理人") && aaa.contains("bc252ca239c1056c615e4742ede7a786f22598dfcd68c501e788ccdf388d3e32")){
-//	            System.out.println("emailaddress");
-				return "Adminhome.jsp";
-	        }else if (bean!=null) {
+	        if (bean!=null) {
 	        	request.setAttribute("bean", bean);
-//	        	return "test.jsp";
-	        	request.getRequestDispatcher("userhome.jsp").forward(request, response);
+	        	request.getRequestDispatcher("userhomeserch.jsp").forward(request, response);
 	        } 
 //	       
-			return "Login.jsp";
+			return null;
 		
 	}
 }

@@ -7,10 +7,19 @@
 //リクエストスコープからのデータの取得
 Bean User = (Bean)request.getAttribute("bean");
 String emailaddress = User.getEmailaddress();
+String nickname = User.getNickname();
+String password = User.getPassword();
 %>
 
 <h1>HOME</h1>
 
+<div style="text-align: center" class="search_container">
+	<form action="UserSerch.action" method="post">
+		<input type="text" name="productname" /> <input type="submit" value="検索" />
+		<input type="hidden" name="nickname" value="<%= nickname %>">
+		<input type="hidden" name="password" value="<%= password %>">
+	</form>
+</div>
 
 <div class="">
 	<input type="submit" value="削除済みアイテム" class="button">
