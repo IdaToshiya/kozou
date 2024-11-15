@@ -12,6 +12,7 @@ public class Bean implements java.io.Serializable {
 	private Date dateofbirth;
 	private String emailaddress;
 	private String productnumber;
+	private String productnumbermoto;
 	private int stock;
 	private Date startusing;
 	private Date enduse;
@@ -52,6 +53,10 @@ public class Bean implements java.io.Serializable {
 	
 	public String getProductnumber() {
 		return productnumber;
+	}
+	
+	public String getProductnumbermoto() {
+		return productnumbermoto;
 	}
 	
 	public int getStock() {
@@ -120,6 +125,10 @@ public class Bean implements java.io.Serializable {
 	
 	public void setProductnumber(String productnumber) {
 		this.productnumber=productnumber;
+	}
+	
+	public void setProductnumbermoto(String productnumbermoto) {
+		this.productnumbermoto=productnumbermoto;
 	}
 	
 	public void setStock(int stock) {
