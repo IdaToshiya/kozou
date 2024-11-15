@@ -1,6 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@include file="../header.html"%>
-<h1>アイテム追加</h1>
+<h1>商品登録</h1>
 
 <section>
 	<form action="Adminadd.action" method="post" class="center">

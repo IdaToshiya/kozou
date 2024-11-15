@@ -6,26 +6,29 @@
 <body>
 	<form action="Login.action" method="post">
 		<h1>貯蔵小僧帳王 管理画面</h1>
-		<div class="center">
+		<div style="text-align: center" class="center">
 			<input class="red" type="button" value="商品登録"
-				onClick="location.href='Adminitemadd.jsp'"> <input
+				onClick="location.href='Adminitemadd.jsp'">&emsp;&emsp;&emsp;&emsp;<input
 				class="blue" type="button" value="ダッシュボード"
-				onClick="location.href='Dashboard.jsp'"> <br>
+				onClick="location.href='Dashboard.jsp'"> <br> <br>
 			<div style="text-align: center" class="search_container">
 				<form action="<%=request.getContextPath()%>/" method="post">
-					<input type="text" name="" /> <input type="submit" value="検索" />
+					<input type="text" /><input type="submit" value="検索">
 				</form>
 			</div>
 			<sql:query var="list" dataSource="jdbc/kozou">
 	select * from product_table order by productnumber;
 </sql:query>
 			<div class="box">
-				<p>一覧/検索結果 表示</p>
+				<p>
+					<b>一覧/検索結果 表示</b>
+				</p>
 				<table class="center">
 					<tr>
 						<td>商品番号</td>
 						<td>商品名</td>
 						<td>操作</td>
+
 					</tr>
 					<c:forEach var="list" items="${list.rows}">
 						<tr>
@@ -43,6 +46,9 @@
 	</form>
 </body>
 <%@include file="../footer.html"%>
+
+
+
 
 
 

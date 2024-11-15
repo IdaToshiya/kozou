@@ -1,6 +1,6 @@
 @charset "UTF-8";
 body{
-	background-color: #F4F5F7;
+	background-color: #E6E7E8;
 	font-family: "Yuji Syuku", serif;
 	
 }
@@ -91,7 +91,7 @@ input{
 
 .center {
 	width: fit-content;
-	  margin: auto;
+	margin: auto;
 }
 
 label {
@@ -99,12 +99,16 @@ label {
     width: 130px;
     vertical-align: top;
 }
+.center2 {
+	margin-right: 20px;
+}
 /*枠線*/
 .box{
 	padding: 0.5em 1em;
 	margin: 2em 0;
 	color: #2c2c2f;
 	background: #FFFFFF;
+	width: 700px;
 	}
 .box p {
 	margin: 0; 
@@ -112,15 +116,16 @@ label {
 	}
 	
 /*検索フォーム*/
-
 .search_container{
   box-sizing: border-box;
+  display: inline-block;
 }
+
 .search_container input[type="text"]{
   background: #FFFFFF;
   border: none;
   height: 35px;
-  width: 400px;
+  width: 380px;
 }
 .search_container input[type="text"]:focus {
   outline: 0;
@@ -129,9 +134,10 @@ label {
   cursor: pointer;
   font-family: FontAwesome;
   border: none;
-  background: green;
+  background: gray;
   color: #fff;
   outline : none;
-  width: 3.0em;
+  width: 4.0em;
   height: 37px;
+  margin-left:15px;
 }
