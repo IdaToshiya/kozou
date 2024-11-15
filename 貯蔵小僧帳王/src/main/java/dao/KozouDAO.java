@@ -51,7 +51,7 @@ public class KozouDAO extends DAO {
 	public int instert(String nickname, String hashedPassword, String emailAddress, String dateOfBirth, String sex, String prefectures)
 			throws Exception {
 			
-//			System.out.println(hashedPassword);
+			System.out.println(hashedPassword);
 			Connection con=getConnection();
 
 			PreparedStatement st;
@@ -77,9 +77,11 @@ public class KozouDAO extends DAO {
 //			"UPDATE product_table SET status = 2 WHERE productnumber = ?;");
 			"DELETE from product_table where productnumber = ?");
 		st.setString(1, p.getProductnumber());
-//		System.out.println(st + " record(s) deleted.");
+		System.out.println(st + " record(s) deleted.");
 		int line=st.executeUpdate();
 		
+		
+
 		st.close();
 		con.close();
 		return line;
@@ -96,31 +98,53 @@ public class KozouDAO extends DAO {
 			st.setString(2, productname);
 			st.setString(3, categorynumber);
 //			st.setString(4, numberofregistrations);
-//			System.out.println(st);
+			System.out.println(st);
 			int productline=st.executeUpdate();
 
 			st.close();
 			con.close();
 
 			return productline;
-			}
-	public int update(String productnumber, String productname, String productnumbermoto)
+		}
+	
+	public Bean usersearch(String productname, String nickname, String password)
 			throws Exception {
-		Connection con=getConnection();
+			Bean bean=null;
+			
+			System.out.println(productname);
+			System.out.println(nickname);
+			System.out.println(password);
+			
+			Connection con=getConnection();
 
-		PreparedStatement st=con.prepareStatement(
-				"UPDATE product_table SET productnumber = ?,productname = ? WHERE productnumber = ?;");
-//				"DELETE from product_table where productnumber = ?");
-			st.setString(1, productnumber);
-			st.setString(2, productname);
-			st.setString(3, productnumbermoto);
-			System.out.println(st + " record(s) deleted.");
-			int line=st.executeUpdate();
+			PreparedStatement st;
+			st=con.prepareStatement("select * from user_table LEFT JOIN stock_table ON user_table.emailaddress = stock_table.emailaddress LEFT JOIN product_table ON stock_table.productnumber = product_table.productnumber where productname = ? AND nickname = ? AND password = ?");
+			st.setString(1, productname);
+			st.setString(2, nickname);
+			st.setString(3, password);
+			ResultSet rs=st.executeQuery();
+
+			while (rs.next()) {
+				bean =new Bean();
+//				bean.setNickname(rs.getString("nickname"));
+//				bean.setPassword(rs.getString("password"));
+//				bean.setPrefectures(rs.getString("prefectures"));
+//				bean.setSex(rs.getString("sex"));
+//				bean.setDateofbirth(rs.getDate("dateofbirth"));
+//				bean.setEmailaddress(rs.getString("emailaddress"));
+				bean.setProductnumber(rs.getString("productnumber"));
+				bean.setProductname(rs.getString("productname"));
+			}
 			
 			st.close();
 			con.close();
-			return line;
-		}
+			
 
+			// こんな風にすれば Bean の中身がログに出力できる
+			String bbb =( ToStringBuilder.reflectionToString(bean, ToStringStyle.DEFAULT_STYLE) );
+			System.out.println(bbb);
+
+			return bean;
+		}
 }
 
