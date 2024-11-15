@@ -11,11 +11,13 @@ String nickname = User.getNickname();
 String password = User.getPassword();
 %>
 
-<h1>HOME</h1>
+<h1><%= nickname %></h1>
 
 <div style="text-align: center" class="search_container">
-	<form action="" method="post">
-		<input type="text" name="" /> <input type="submit" value="検索" />
+	<form action="UserSerch.action" method="post">
+		<input type="text" name="productname" /> <input type="submit" value="検索" />
+		<input type="hidden" name="nickname" value="<%= nickname %>">
+		<input type="hidden" name="password" value="<%= password %>">
 	</form>
 </div>
 
@@ -24,7 +26,7 @@ String password = User.getPassword();
 </div>
 
 <sql:query var="list" dataSource="jdbc/kozou">
-	select * from user_table LEFT JOIN stock_table ON user_table.emailaddress = stock_table.emailaddress LEFT JOIN product_table ON stock_table.productnumber = product_table.productnumber where productname = '<%= productname %>' AND nickname =  '<%= nickname %>' AND password =  '<%= password %>';
+	select * from user_table LEFT JOIN stock_table ON user_table.emailaddress = stock_table.emailaddress LEFT JOIN product_table ON stock_table.productnumber = product_table.productnumber where productname LIKE '%<%= productname %>%' AND nickname =  '<%= nickname %>' AND password =  '<%= password %>';
 </sql:query>
 
 <p>検索結果</p>
