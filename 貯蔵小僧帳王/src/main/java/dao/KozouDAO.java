@@ -107,6 +107,24 @@ public class KozouDAO extends DAO {
 			return productline;
 		}
 	
+	public int update(String productnumber, String productname, String productnumbermoto)
+			throws Exception {
+		Connection con=getConnection();
+
+		PreparedStatement st=con.prepareStatement(
+				"UPDATE product_table SET productnumber = ?,productname = ? WHERE productnumber = ?;");
+//				"DELETE from product_table where productnumber = ?");
+			st.setString(1, productnumber);
+			st.setString(2, productname);
+			st.setString(3, productnumbermoto);
+			System.out.println(st + " record(s) deleted.");
+			int line=st.executeUpdate();
+			
+			st.close();
+			con.close();
+			return line;
+		}
+	
 	public Bean usersearch(String productname, String nickname, String password)
 			throws Exception {
 			Bean bean=null;
