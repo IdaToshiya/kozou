@@ -37,14 +37,10 @@ String password = User.getPassword();
 	<td>${list.productname}</td>
 	<td>${list.stock}</td>
 	<td>
-	<div class="">
-	<input type="submit" value="+" class="button">
-	</div>
+	<a href="Stockadd?id=${list.emailaddress}">＋</a>
 	</td>
 	<td>
-	<div class="">
-	<input type="submit" value="-" class="button">
-	</div>
+	<a href="Stockdecrease?id=${list.emailaddress}">-</a>
 	</td>
 	<td><a href="Completion?id=${list.productnumber}">スタート</a></td>
 	<td><progress id="progress" max="${list.perioddenominator}" value="${list.periodnumerator}"></progress></td>
@@ -54,8 +50,11 @@ String password = User.getPassword();
 </table>
 
 <div class="">
-	<input type="submit" value="追加" class="button">
-	</div>
+	<form method="post" action="Useritemadd.jsp">
+		<input type="submit" value="追加" class="button">
+		<input type="hidden" name="emailaddress" value="<%= emailaddress %>">
+	</form>
+</div>
 
 <sql:query var="list" dataSource="jdbc/kozou">
 	select * FROM stock_table LEFT JOIN product_table ON stock_table.productnumber = product_table.productnumber where emailaddress = '<%= emailaddress %>';
