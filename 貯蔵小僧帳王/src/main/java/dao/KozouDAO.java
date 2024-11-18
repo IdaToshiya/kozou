@@ -107,6 +107,32 @@ public class KozouDAO extends DAO {
 			return productline;
 		}
 	
+	public int userproductinsert(String stock, String productname, String categorynumber)
+			throws Exception {
+			
+			Connection con=getConnection();
+
+			PreparedStatement st;
+			st=con.prepareStatement("insert into stock_table(stock, productname, categorynumber) values(?, ?, ?) where emailaddress = 'aaa@gmail.com'");
+			st.setString(1, stock);
+			st.setString(2, productname);
+			st.setString(3, categorynumber);
+			System.out.println(st);
+			int productline=st.executeUpdate();
+			
+			st=con.prepareStatement("insert into product_table(productname, categorynumber) values(?, ?) where emailaddress = 'aaa@gmail.com'");
+			st.setString(1, productname);
+			st.setString(2, categorynumber);
+//			st.setString(4, numberofregistrations);
+			System.out.println(st);
+			st.executeUpdate();
+
+			st.close();
+			con.close();
+
+			return productline;
+		}
+	
 	public int update(String productnumber, String productname, String productnumbermoto)
 			throws Exception {
 		Connection con=getConnection();
@@ -163,5 +189,19 @@ public class KozouDAO extends DAO {
 
 			return bean;
 		}
+	
+	public int add(Bean bean) throws Exception {
+		Connection con=getConnection();
+
+		PreparedStatement st=con.prepareStatement(
+			"");
+		st.setString(1, bean.getEmailaddress());
+		int line=st.executeUpdate();
+
+		st.close();
+		con.close();
+		return line;
+	}
+
 }
 
