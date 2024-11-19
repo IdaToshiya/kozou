@@ -1,7 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@include file="../header.html" %>
 
-
 	<form action="Login.action" method="post" class="center">
 		
 		<h1>貯蔵小僧帳王</h1>
@@ -18,7 +17,9 @@
 			<div class="" style="text-align:center">
 				<input type="submit" value="ログイン" class="green">
 			</div>
-	
+			<% if (request.getAttribute("error") != null) { %>
+		    <p style="color: red;"><%= request.getAttribute("error") %></p>
+			<% } %>
 	</form>	
 	<form action="">
 	
@@ -27,7 +28,4 @@
 			</div>
 	
 	</form>
-
-
-
 <%@include file="../footer.html" %>

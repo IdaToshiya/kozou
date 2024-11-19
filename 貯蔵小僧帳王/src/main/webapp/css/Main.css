@@ -76,7 +76,16 @@ input{
 	background: #A1A3A6;
 	transition: .4s;
 }
-
+a.btn-flat-logo:after {
+  content: "";
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  margin: -3px 0 0 5px;
+  background: url("home.png") no-repeat;
+  background-size: contain;
+  vertical-align: middle;
+}
 .btn-flat-logo:hover {
 	background: #A1A3A6;
 }

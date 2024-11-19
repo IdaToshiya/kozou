@@ -25,8 +25,7 @@ public class Delete extends HttpServlet {
 			KozouDAO dao=new KozouDAO();
 			dao.delete(p);
 			
-			// 削除後、Adminhome.jspにフォワードまたはリダイレクト
-            response.sendRedirect("Adminhome.jsp");  // リダイレクトで再読み込み
+            response.sendRedirect("SearchServlet");  // リダイレクトで再読み込み
 
         } catch (Exception e) {
             e.printStackTrace();
