@@ -3,6 +3,7 @@ package dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.time.LocalDateTime;
 
 import org.apache.tomcat.jakartaee.commons.lang3.builder.ToStringBuilder;
 import org.apache.tomcat.jakartaee.commons.lang3.builder.ToStringStyle;
@@ -170,10 +171,10 @@ public class KozouDAO extends DAO {
 				bean =new Bean();
 				bean.setNickname(rs.getString("nickname"));
 				bean.setPassword(rs.getString("password"));
-//				bean.setPrefectures(rs.getString("prefectures"));
-//				bean.setSex(rs.getString("sex"));
-//				bean.setDateofbirth(rs.getDate("dateofbirth"));
-//				bean.setEmailaddress(rs.getString("emailaddress"));
+				bean.setPrefectures(rs.getString("prefectures"));
+				bean.setSex(rs.getString("sex"));
+				bean.setDateofbirth(rs.getDate("dateofbirth"));
+				bean.setEmailaddress(rs.getString("emailaddress"));
 				bean.setProductnumber(rs.getString("productnumber"));
 				bean.setProductname(rs.getString("productname"));
 			}
@@ -190,23 +191,118 @@ public class KozouDAO extends DAO {
 			return bean;
 		}
 	
-	public int add(String emailaddress, String productnumber, int stock)
+	public Bean add(String emailaddress, String productnumber, int stock)
 			throws Exception {
 		Connection con=getConnection();
+		Bean bean=null;
 		
-		int addstock = stock++;
+		int addstock = stock+1;
 		System.out.println(addstock);
+		System.out.println(productnumber);
+		System.out.println(emailaddress);
 
 		PreparedStatement st=con.prepareStatement(
 			"UPDATE stock_table SET stock = ? WHERE emailaddress = ? AND productnumber = ?;");
 		st.setInt(1, addstock);
 		st.setString(2, emailaddress);
 		st.setString(3, productnumber);
-		int line=st.executeUpdate();
+		st.executeUpdate();
+		
+		st=con.prepareStatement("select * from user_table LEFT JOIN stock_table ON user_table.emailaddress = stock_table.emailaddress LEFT JOIN product_table ON stock_table.productnumber = product_table.productnumber where user_table.emailaddress = ?");
+		st.setString(1, emailaddress);
+		
+		ResultSet rs=st.executeQuery();
 
+		while (rs.next()) {
+			bean =new Bean();
+			bean.setNickname(rs.getString("nickname"));
+			bean.setPassword(rs.getString("password"));
+			bean.setPrefectures(rs.getString("prefectures"));
+			bean.setSex(rs.getString("sex"));
+			bean.setDateofbirth(rs.getDate("dateofbirth"));
+			bean.setEmailaddress(rs.getString("emailaddress"));
+			bean.setProductnumber(rs.getString("productnumber"));
+			bean.setProductname(rs.getString("productname"));
+		}
+		
 		st.close();
 		con.close();
-		return line;
+		return bean;
 	}
 
+	public Bean decrease(String emailaddress, String productnumber, int stock)
+			throws Exception {
+		Connection con=getConnection();
+		Bean bean=null;
+		
+		int addstock = stock-1;
+		System.out.println(addstock);
+		System.out.println(productnumber);
+		System.out.println(emailaddress);
+
+		PreparedStatement st=con.prepareStatement(
+			"UPDATE stock_table SET stock = ? WHERE emailaddress = ? AND productnumber = ?;");
+		st.setInt(1, addstock);
+		st.setString(2, emailaddress);
+		st.setString(3, productnumber);
+		st.executeUpdate();
+		
+		st=con.prepareStatement("select * from user_table LEFT JOIN stock_table ON user_table.emailaddress = stock_table.emailaddress LEFT JOIN product_table ON stock_table.productnumber = product_table.productnumber where user_table.emailaddress = ?");
+		st.setString(1, emailaddress);
+		
+		ResultSet rs=st.executeQuery();
+
+		while (rs.next()) {
+			bean =new Bean();
+			bean.setNickname(rs.getString("nickname"));
+			bean.setPassword(rs.getString("password"));
+			bean.setPrefectures(rs.getString("prefectures"));
+			bean.setSex(rs.getString("sex"));
+			bean.setDateofbirth(rs.getDate("dateofbirth"));
+			bean.setEmailaddress(rs.getString("emailaddress"));
+			bean.setProductnumber(rs.getString("productnumber"));
+			bean.setProductname(rs.getString("productname"));
+		}
+		
+		st.close();
+		con.close();
+		return bean;
+	}
+
+	public Bean start(String emailaddress, String productnumber)
+			throws Exception {
+		Connection con=getConnection();
+		Bean bean=null;
+		
+		var Date = LocalDateTime.now();
+        String Day = "%tm月%td日".formatted(Date, Date);
+
+		PreparedStatement st=con.prepareStatement(
+			"UPDATE stock_table SET startusing = ? WHERE emailaddress = ? AND productnumber = ?;");
+		st.setString(1, Day);
+		st.setString(2, emailaddress);
+		st.setString(3, productnumber);
+		st.executeUpdate();
+		
+		st=con.prepareStatement("select * from user_table LEFT JOIN stock_table ON user_table.emailaddress = stock_table.emailaddress LEFT JOIN product_table ON stock_table.productnumber = product_table.productnumber where user_table.emailaddress = ?");
+		st.setString(1, emailaddress);
+		
+		ResultSet rs=st.executeQuery();
+
+		while (rs.next()) {
+			bean =new Bean();
+			bean.setNickname(rs.getString("nickname"));
+			bean.setPassword(rs.getString("password"));
+			bean.setPrefectures(rs.getString("prefectures"));
+			bean.setSex(rs.getString("sex"));
+			bean.setDateofbirth(rs.getDate("dateofbirth"));
+			bean.setEmailaddress(rs.getString("emailaddress"));
+			bean.setProductnumber(rs.getString("productnumber"));
+			bean.setProductname(rs.getString("productname"));
+		}
+		
+		st.close();
+		con.close();
+		return bean;
+	}
 }

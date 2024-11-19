@@ -40,9 +40,9 @@ String password = User.getPassword();
 	<a href="Stockadd?emailaddress=${list.emailaddress}&productnumber=${list.productnumber}&stock=${list.stock}">＋</a>
 	</td>
 	<td>
-	<a href="Stockdecrease?emailaddress=${list.emailaddress}&productnumber=${list.productnumber}">-</a>
+	<a href="Stockdecrease?emailaddress=${list.emailaddress}&productnumber=${list.productnumber}&stock=${list.stock}">-</a>
 	</td>
-	<td><a href="Completion?id=${list.productnumber}">スタート</a></td>
+	<td><a href="start?productnumber=${list.productnumber}&emailaddress=${list.emailaddress}">スタート</a></td>
 	<td><progress id="progress" max="${list.perioddenominator}" value="${list.periodnumerator}"></progress></td>
 	<td><a href="Delete?id=${list.productnumber}">削除</a></td>
 	</tr>
@@ -67,14 +67,10 @@ String password = User.getPassword();
 	<td>${list.productname}</td>
 	<td>${list.stock}</td>
 	<td>
-	<div class="">
-	<input type="submit" value="+" class="button">
-	</div>
+	<a href="Stockadd?emailaddress=${list.emailaddress}&productnumber=${list.productnumber}&stock=${list.stock}">＋</a>
 	</td>
 	<td>
-	<div class="">
-	<input type="submit" value="-" class="button">
-	</div>
+	<a href="Stockdecrease?emailaddress=${list.emailaddress}&productnumber=${list.productnumber}&stock=${list.stock}">-</a>
 	</td>
 	<td><a href="Completion?productnumber=${list.productnumber}">スタート</a></td>
 	<td><progress id="progress" max="${list.perioddenominator}" value="${list.periodnumerator}"></progress></td>
