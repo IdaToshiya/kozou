@@ -53,4 +53,3 @@
    <input type="button" value="CSVへ出力"  name ="" onClick="" class="green"></div>
 </body>
 <%@include file="../footer.html" %>
-
