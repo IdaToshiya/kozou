@@ -22,7 +22,7 @@ public class AdminaddAction extends Action {
 		int productline=dao.productinsert(productnumber, productname, categorynumber);
 
 		if (productline>0) {
-			return "Adminhome.jsp";
+			return "SearchServlet";
 		}
 		
 		return "Adminitemadd.jsp";
