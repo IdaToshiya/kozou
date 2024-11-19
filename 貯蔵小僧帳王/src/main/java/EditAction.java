@@ -24,7 +24,7 @@ public class EditAction extends Action {
 			int line=dao.update(productnumber, productname, productnumbermoto);
 				
 			if (line>0) {
-				return "Adminhome.jsp";
+				return "SearchServlet";
 			}
 			
 			return "Adminitemedit.jsp";
