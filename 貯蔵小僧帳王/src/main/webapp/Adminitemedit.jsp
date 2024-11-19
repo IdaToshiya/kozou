@@ -2,6 +2,10 @@
 <%@include file="../header.html" %>
 </head>
 <body>
+<!--ホームボタン-->
+<a href=Adminhome.jsp class="btn-flat-logo">
+  <i class="fa fa-chevron-right"></i> HOME
+</a>
 <h1>商品編集画面</h1>
 <form action="Edit.action" method="post">
 	<p><%= request.getParameter("productname") %></p>
