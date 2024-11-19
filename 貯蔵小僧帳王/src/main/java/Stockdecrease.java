@@ -11,7 +11,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import dao.KozouDAO;
 import tool.Page;
 
-@WebServlet(urlPatterns={"/Stockadd"})
+@WebServlet(urlPatterns={"/Stockdecrease"})
 public class Stockdecrease extends HttpServlet {
 
 	public void doGet (
