@@ -18,7 +18,9 @@
 			<div class="" style="text-align:center">
 				<input type="submit" value="ログイン" class="green">
 			</div>
-	
+			<% if (request.getAttribute("error") != null) { %>
+		    <p style="color: red;"><%= request.getAttribute("error") %></p>
+			<% } %>
 	</form>	
 	<form action="">
 	

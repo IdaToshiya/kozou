@@ -1,49 +1,47 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@taglib prefix="c" uri="jakarta.tags.core"%>
-<%@taglib prefix="sql" uri="jakarta.tags.sql"%>
+
 <%@include file="../header.html"%>
 
 <body>
-	<form action="Login.action" method="post">
-		<h1>貯蔵小僧帳王 管理画面</h1>
-		<div style="text-align: center" class="center">
-			<input class="red" type="button" value="商品登録"
-				onClick="location.href='Adminitemadd.jsp'">&emsp;&emsp;&emsp;&emsp;<input
-				class="blue" type="button" value="ダッシュボード"
-				onClick="location.href='Dashboard.jsp'"> <br> <br>
-			<div style="text-align: center" class="search_container">
-				<form action="<%=request.getContextPath()%>/" method="post">
-					<input type="text" /><input type="submit" value="検索">
-				</form>
-			</div>
-			<sql:query var="list" dataSource="jdbc/kozou">
-	select * from product_table order by productnumber;
-</sql:query>
-			<div class="box">
-				<p>
-					<b>一覧/検索結果 表示</b>
-				</p>
-				<table class="center">
-					<tr>
-						<td>商品番号</td>
-						<td>商品名</td>
-						<td>操作</td>
-
-					</tr>
-					<c:forEach var="list" items="${list.rows}">
-						<tr>
-							<td>${list.productnumber}</td>
-							<td>${list.productname}</td>
-							<!--	<td>${list.categorynumber}</td>-->
-							<!--	<td>${list.numberofregistrations}</td>-->
-							<td><a
-								href="Adminitemedit.jsp?productnumber=${list.productnumber}&productname=${list.productname}">編集</a></td>
-							<td><a href="Delete?productnumber=${list.productnumber}">削除</a></td>
-						</tr>
-					</c:forEach>
-				</table>
-			</div>
-	</form>
+	<h1>貯蔵小僧帳王 管理画面</h1>
+    <div style="text-align: center" class="center">
+        <input class="red" type="button" value="商品登録"
+            onClick="location.href='Adminitemadd.jsp'">&emsp;&emsp;&emsp;&emsp;
+        <input class="blue" type="button" value="ダッシュボード" 
+            onClick="location.href='<%= request.getContextPath() %>/Dashboard'">
+        <br><br>
+        <!-- 検索フォーム -->
+        <div style="text-align: center" class="search_container">
+            <form action="<%= request.getContextPath() %>/SearchServlet" method="post">
+                <input type="text" name="keyword" placeholder="商品名で検索" />
+                <input type="submit" value="検索">
+            </form>
+        </div>
+        <br>
+        <!-- 検索結果表示 -->
+        <div class="box">
+            <p><b>一覧/検索結果 表示</b></p>
+            <table class="center">
+                <tr>
+                    <th>商品番号</th>
+                    <th>商品名</th>
+                    <th>操作</th>
+                </tr>
+                <c:forEach var="item" items="${searchResults}">
+                    <tr>
+                        <td>${item.productnumber}</td>
+                        <td>${item.productname}</td>
+                        <td>
+                            <a href="Adminitemedit.jsp?productnumber=${item.productnumber}&productname=${item.productname}">編集</a>
+                            &nbsp;|&nbsp;
+                            <a href="Delete?productnumber=${item.productnumber}">削除</a>
+                        </td>
+                    </tr>
+                </c:forEach>
+            </table>
+        </div>
+    </div>
 </body>
 <%@include file="../footer.html"%>
 
