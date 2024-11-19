@@ -3,7 +3,6 @@
 
 <%@include file="../header.html"%>
 
-<body>
 	<h1>貯蔵小僧帳王 管理画面</h1>
     <div style="text-align: center" class="center">
         <input class="red" type="button" value="商品登録"
@@ -41,12 +40,5 @@
                 </c:forEach>
             </table>
         </div>
-    </div>
-</body>
+    </div>  
 <%@include file="../footer.html"%>
-
-
-
-
-
-

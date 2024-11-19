@@ -8,7 +8,6 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-import bean.Bean;
 import dao.KozouDAO;
 import tool.Page;
 
@@ -22,12 +21,12 @@ public class Stockdecrease extends HttpServlet {
 		Page.header(out);
 		try {
 				String emailaddress=request.getParameter("emailaddress");
+				String productnumber=request.getParameter("productnumber");
+				int stock=Integer.parseInt(request.getParameter("stock"));
 				
-				Bean p=new Bean();
-				p.setEmailaddress(emailaddress);
 				
 				KozouDAO dao=new KozouDAO();
-				int line=dao.add(p);
+				int line=dao.add(emailaddress, productnumber, stock);
 				
 				if (line>0) {
 					

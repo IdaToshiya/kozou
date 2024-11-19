@@ -41,7 +41,7 @@ public class Dashboard extends HttpServlet {
 	            	category.add(rs.getString("numberofregistrations"));
 	            }
 		        
-		        System.out.println(category);
+	            System.out.println(category);
 		        request.setAttribute("categor", category);
 		        request.getRequestDispatcher("Dashboard.jsp").forward(request, response);
 		
@@ -54,4 +54,3 @@ public class Dashboard extends HttpServlet {
         }
 	}
 }
-           

@@ -30,7 +30,6 @@
 		<div style="text-align: center">
 			<input type="submit" value="追加" class="green">
 		</div>
-
 	</form>
 </section>
 <%@include file="../footer.html"%>

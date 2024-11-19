@@ -190,12 +190,18 @@ public class KozouDAO extends DAO {
 			return bean;
 		}
 	
-	public int add(Bean bean) throws Exception {
+	public int add(String emailaddress, String productnumber, int stock)
+			throws Exception {
 		Connection con=getConnection();
+		
+		int addstock = stock++;
+		System.out.println(addstock);
 
 		PreparedStatement st=con.prepareStatement(
-			"");
-		st.setString(1, bean.getEmailaddress());
+			"UPDATE stock_table SET stock = ? WHERE emailaddress = ? AND productnumber = ?;");
+		st.setInt(1, addstock);
+		st.setString(2, emailaddress);
+		st.setString(3, productnumber);
 		int line=st.executeUpdate();
 
 		st.close();
@@ -204,4 +210,3 @@ public class KozouDAO extends DAO {
 	}
 
 }
-
