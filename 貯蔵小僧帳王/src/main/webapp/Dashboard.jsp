@@ -47,9 +47,7 @@
             }
         });
     </script>
-    <a href="DownloadCSV" class="btn">CSVダウンロード</a>
-
    <div style="text-align:center" ><h2 class="">CSVファイルへ出力</h2>
-   <input type="button" value="CSVへ出力"  name ="" onClick="" class="green"></div>
+   <input type="button" value="CSVへ出力"  name ="" onClick="location.href='DownloadCSV'" class="green"></div>
 </body>
 <%@include file="../footer.html" %>

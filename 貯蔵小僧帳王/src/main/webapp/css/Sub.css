@@ -1,9 +1,9 @@
 @charset "UTF-8";
 /*girl*/
 body{
-	background-color: #d2cbb4;
+/*	background-color: #d2cbb4;*/
 	background-image: url("lace3.png");
-	font-family: "Hachi Maru Pop", serif;	
+	font-family: "Hachi Maru Pop", serif;
 }
 
 .hachi-maru-pop-regular {
@@ -29,7 +29,7 @@ input{
 }
 
 a:link { /*アクセスしたことのないリンク*/
-color:#cfa7cc;
+color:#9d8e87;
 }
 
 a:visited { /*アクセスしたことのあるリンク*/
@@ -156,7 +156,7 @@ label {
   cursor: pointer;
   font-family: FontAwesome;
   border: none;
-  background: #d2cbb4;
+  background: #5BC8AC;
   color: #ffffff;
   outline : none;
   width: 4.0em;
@@ -186,3 +186,27 @@ label {
 	
 	
 }
+
+/*削除済みボタン*/
+.del{ cursor: pointer;
+  font-family: FontAwesome;
+  border: none;
+  background: #90CE9C;
+  color: #ffffff;
+  outline : none;
+  width: 10.0em;
+  height: 30px;
+  margin-left:15px;
+}
+/*追加ボタン*/
+.add{ cursor: pointer;
+  font-family: FontAwesome;
+  border: none;
+  background:#cfa7cc;
+  color: #ffffff;
+  outline : none;
+  width: 4.0em;
+  height: 30px;
+  margin-left:15px;
+}
+	
