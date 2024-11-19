@@ -37,10 +37,10 @@ String password = User.getPassword();
 	<td>${list.productname}</td>
 	<td>${list.stock}</td>
 	<td>
-	<a href="Stockadd?id=${list.emailaddress}">＋</a>
+	<a href="Stockadd?emailaddress=${list.emailaddress}&productnumber=${list.productnumber}&stock=${list.stock}">＋</a>
 	</td>
 	<td>
-	<a href="Stockdecrease?id=${list.emailaddress}">-</a>
+	<a href="Stockdecrease?emailaddress=${list.emailaddress}&productnumber=${list.productnumber}">-</a>
 	</td>
 	<td><a href="Completion?id=${list.productnumber}">スタート</a></td>
 	<td><progress id="progress" max="${list.perioddenominator}" value="${list.periodnumerator}"></progress></td>
