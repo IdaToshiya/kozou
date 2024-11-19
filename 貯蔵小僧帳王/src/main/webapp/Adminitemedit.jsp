@@ -1,7 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@include file="../header.html" %>
-</head>
-<body>
+
 <h1>商品編集画面</h1>
 <form action="Edit.action" method="post">
 	<p><%= request.getParameter("productname") %></p>
@@ -13,8 +12,4 @@
 		<input type="submit" value="編集"  class="green">
 	</div>
 </form>
-
-
-
-</body>
 <%@include file="../footer.html" %>
