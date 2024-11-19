@@ -25,25 +25,17 @@ String password = User.getPassword();
 	<input type="submit" value="削除済みアイテム" class="button">
 </div>
 
-<sql:query var="list" dataSource="jdbc/kozou">
-	select * from user_table LEFT JOIN stock_table ON user_table.emailaddress = stock_table.emailaddress LEFT JOIN product_table ON stock_table.productnumber = product_table.productnumber where productname LIKE '%<%= productname %>%' AND nickname =  '<%= nickname %>' AND password =  '<%= password %>';
-</sql:query>
-
 <p>検索結果</p>
 <table>
-<c:forEach var="list" items="${list.rows}">
+<c:forEach var="list" items="${bean}">
 	<tr>
 	<td>${list.productname}</td>
 	<td>${list.stock}</td>
 	<td>
-	<div class="">
-	<input type="submit" value="+" class="button">
-	</div>
+	<a href="Stockadd?emailaddress=${list.emailaddress}&productnumber=${list.productnumber}&stock=${list.stock}">＋</a>
 	</td>
 	<td>
-	<div class="">
-	<input type="submit" value="-" class="button">
-	</div>
+	<a href="Stockdecrease?emailaddress=${list.emailaddress}&productnumber=${list.productnumber}&stock=${list.stock}">-</a>
 	</td>
 	<td><a href="Completion?id=${list.productnumber}">スタート</a></td>
 	<td><progress id="progress" max="${list.perioddenominator}" value="${list.periodnumerator}"></progress></td>

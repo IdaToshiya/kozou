@@ -1,13 +1,13 @@
 import java.io.IOException;
 import java.io.PrintWriter;
 
-import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
+import bean.Bean;
 import dao.KozouDAO;
 import tool.Page;
 
@@ -24,18 +24,13 @@ public class Stockdecrease extends HttpServlet {
 				String productnumber=request.getParameter("productnumber");
 				int stock=Integer.parseInt(request.getParameter("stock"));
 				
+				System.out.println(productnumber);
 				
 				KozouDAO dao=new KozouDAO();
-				int line=dao.add(emailaddress, productnumber, stock);
+				Bean bean = dao.decrease(emailaddress, productnumber, stock);
 				
-				if (line>0) {
-					
-					//フォワード先の指定
-			 		RequestDispatcher dispatcher =	request.getRequestDispatcher("");
-			 
-			 		//フォワードの実行
-			 		dispatcher.forward(request, response);
-					}
+				request.setAttribute("bean", bean);
+	        	request.getRequestDispatcher("userhome.jsp").forward(request, response);
 			
 
 		} catch (Exception e) {

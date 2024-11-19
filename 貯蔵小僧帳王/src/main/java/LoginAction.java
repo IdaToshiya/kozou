@@ -28,7 +28,7 @@ public class LoginAction extends Action {
 			// こんな風にすれば Bean の中身がログに出力できる
 			String aaa =( ToStringBuilder.reflectionToString(bean, ToStringStyle.DEFAULT_STYLE) );
 			
-			if (aaa.contains("管理人") && aaa.contains("bc252ca239c1056c615e4742ede7a786f22598dfcd68c501e788ccdf388d3e32")){
+			if (aaa.contains("管理人") && aaa.contains("d5ebd832efabc2bb4b1be4b48c1478223f1168e5c21b6804b293e326bc00842b")){
 //	            System.out.println("emailaddress");
 				return "Adminhome.jsp";
 	        }else if (bean!=null) {
