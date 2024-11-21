@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.tomcat.jakartaee.commons.lang3.builder.ToStringBuilder;
 import org.apache.tomcat.jakartaee.commons.lang3.builder.ToStringStyle;
@@ -15,9 +17,6 @@ public class KozouDAO extends DAO {
 	public Bean search(String nickname, String hashedPassword)
 		throws Exception {
 		Bean bean=null;
-		
-		System.out.println(hashedPassword);
-
 		
 		Connection con=getConnection();
 
@@ -71,22 +70,21 @@ public class KozouDAO extends DAO {
 			return line;
 		}
 	
-	public int delete(Bean p) throws Exception {
-		Connection con=getConnection();
+	public int delete(String productnumber) 
+			throws Exception {
 		
-		PreparedStatement st=con.prepareStatement(
-//			"UPDATE product_table SET status = 2 WHERE productnumber = ?;");
-			"DELETE from product_table where productnumber = ?");
-		st.setString(1, p.getProductnumber());
-		System.out.println(st + " record(s) deleted.");
-		int line=st.executeUpdate();
-		
-		
-
-		st.close();
-		con.close();
-		return line;
-	}
+			Connection con=getConnection();
+			
+			PreparedStatement st=con.prepareStatement(
+				"DELETE from product_table where productnumber = ?");
+			st.setString(1, productnumber);
+			System.out.println(st + " record(s) deleted.");
+			int line=st.executeUpdate();
+			
+			st.close();
+			con.close();
+			return line;
+		}
 	
 	public int productinsert(String productnumber, String productname, String categorynumber)
 			throws Exception {
@@ -104,34 +102,38 @@ public class KozouDAO extends DAO {
 
 			st.close();
 			con.close();
+			System.out.println(productline);
 
 			return productline;
 		}
 	
-	public int userproductinsert(String stock, String productname, String categorynumber)
+	public Bean userproductinsert(int stock, String productnumber, String emailaddress)
 			throws Exception {
+		
+			Bean bean=null;
 			
 			Connection con=getConnection();
 
 			PreparedStatement st;
-			st=con.prepareStatement("insert into stock_table(stock, productname, categorynumber) values(?, ?, ?) where emailaddress = 'aaa@gmail.com'");
-			st.setString(1, stock);
-			st.setString(2, productname);
-			st.setString(3, categorynumber);
-			System.out.println(st);
-			int productline=st.executeUpdate();
-			
-			st=con.prepareStatement("insert into product_table(productname, categorynumber) values(?, ?) where emailaddress = 'aaa@gmail.com'");
-			st.setString(1, productname);
-			st.setString(2, categorynumber);
-//			st.setString(4, numberofregistrations);
-			System.out.println(st);
+			st=con.prepareStatement("INSERT INTO stock_table (stock, productnumber, activenumber, emailaddress) VALUES (?, ?, 1, ?)");
+			st.setInt(1, stock); 
+			st.setString(2, productnumber);
+			st.setString(3, emailaddress);
 			st.executeUpdate();
-
-			st.close();
+	
+		    // SELECT文の準備：すでに存在するデータを取得
+		    st = con.prepareStatement("SELECT emailaddress FROM stock_table WHERE emailaddress = ?");
+		    st.setString(1, emailaddress);
+			ResultSet rs = st.executeQuery();
+			    
+		    // 結果をBeanに格納
+		    if (rs.next()) {
+		        bean = new Bean();
+		        bean.setEmailaddress(rs.getString("emailaddress"));
+		    }
+		    st.close();
 			con.close();
-
-			return productline;
+			return bean;
 		}
 	
 	public int update(String productnumber, String productname, String productnumbermoto)
@@ -305,4 +307,56 @@ public class KozouDAO extends DAO {
 		con.close();
 		return bean;
 	}
+	
+	public List<Bean> dashboard1(String today)
+			throws Exception {
+	
+			Connection con=getConnection();
+
+			PreparedStatement st;
+			st=con.prepareStatement("SELECT product_table.categorynumber, category_table.categoryname AS categoryname, SUM(stock_table.stock) AS numberofregistrations FROM stock_table JOIN product_table ON stock_table.productnumber = product_table.productnumber JOIN category_table ON category_table.categorynumber = product_table.categorynumber GROUP BY product_table.categorynumber,category_table.categoryname;");
+						
+			ResultSet rs=st.executeQuery();
+			System.out.println(st + " record(s) dashboard.");
+			
+			List<Bean> beans = new ArrayList<>();
+			while (rs.next()) {
+			    Bean bean = new Bean();
+			    bean.setNumberofregistrations(rs.getInt("numberofregistrations"));
+			    bean.setCategoryname(rs.getString("categoryname"));
+			    beans.add(bean);
+			}
+			
+			st.close();
+			con.close();
+			
+			return beans;
+		}
+	
+	public List<Bean> dashboard2(String today)
+			throws Exception {
+	
+			Connection con=getConnection();
+
+			PreparedStatement st;
+			st=con.prepareStatement("SELECT stock_table.productnumber, product_table.productname AS productname, SUM(stock_table.stock) AS numberofregistrations FROM stock_table JOIN product_table ON stock_table.productnumber = product_table.productnumber GROUP BY stock_table.productnumber, product_table.productname ORDER BY numberofregistrations DESC;");
+						
+			ResultSet rs=st.executeQuery();
+			System.out.println(st + " record(s) dashboard.");
+			
+			List<Bean> productbeans = new ArrayList<>();
+			while (rs.next()) {
+			    Bean bean = new Bean();
+			    bean.setNumberofregistrations(rs.getInt("numberofregistrations"));
+			    bean.setProductname(rs.getString("productname"));
+			    productbeans.add(bean);
+			
+			}
+			
+			st.close();
+			con.close();
+			
+			return productbeans;
+		}
+
 }
