@@ -3,6 +3,7 @@
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
+import bean.Bean;
 import dao.KozouDAO;
 import tool.Action;
 
@@ -12,21 +13,19 @@ public class UseraddAction extends Action {
 		HttpServletRequest request, HttpServletResponse response
 	) throws Exception{
 		
-		String stock=request.getParameter("stock");
-		String productname=request.getParameter("productname");
-		String categorynumber=request.getParameter("categorynumber");
+		String stockString = request.getParameter("stock");
+		int stock = Integer.parseInt(stockString);
+		String productnumber=request.getParameter("productnumber");
 		String emailaddress=request.getParameter("emailaddress");
 		
 		System.out.println(emailaddress);
-
 		
 		KozouDAO dao=new KozouDAO();
-		int productline=dao.userproductinsert(stock, productname, categorynumber);
+		Bean bean = dao.userproductinsert(stock, productnumber, emailaddress);
 
-		if (productline>0) {
-			return "Adminhome.jsp";
-		}
+		request.setAttribute("bean", bean);
+		request.getRequestDispatcher("userhome3.jsp").forward(request, response);
 		
-		return "Adminitemadd.jsp";
+		return  null;
 	}
 }
