@@ -3,12 +3,12 @@
 <meta charset="UTF-8">
 <title>Servlet/JSP Samples</title>
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/Sub4.css" type="text/css"
+	href="${pageContext.request.contextPath}/css/Sub5.css" type="text/css"
 	media="all">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link
-	href="https://fonts.googleapis.com/css2?family=Reggae+One&display=swap"
+	href="https://fonts.googleapis.com/css2?family=Hina+Mincho&display=swap"
 	rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
@@ -20,13 +20,13 @@
 
 <%
 //リクエストスコープからのデータの取得
-Bean User = (Bean) request.getAttribute("bean");
+Bean User = (Bean)request.getAttribute("bean");
 String emailaddress = User.getEmailaddress();
 String nickname = User.getNickname();
 String password = User.getPassword();
 %>
 
-
+<hr class="rainbow">
 <h1>HOME</h1>
 <br>
 <br>
@@ -100,4 +100,5 @@ String password = User.getPassword();
 			</c:forEach>
 		</table>
 	</div>
+	<hr class="rainbow">
 	<%@include file="../footer.html"%>
