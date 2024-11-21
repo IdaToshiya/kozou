@@ -1,7 +1,11 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@include file="../header.html"%>
-<h1>商品登録</h1>
+<!--ホームボタン-->
+<a href="<%= request.getContextPath() %>/SearchServlet" class="btn-flat-logo">
+  <i class="fa fa-chevron-right">HOME</i>
+</a>
 
+<h1>商品登録</h1>
 <section>
 	<form action="Adminadd.action" method="post" class="center">
 		<div class="select">
