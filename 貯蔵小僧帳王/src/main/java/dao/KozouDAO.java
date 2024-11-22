@@ -28,13 +28,13 @@ public class KozouDAO extends DAO {
 
 		while (rs.next()) {
 			bean =new Bean();
-			bean.setNickname(rs.getString("nickname"));
-			bean.setPassword(rs.getString("password"));
-			bean.setPrefectures(rs.getString("prefectures"));
+//			bean.setNickname(rs.getString("nickname"));
+//			bean.setPassword(rs.getString("password"));
+//			bean.setPrefectures(rs.getString("prefectures"));
 			bean.setSex(rs.getString("sex"));
-			bean.setDateofbirth(rs.getDate("dateofbirth"));
+//			bean.setDateofbirth(rs.getDate("dateofbirth"));
 			bean.setEmailaddress(rs.getString("emailaddress"));
-			bean.setProductnumber(rs.getString("productnumber"));
+//			bean.setProductnumber(rs.getString("productnumber"));
 		}
 		
 		rs.close();
@@ -233,14 +233,14 @@ public class KozouDAO extends DAO {
 
 		while (rs.next()) {
 			bean =new Bean();
-			bean.setNickname(rs.getString("nickname"));
-			bean.setPassword(rs.getString("password"));
-			bean.setPrefectures(rs.getString("prefectures"));
+//			bean.setNickname(rs.getString("nickname"));
+//			bean.setPassword(rs.getString("password"));
+//			bean.setPrefectures(rs.getString("prefectures"));
 			bean.setSex(rs.getString("sex"));
-			bean.setDateofbirth(rs.getDate("dateofbirth"));
+//			bean.setDateofbirth(rs.getDate("dateofbirth"));
 			bean.setEmailaddress(rs.getString("emailaddress"));
-			bean.setProductnumber(rs.getString("productnumber"));
-			bean.setProductname(rs.getString("productname"));
+//			bean.setProductnumber(rs.getString("productnumber"));
+//			bean.setProductname(rs.getString("productname"));
 		}
 		
 		rs.close();
@@ -274,14 +274,14 @@ public class KozouDAO extends DAO {
 
 		while (rs.next()) {
 			bean =new Bean();
-			bean.setNickname(rs.getString("nickname"));
-			bean.setPassword(rs.getString("password"));
-			bean.setPrefectures(rs.getString("prefectures"));
+//			bean.setNickname(rs.getString("nickname"));
+//			bean.setPassword(rs.getString("password"));
+//			bean.setPrefectures(rs.getString("prefectures"));
 			bean.setSex(rs.getString("sex"));
-			bean.setDateofbirth(rs.getDate("dateofbirth"));
+//			bean.setDateofbirth(rs.getDate("dateofbirth"));
 			bean.setEmailaddress(rs.getString("emailaddress"));
-			bean.setProductnumber(rs.getString("productnumber"));
-			bean.setProductname(rs.getString("productname"));
+//			bean.setProductnumber(rs.getString("productnumber"));
+//			bean.setProductname(rs.getString("productname"));
 		}
 		
 		rs.close();
@@ -313,14 +313,14 @@ public class KozouDAO extends DAO {
 
 		while (rs.next()) {
 			bean =new Bean();
-			bean.setNickname(rs.getString("nickname"));
-			bean.setPassword(rs.getString("password"));
-			bean.setPrefectures(rs.getString("prefectures"));
+//			bean.setNickname(rs.getString("nickname"));
+//			bean.setPassword(rs.getString("password"));
+//			bean.setPrefectures(rs.getString("prefectures"));
 			bean.setSex(rs.getString("sex"));
-			bean.setDateofbirth(rs.getDate("dateofbirth"));
+//			bean.setDateofbirth(rs.getDate("dateofbirth"));
 			bean.setEmailaddress(rs.getString("emailaddress"));
-			bean.setProductnumber(rs.getString("productnumber"));
-			bean.setProductname(rs.getString("productname"));
+//			bean.setProductnumber(rs.getString("productnumber"));
+//			bean.setProductname(rs.getString("productname"));
 		}
 		
 		rs.close();
