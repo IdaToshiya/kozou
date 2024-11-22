@@ -1,9 +1,8 @@
 @charset "UTF-8";
 body{
-	background-color: #E6E7E8;
+	background-color: #F4F5F7;
 	font-family: "Yuji Syuku", serif;
-	
-}
+	}
 
 .yuji-syuku-regular {
   	font-family: "Yuji Syuku", serif;
@@ -26,9 +25,18 @@ input{
 	vertical-align:top;
 }
 
+a:link { /*アクセスしたことのないリンク*/
+	color:darkblue;
+}
+
+a:visited { /*アクセスしたことのあるリンク*/
+	color:green;
+}
+
+
 .green{
 	border-radius: 0.5rem;
-	width: 200px;
+	width: 250px;
 	padding: 10px;
 	box-sizing: border-box;
 	background: green;
@@ -41,7 +49,7 @@ input{
 
 .red{
 	border-radius: 0.5rem;
-	width: 200px;
+	width: 250px;
 	padding: 10px;
 	box-sizing: border-box;
 	background: firebrick;
@@ -53,7 +61,7 @@ input{
 }
 .blue{
 	border-radius: 0.5rem;
-	width: 200px;
+	width: 250px;
 	padding: 10px;
 	box-sizing: border-box;
 	background: darkblue;
@@ -151,13 +159,19 @@ label {
   margin-left:15px;
 }
 
-input[type="number"] {
-  width: 65px; /*--幅--*/
+/*追加画面の文字やフォームの調整*/
+.number {
+  width: 80px; /*--幅--*/
   padding: 10px; /*--余白--*/
-  font-size: 10px; /*--文字サイズ--*/
+  font-size: 13px; /*--文字サイズ--*/
   border: solid 2px #cccccc; /*--ボーダー線--*/
   border-radius: 5px; /*--角丸--*/
 }
+.useradd input,
+.useradd submit{
+	vertical-align:middle;
+}
+
 /*.edit{*/
 /*	border-radius: 0.5rem;*/
 /*	width: 100px;*/

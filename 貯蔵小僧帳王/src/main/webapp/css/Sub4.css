@@ -1,21 +1,36 @@
 @charset "UTF-8";
-/*その他サンプル1*/
-body{
-    background: linear-gradient(to right,#e60000,#f39800,#fff100,#009944,#0068b7,#1d2088,#920783,#e60000) 0 / 200%;
-    height: 80px;
-	color: #FFFFFF;
-    animation: 5s body linear infinite;
-	font-family: "Reggae One", system-ui;
-}
-@keyframes body{
-    100% { background-position: 200%; }
+/*性別その他*/
+body {
+	background-color: #e3d7a3;
+	font-family: "Hina Mincho", serif;
+	}
+
+/* 15px */
+.rainbow {
+	width: 100%;
+	height: 15px;
+	border: 0;
+	background: repeating-linear-gradient(-45deg,
+	#cc1f01 , #cc1f01 15px,
+	#ffffff 15px, #ffffff 30px, #fa5100 30px, #fa5100 45px,
+	#ffffff 45px, #ffffff 60px, #fabd05 60px, #fabd05 75px,
+	#ffffff 75px, #ffffff 90px, #6cae97 90px, #6cae97 105px,
+	#ffffff 105px, #ffffff 120px, #84d0c4 120px, #84d0c4 135px,
+	#ffffff 135px, #ffffff 150px, #1569BD 150px, #1569BD 165px,
+	#ffffff 165px, #ffffff 180px, #522641 180px, #522641 195px,
+	#ffffff 195px, #ffffff 210px);
 }
 
-gae-one-regular {
- 	font-family: "Reggae One", system-ui;
-    font-weight: 400;
-    font-style: normal;
-	}
+.hina-mincho-regular {
+   font-family: "Hina Mincho", serif;
+   font-weight: 300;
+   font-style: normal;
+}
+.yuji-syuku-regular {
+  font-family: "Yuji Syuku", serif;
+  font-weight: 400;
+  font-style: normal;
+}
 
 p{
 	text-align: center;
@@ -26,74 +41,59 @@ h1 {
 	text-align: center;
 }
 
+
 input{
 	text-align: center;
 	vertical-align:top;
 }
 
 a:link { /*アクセスしたことのないリンク*/
-color:#f39800;
+	color:#9d8e87;
 }
 
 a:visited { /*アクセスしたことのあるリンク*/
-color:#009944;
+	color:#5BC8AC;
 }
 
 .green{
 	border-radius: 0.5rem;
-	width: 200px;
+	width: 250px;
 	padding: 10px;
 	box-sizing: border-box;
-	background: #009944;
-	color: #ffffff;
-	text-shadow: 1px 1px 0 #ffffff, -1px -1px 0 #ffffff,
-	-1px 1px 0 #ffffff,  1px -1px 0 #ffffff,
-	1px 0 0 #ffffff, -1px  0 0 #ffffff,
-	0 1px 0 #ffffff,  0 -1px 0 #ffffff;
+	background: #6cae97;
+	color: #FFF;
 	text-decoration: none;
 	margin: 10px 0;
 	font-size: 25px;
-	font-family: "Reggae One", system-ui;
-	font-weight: 900
+	font-family: "Hina Mincho", serif;
 }
 
 .red{
 	border-radius: 0.5rem;
-	width: 200px;
+	width: 250px;
 	padding: 10px;
 	box-sizing: border-box;
-	background: #e60000;
-	color: #ffffff;
-	text-shadow: 1px 1px 0 #ffffff, -1px -1px 0 #ffffff,
-	-1px 1px 0 #ffffff,  1px -1px 0 #ffffff,
-	1px 0 0 #ffffff, -1px  0 0 #ffffff,
-	0 1px 0 #ffffff,  0 -1px 0 #ffffff;
+	background: #cc1f01;
+	color: #FFF;
 	text-decoration: none;
 	margin: 10px 0;
 	font-size: 25px;
-	font-family: "Reggae One", system-ui;
-	font-weight: 900;
+	font-family: "Hina Mincho", serif;
 }
-
 .blue{
 	border-radius: 0.5rem;
-	width: 200px;
+	width: 250px;
 	padding: 10px;
 	box-sizing: border-box;
-	background: #0068b7;
-	color: #ffffff;
-	text-shadow: 1px 1px 0 #ffffff, -1px -1px 0 #ffffff,
-	-1px 1px 0 #ffffff,  1px -1px 0 #ffffff,
-	1px 0 0 #ffffff, -1px  0 0 #ffffff,
-	0 1px 0 #ffffff,  0 -1px 0 #ffffff;
+	background: #1569BD;
+	color: #FFF;
 	text-decoration: none;
 	margin: 10px 0;
 	font-size: 25px;
-	font-family: "Reggae One", system-ui;
-	font-weight: 900
+	font-family: "Hina Mincho", serif;
 }
 
-
+/*home*/
 .btn-flat-logo {
 	position: relative;
 	display: inline-block;
@@ -159,7 +159,7 @@ label {
   cursor: pointer;
   font-family: FontAwesome;
   border: none;
-  background: #000000;
+  background: #6cae97;
   color: #ffffff;
   outline : none;
   width: 4.0em;
@@ -173,7 +173,7 @@ label {
 	width: 200px;
 	padding: 8px;
 	box-sizing: border-box;
-	background: #f39800;
+	background: #fabd05;
 	color: #ffffff;
 	text-shadow: 1px 1px 0 #ffffff, -1px -1px 0 #ffffff,
 	-1px 1px 0 #ffffff,  1px -1px 0 #ffffff,
@@ -183,18 +183,15 @@ label {
 	margin: 10px 0;
 	padding-top:0.5px;
 	font-size: 15px;
-	font-family: "Reggae One", system-ui;
+	font-family: "Hina Mincho", serif;
 	font-weight: 900
-	
-	
-	
 }
 
 /*削除済みボタン*/
 .del{ cursor: pointer;
   font-family: FontAwesome;
   border: none;
-  background: #009944;
+  background: #6cae97;
   color: #ffffff;
   outline : none;
   width: 10.0em;
@@ -202,14 +199,16 @@ label {
   margin-left:15px;
 }
 /*追加ボタン*/
-.add{ cursor: pointer;
+.add{ 
+  cursor: pointer;
   font-family: FontAwesome;
   border: none;
-  background:#e60000;
+  background:#522641;
   color: #ffffff;
   outline : none;
   width: 4.0em;
   height: 30px;
   margin-left:15px;
 }
-	
+
+
