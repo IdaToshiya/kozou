@@ -32,7 +32,6 @@ public class KozouDAO extends DAO {
 			bean =new Bean();
 			bean.setNickname(rs.getString("nickname"));
 			bean.setPassword(rs.getString("password"));
-//			bean.setPrefectures(rs.getString("prefectures"));
 			bean.setSex(rs.getString("sex"));
 			bean.setStartusing(rs.getDate("startusing"));
 			bean.setEmailaddress(rs.getString("emailaddress"));
@@ -184,7 +183,6 @@ public class KozouDAO extends DAO {
 
 		PreparedStatement st=con.prepareStatement(
 				"UPDATE product_table SET productnumber = ?,productname = ? WHERE productnumber = ?;");
-//				"DELETE from product_table where productnumber = ?");
 			st.setString(1, productnumber);
 			st.setString(2, productname);
 			st.setString(3, productnumbermoto);
@@ -196,45 +194,6 @@ public class KozouDAO extends DAO {
 			return line;
 		}
 	
-//	public Bean usersearch(String productname, String nickname, String password)
-//			throws Exception {
-//			Bean bean=null;
-//			
-//			String likename = "%" + productname + "%";
-//			
-//			Connection con=getConnection();
-//
-//			PreparedStatement st;
-//			st=con.prepareStatement("select * from user_table LEFT JOIN stock_table ON user_table.emailaddress = stock_table.emailaddress LEFT JOIN product_table ON stock_table.productnumber = product_table.productnumber where productname LIKE ? AND nickname = ? AND password = ?");
-//			st.setString(1, likename);
-//			st.setString(2, nickname);
-//			st.setString(3, password);
-//			ResultSet rs=st.executeQuery();
-//
-//			while (rs.next()) {
-//				bean =new Bean();
-//				bean.setNickname(rs.getString("nickname"));
-//				bean.setPassword(rs.getString("password"));
-//				bean.setPrefectures(rs.getString("prefectures"));
-//				bean.setSex(rs.getString("sex"));
-//				bean.setDateofbirth(rs.getDate("dateofbirth"));
-//				bean.setEmailaddress(rs.getString("emailaddress"));
-//				bean.setProductnumber(rs.getString("productnumber"));
-//				bean.setProductname(rs.getString("productname"));
-//			}
-//			
-//			rs.close();
-//			st.close();
-//			con.close();
-//			
-//
-//			// こんな風にすれば Bean の中身がログに出力できる
-//			String bbb =( ToStringBuilder.reflectionToString(bean, ToStringStyle.DEFAULT_STYLE) );
-//			System.out.println(bbb);
-//
-//			return bean;
-//		}
-//	
 	public Bean add(String emailaddress, String productnumber, int stock)
 			throws Exception {
 		Connection con=getConnection();
@@ -259,14 +218,8 @@ public class KozouDAO extends DAO {
 
 		while (rs.next()) {
 			bean =new Bean();
-//			bean.setNickname(rs.getString("nickname"));
-//			bean.setPassword(rs.getString("password"));
-//			bean.setPrefectures(rs.getString("prefectures"));
 			bean.setSex(rs.getString("sex"));
-//			bean.setDateofbirth(rs.getDate("dateofbirth"));
 			bean.setEmailaddress(rs.getString("emailaddress"));
-//			bean.setProductnumber(rs.getString("productnumber"));
-//			bean.setProductname(rs.getString("productname"));
 		}
 		
 		rs.close();
@@ -304,23 +257,16 @@ public class KozouDAO extends DAO {
 
 		while (rs.next()) {
 			bean =new Bean();
-			bean.setNickname(rs.getString("nickname"));
-			bean.setPassword(rs.getString("password"));
-			bean.setPrefectures(rs.getString("prefectures"));
 			bean.setSex(rs.getString("sex"));
-			bean.setDateofbirth(rs.getDate("dateofbirth"));
 			bean.setEmailaddress(rs.getString("emailaddress"));
-			bean.setProductnumber(rs.getString("productnumber"));
-			bean.setProductname(rs.getString("productname"));
 			bean.setEnduse(rs.getDate("enduse"));
-			bean.setPeriodnumerator(rs.getInt("periodnumerator"));
+			
 		}
 		
 		Date end = bean.getEnduse();
 		
 		System.out.println(end);
 		LocalDate endday = end.toLocalDate();
-		
 		
 		// 日付の差を計算
         long daysBetween = ChronoUnit.DAYS.between(today, endday);
@@ -379,16 +325,9 @@ public class KozouDAO extends DAO {
 
 		while (rs.next()) {
 			bean =new Bean();
-			bean.setNickname(rs.getString("nickname"));
-			bean.setPassword(rs.getString("password"));
-			bean.setPrefectures(rs.getString("prefectures"));
 			bean.setSex(rs.getString("sex"));
-			bean.setDateofbirth(rs.getDate("dateofbirth"));
 			bean.setEmailaddress(rs.getString("emailaddress"));
-			bean.setProductnumber(rs.getString("productnumber"));
-			bean.setProductname(rs.getString("productname"));
-			bean.setEnduse(rs.getDate("enduse"));
-			bean.setPeriodnumerator(rs.getInt("periodnumerator"));
+			
 		}
 		
 		rs.close();
@@ -398,7 +337,6 @@ public class KozouDAO extends DAO {
 		return bean;
 	}
 
-	
 	public List<Bean> dashboard1(String today)
 			throws Exception {
 	

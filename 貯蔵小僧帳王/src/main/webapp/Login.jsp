@@ -11,7 +11,7 @@
 			<br>
 			<div class="">
 				<label>パスワード</label>
-				<input type="text" name="password" minlength="12" maxlength="20" pattern="^[0-9A-Za-z!-~]+$" required placeholder='12文字以上 / 半角英数記号'>
+				<input type="text" name="password"min="1" minlength="12" maxlength="20" pattern="^[0-9A-Za-z!-~]+$" required placeholder='12文字以上 / 半角英数記号'>
 			</div>
 			<br>
 			<div class="" style="text-align:center">
