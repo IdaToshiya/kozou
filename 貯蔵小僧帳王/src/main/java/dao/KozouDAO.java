@@ -39,28 +39,28 @@ public class KozouDAO extends DAO {
 			System.out.println("productnumber"+bean.getProductnumber()+"start"+bean.getStartusing());
 		}
 		
-		String email = bean.getEmailaddress();
-		
-		LocalDate today = LocalDate.now();
-		
-		Date start = bean.getStartusing();
-		
-		int n = 10;
-		while(n > 0) {
-			System.out.println("productnumber"+bean.getProductnumber()+"start"+bean.getStartusing());
-			n--;
-		}
-		
-		LocalDate startday = start.toLocalDate();
-		
-		// 日付の差を計算
-        long daysBetween = ChronoUnit.DAYS.between(startday, today);
-		
-		PreparedStatement stm=con.prepareStatement(
-				"UPDATE stock_table SET periodnumerator = ? WHERE emailaddress = ?;");
-			stm.setLong(1, daysBetween);
-			stm.setString(2, email);
-			stm.executeUpdate();
+//		String email = bean.getEmailaddress();
+//		
+//		LocalDate today = LocalDate.now();
+//		
+//		Date start = bean.getStartusing();
+//		
+//		int n = 10;
+//		while(n > 0) {
+//			System.out.println("productnumber"+bean.getProductnumber()+"start"+bean.getStartusing());
+//			n--;
+//		}
+//		
+//		LocalDate startday = start.toLocalDate();
+//		
+//		// 日付の差を計算
+//        long daysBetween = ChronoUnit.DAYS.between(startday, today);
+//		
+//		PreparedStatement stm=con.prepareStatement(
+//				"UPDATE stock_table SET periodnumerator = ? WHERE emailaddress = ?;");
+//			stm.setLong(1, daysBetween);
+//			stm.setString(2, email);
+//			stm.executeUpdate();
 		
 		rs.close();
 		st.close();
