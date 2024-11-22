@@ -1,6 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@taglib prefix="c" uri="jakarta.tags.core"%>
-
 <%@include file="../header.html"%>
 
 	<h1>貯蔵小僧帳王 管理画面</h1>
@@ -8,7 +7,7 @@
         <input class="red" type="button" value="商品登録"
             onClick="location.href='Adminitemadd.jsp'">&emsp;&emsp;&emsp;&emsp;
         <input class="blue" type="button" value="ダッシュボード" 
-            onClick="location.href='<%= request.getContextPath() %>/Dashboard'">
+            onClick="location.href='<%= request.getContextPath() %>/Dashboard.action'">
         <br><br>
         <!-- 検索フォーム -->
         <div style="text-align: center" class="search_container">
@@ -32,9 +31,16 @@
                         <td>${item.productnumber}</td>
                         <td>${item.productname}</td>
                         <td>
-                            <a href="Adminitemedit.jsp?productnumber=${item.productnumber}&productname=${item.productname}">編集</a>
+                            <form action="Adminitemedit.jsp" method="get" style="display:inline;">
+						        <input type="hidden" name="productnumber" value="${item.productnumber}">
+						        <input type="hidden" name="productname" value="${item.productname}">
+						        <input type="submit" value="編集">
+						    </form>
                             &nbsp;|&nbsp;
-                            <a href="Delete?productnumber=${item.productnumber}">削除</a>
+                            <form action="Delete" method="post" style="display:inline;">
+      						  <input type="hidden" name="productnumber" value="${item.productnumber}">
+      						  <input type="submit" value="削除">
+  						    </form>
                         </td>
                     </tr>
                 </c:forEach>

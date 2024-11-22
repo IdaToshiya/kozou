@@ -7,25 +7,21 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-import bean.Bean;
 import dao.KozouDAO;
 
 @WebServlet(urlPatterns = {"/Delete"})
 public class Delete extends HttpServlet {
 
-	public void doGet (
-		HttpServletRequest request, HttpServletResponse response
-	) throws ServletException, IOException {
-		try {
-			String productnumber = request.getParameter("productnumber");
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        try {
+            String productnumber = request.getParameter("productnumber");
 
-			Bean p=new Bean();
-			p.setProductnumber(productnumber);
-			
-			KozouDAO dao=new KozouDAO();
-			dao.delete(p);
-			
-            response.sendRedirect("SearchServlet");  // リダイレクトで再読み込み
+            KozouDAO dao = new KozouDAO();
+            dao.delete(productnumber);
+
+            // SearchServletにフォワード
+            RequestDispatcher dispatcher = request.getRequestDispatcher("SearchServlet");
+            dispatcher.forward(request, response);
 
         } catch (Exception e) {
             e.printStackTrace();
