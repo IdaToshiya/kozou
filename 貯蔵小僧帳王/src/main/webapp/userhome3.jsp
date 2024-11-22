@@ -44,12 +44,10 @@ session.setAttribute("sex", sex);// リクエストスコープに格納
 					<td><a
 						href="Stockdecrease?emailaddress=${list.emailaddress}&productnumber=${list.productnumber}&stock=${list.stock}">-</a>
 					</td>
-					<td><a
-						href="start?productnumber=${list.productnumber}&emailaddress=${list.emailaddress}">スタート</a></td>
+					<td><a href="start?productnumber=${list.productnumber}&emailaddress=${list.emailaddress}&stock=${list.stock}">スタート</a></td>
 					<td><progress id="progress" max="${list.perioddenominator}"
 							value="${list.periodnumerator}"></progress></td>
-					<td><a
-						href="UserDelete?emailaddress=${list.emailaddress}&productnumber=${list.productnumber}&activenumber=2">削除</a></td>
+					<td><a href="UserDelete?emailaddress=${list.emailaddress}&productnumber=${list.productnumber}&activenumber=2">削除</a></td>
 				</tr>
 			</c:forEach>
 		</table>
@@ -70,11 +68,10 @@ session.setAttribute("sex", sex);// リクエストスコープに格納
 					<td><a
 						href="Stockdecrease?emailaddress=${list.emailaddress}&productnumber=${list.productnumber}&stock=${list.stock}">－</a>
 					</td>&nbsp;
-					<td><a href="Completion?productnumber=${list.productnumber}">スタート</a></td>
+					<td><a href="start?productnumber=${list.productnumber}&emailaddress=${list.emailaddress}&stock=${list.stock}">スタート</a></td>
 					<td><progress id="progress" max="${list.perioddenominator}"
 							value="${list.periodnumerator}"></progress></td>
-					<td><a
-						href="UserDelete?emailaddress=${list.emailaddress}&productnumber=${list.productnumber}">削除</a></td>
+					<td><a href="UserDelete?emailaddress=${list.emailaddress}&productnumber=${list.productnumber}&activenumber=2">削除</a></td>
 				</tr>
 			</c:forEach>
 		</table>
