@@ -7,10 +7,15 @@
 	select * from stock_table LEFT JOIN product_table ON stock_table.productnumber = product_table.productnumber where emailaddress = '${emailaddress}' AND activenumber = 2;
 </sql:query>
 
+<!--ホームボタン-->
+<a href="User?emailaddress=${emailaddress}&sex=${sex}" class="btn-flat-logo">
+  <i class="fa fa-chevron-right"></i> HOME
+</a>
 <h1>削除済みアイテム</h1>
 <% if (request.getAttribute("errorMessage") != null) { %>
     <p style="color: red;"><%= request.getAttribute("errorMessage") %></p>
 <% } %>
+
 <div class="box">
     <p><b>一覧/検索結果 表示</b></p>
     <table class="center">
@@ -25,14 +30,7 @@
 	            <td>${list.productnumber}</td>
 	            <td>${list.productname}</td>
 				<td>${list.stock}</td>
-				<td>
-	              <form action="UserDelete" method="post" style="display:inline;">
-	                <input type="hidden" name="emailaddress" value="${emailaddress}">
-	                <input type="hidden" name="productnumber" value="${list.productnumber}">
-	                <input type="hidden" name="activenumber" value=1>
-	                <input type="submit" value="戻す">
-	              </form>
-	             </td>
+				<td><a href="UserDelete?emailaddress=${list.emailaddress}&productnumber=${list.productnumber}&activenumber=1">戻す</a></td>
 			</tr>
 		</c:forEach>
 	</table>

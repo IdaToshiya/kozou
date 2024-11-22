@@ -8,10 +8,9 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import bean.Bean;
-import dao.KozouDAO;
 
-@WebServlet(urlPatterns = {"/UserDelete"})
-public class UserDelete extends HttpServlet {
+@WebServlet(urlPatterns = {"/User"})
+public class User extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doPost(request, response); // GETリクエストをPOSTメソッドに委譲
@@ -20,16 +19,10 @@ public class UserDelete extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-            String productnumber = request.getParameter("productnumber");
-            String emailaddress = request.getParameter("emailaddress");
-            int activenumber=Integer.parseInt(request.getParameter("activenumber")); 
-            System.out.println("emailaddress: " + emailaddress);
-            System.out.println("productnumber: " + productnumber);
-            System.out.println("activenumber: " + activenumber);
+        	Bean bean = new Bean();
+        	bean.setEmailaddress(request.getParameter("emailaddress"));
+        	bean.setSex(request.getParameter("sex"));
 
-            KozouDAO dao = new KozouDAO();
-            Bean bean = dao.userdelete(productnumber,emailaddress,activenumber);
-            
             if (bean != null && "female".equals(bean.getSex())) {
 
     			request.setAttribute("bean", bean);
@@ -49,7 +42,7 @@ public class UserDelete extends HttpServlet {
         } catch (Exception e) {
             e.printStackTrace();
             request.setAttribute("errorMessage", "削除に失敗しました。");
-            RequestDispatcher dispatcher = request.getRequestDispatcher("Useritemreturn.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("error.jsp");
             dispatcher.forward(request, response);
         }
     }

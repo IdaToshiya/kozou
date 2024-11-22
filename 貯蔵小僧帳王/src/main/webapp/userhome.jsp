@@ -14,14 +14,14 @@ session.setAttribute("sex", sex);// リクエストスコープに格納
 <div style="text-align: center" class="center">
 	<div style="display: inline-flex">
 		<form method="post" action="Useritemreturn.jsp">
-			<input type="submit" value="削除済みアイテム" class="green">&emsp;&emsp;&emsp;&emsp;<input
-				type="hidden" name="emailaddress" value='${emailaddress}'> <input
-				type="hidden" name="sex" value='${sex}'>
+			<input type="submit" value="削除済みアイテム" class="green">&emsp;&emsp;&emsp;&emsp;
+			<input type="hidden" name="emailaddress" value='${emailaddress}'> 
+			<input type="hidden" name="sex" value='${sex}'>
 		</form>
 		<form method="post" action="SearchServlet">
-			<input type="submit" value="追加" class="red"> <input
-				type="hidden" name="emailaddress" value='${emailaddress}'> <input
-				type="hidden" name="sex" value='${sex}'>
+			<input type="submit" value="追加" class="red"> 
+			<input type="hidden" name="emailaddress" value='${emailaddress}'> 
+			<input type="hidden" name="sex" value='${sex}'>
 		</form>
 	</div>
 

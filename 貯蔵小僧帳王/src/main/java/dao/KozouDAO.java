@@ -405,9 +405,7 @@ public class KozouDAO extends DAO {
 			st.executeUpdate();
 			
 			// SELECT文の準備：すでに存在するデータを取得
-		    st = con.prepareStatement("SELECT stock_table.emailaddress, user_table.sex FROM stock_table "
-		    		+ "JOIN user_table ON stock_table.emailaddress = user_table.emailaddress "
-		    		+ "WHERE stock_table.emailaddress = ? GROUP BY stock_table.emailaddress, user_table.sex;");
+		    st = con.prepareStatement("SELECT emailaddress, sex FROM user_table WHERE emailaddress = ?");
 		    st.setString(1, emailaddress);
 			ResultSet rs = st.executeQuery();
 			    
