@@ -37,6 +37,7 @@ public class KozouDAO extends DAO {
 			bean.setProductnumber(rs.getString("productnumber"));
 		}
 		
+		rs.close();
 		st.close();
 		con.close();
 		
@@ -113,8 +114,18 @@ public class KozouDAO extends DAO {
 			Bean bean=null;
 			
 			Connection con=getConnection();
-
+			// 商品がすでに存在するか確認
 			PreparedStatement st;
+			st=con.prepareStatement("SELECT COUNT(*) FROM stock_table WHERE productnumber = ? AND emailaddress = ? group by emailaddress");
+            st.setString(1, productnumber);
+            st.setString(2, emailaddress);
+            ResultSet rs = st.executeQuery();
+
+            if (rs.next() && rs.getInt(1) > 0) {
+                // 商品がすでに存在する場合
+                return null; // 呼び出し元でエラーを処理
+            }
+
 			st=con.prepareStatement("INSERT INTO stock_table (stock, productnumber, activenumber, emailaddress) VALUES (?, ?, 1, ?)");
 			st.setInt(1, stock); 
 			st.setString(2, productnumber);
@@ -122,17 +133,22 @@ public class KozouDAO extends DAO {
 			st.executeUpdate();
 	
 		    // SELECT文の準備：すでに存在するデータを取得
-		    st = con.prepareStatement("SELECT emailaddress FROM stock_table WHERE emailaddress = ?");
+		    st = con.prepareStatement("SELECT stock_table.emailaddress, user_table.sex FROM stock_table "
+		    		+ "JOIN user_table ON stock_table.emailaddress = user_table.emailaddress "
+		    		+ "WHERE stock_table.emailaddress = ? GROUP BY stock_table.emailaddress, user_table.sex;");
 		    st.setString(1, emailaddress);
-			ResultSet rs = st.executeQuery();
+			rs = st.executeQuery();
 			    
 		    // 結果をBeanに格納
 		    if (rs.next()) {
 		        bean = new Bean();
 		        bean.setEmailaddress(rs.getString("emailaddress"));
-		    }
-		    st.close();
-			con.close();
+		        bean.setSex(rs.getString("sex"));
+			    
+			    rs.close();
+			    st.close();
+				con.close();
+			}
 			return bean;
 		}
 	
@@ -181,7 +197,7 @@ public class KozouDAO extends DAO {
 				bean.setProductname(rs.getString("productname"));
 			}
 			
-			
+			rs.close();
 			st.close();
 			con.close();
 			
@@ -227,8 +243,10 @@ public class KozouDAO extends DAO {
 			bean.setProductname(rs.getString("productname"));
 		}
 		
+		rs.close();
 		st.close();
 		con.close();
+		
 		return bean;
 	}
 
@@ -266,8 +284,10 @@ public class KozouDAO extends DAO {
 			bean.setProductname(rs.getString("productname"));
 		}
 		
+		rs.close();
 		st.close();
 		con.close();
+		
 		return bean;
 	}
 
@@ -303,8 +323,10 @@ public class KozouDAO extends DAO {
 			bean.setProductname(rs.getString("productname"));
 		}
 		
+		rs.close();
 		st.close();
 		con.close();
+		
 		return bean;
 	}
 	
@@ -327,6 +349,7 @@ public class KozouDAO extends DAO {
 			    beans.add(bean);
 			}
 			
+			rs.close();
 			st.close();
 			con.close();
 			
@@ -353,10 +376,46 @@ public class KozouDAO extends DAO {
 			
 			}
 			
+			rs.close();
 			st.close();
 			con.close();
 			
 			return productbeans;
 		}
-
+	
+	public Bean userdelete(String productnumber, String emailaddress, int activenumber) 
+			throws Exception {
+			Bean bean=null;
+		
+			Connection con=getConnection();
+			
+			PreparedStatement st=con.prepareStatement(
+				"UPDATE stock_table SET activenumber = ? WHERE emailaddress = ? AND productnumber = ?;");
+			st.setInt(1, activenumber);
+			st.setString(2, emailaddress);
+			st.setString(3, productnumber);
+			System.out.println(st + " record(s) deleted.");
+			st.executeUpdate();
+			
+			// SELECT文の準備：すでに存在するデータを取得
+		    st = con.prepareStatement("SELECT stock_table.emailaddress, user_table.sex FROM stock_table "
+		    		+ "JOIN user_table ON stock_table.emailaddress = user_table.emailaddress "
+		    		+ "WHERE stock_table.emailaddress = ? GROUP BY stock_table.emailaddress, user_table.sex;");
+		    st.setString(1, emailaddress);
+			ResultSet rs = st.executeQuery();
+			    
+		    // 結果をBeanに格納
+		    if (rs.next()) {
+		        bean = new Bean();
+		        bean.setEmailaddress(rs.getString("emailaddress"));
+		        bean.setSex(rs.getString("sex"));
+		    }
+		    
+		    rs.close();
+		    st.close();
+			con.close();
+			
+			return bean;
+		}
+	
 }
