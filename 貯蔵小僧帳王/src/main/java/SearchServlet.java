@@ -21,14 +21,21 @@ import bean.Bean;
 public class SearchServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        doPost(request, response); // GETリクエストをPOSTメソッドに委譲
+    }    
+    
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
         // 検索キーワードを取得
         String keyword = request.getParameter("keyword");
+        String emailaddress = request.getParameter("emailaddress");
         
         List<Bean> searchResults = new ArrayList<>();
         DataSource dataSource = null;
+        
+        System.out.println(emailaddress);
 
         // データソースの取得
         try {
@@ -40,8 +47,8 @@ public class SearchServlet extends HttpServlet {
             try (Connection con = dataSource.getConnection()) {
                 // キーワードが空の場合は全件検索
                 String sql = keyword == null || keyword.isEmpty()
-                        ? "SELECT * FROM product_table"
-                        : "SELECT * FROM product_table WHERE productname LIKE ?";
+                        ? "SELECT * FROM product_table order by productnumber"
+                        : "SELECT * FROM product_table WHERE productname LIKE ? order by productnumber";
                 PreparedStatement st = con.prepareStatement(sql);
 
                 if (keyword != null && !keyword.isEmpty()) {
@@ -53,7 +60,8 @@ public class SearchServlet extends HttpServlet {
                 // SQLの実行
                 ResultSet rs = st.executeQuery();
                 
-                // 検索結果をProductオブジェクトに格納
+                System.out.println(rs.getFetchSize() + " query executed.");
+                
                 while (rs.next()) {
                     Bean bean = new Bean();
                     bean.setProductnumber(rs.getString("productnumber"));
@@ -66,8 +74,16 @@ public class SearchServlet extends HttpServlet {
             throw new ServletException("検索処理中にエラーが発生しました", e);
         }
 
-        // 検索結果をリクエスト属性に設定し、JSPに転送
+        // emailaddressがnullでない場合の処理
+        if (emailaddress == null) {
+            // 検索結果をリクエスト属性に設定し、JSPに転送
+        	request.setAttribute("searchResults", searchResults);
+            request.getRequestDispatcher("Adminhome.jsp").forward(request, response);
+        }
+        System.out.println(emailaddress);
+        request.setAttribute("emailaddress", emailaddress);
         request.setAttribute("searchResults", searchResults);
-        request.getRequestDispatcher("Adminhome.jsp").forward(request, response);
+        request.getRequestDispatcher("Useritemadd.jsp").forward(request, response);
+        
     }
 }

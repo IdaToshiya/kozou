@@ -22,6 +22,7 @@ public class Bean implements java.io.Serializable {
 	private String productname;
 	private int categorynumber;
 	private int numberofregistrations;
+	private String categoryname;
 	
 	public String getNickname() {
 		return nickname;
@@ -94,6 +95,10 @@ public class Bean implements java.io.Serializable {
 	public int getNumberofregistrations() {
 		return numberofregistrations;
 	}
+	
+	public String getCategoryname() {
+		return categoryname;
+	}
 //	------------------------------------------------------------------------------------
 	public void setNickname(String nickname) {
 		this.nickname=nickname;
@@ -165,5 +170,9 @@ public class Bean implements java.io.Serializable {
 	
 	public void setNumberofregistrations(int numberofregistrations) {
 		this.numberofregistrations=numberofregistrations;
+	}
+	
+	public void setCategoryname(String categoryname) {
+		this.categoryname=categoryname;
 	}
 }
