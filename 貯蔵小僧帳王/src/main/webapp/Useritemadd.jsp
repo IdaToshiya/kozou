@@ -41,14 +41,13 @@
                         <td>${item.productnumber}</td>
                         <td>${item.productname}</td>
                         <td>
-                            <!-- 商品追加フォーム -->
+                            <!-- 商品追加フォーム --> 
                             <form action="Useradd.action" method="post" style="display:inline;">
-	                            <div class="">
-                                
-	                                <input type="number" name="stock" placeholder="個数を入力" size="1" min="1">&nbsp;個
-	                                 <input type="submit" value="追加">
-
-	                            </div>
+	                         
+	                                <input type="number" name="stock" placeholder="個数を入力" size="1" min="1" class="number">&nbsp;個 <input type="submit" value="追加" class="useradd">
+	                               
+</div>
+	       
                                 <!-- メールアドレスを送信 -->
                                 <input type="hidden" name="emailaddress" value="${emailaddress}">
 <!--                                <input type="hidden" name="sex" value="${sex}">-->

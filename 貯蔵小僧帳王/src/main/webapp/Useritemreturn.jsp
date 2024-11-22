@@ -2,7 +2,7 @@
 <%@include file="../header.html" %>
 <%@taglib prefix="sql" uri="jakarta.tags.sql" %>
 <%@taglib prefix="c" uri="jakarta.tags.core" %>
-
+	<form action="" method="post"  class="center">	
 <sql:query var="list" dataSource="jdbc/kozou">
 	select * from stock_table LEFT JOIN product_table ON stock_table.productnumber = product_table.productnumber where emailaddress = '${emailaddress}' AND activenumber = 2;
 </sql:query>
