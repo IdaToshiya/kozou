@@ -22,27 +22,16 @@ public class start extends HttpServlet {
 		try {
 				String emailaddress=request.getParameter("emailaddress");
 				String productnumber=request.getParameter("productnumber");
+				int stock=Integer.parseInt(request.getParameter("stock"));
 				
 				System.out.println(productnumber);
 				
 				KozouDAO dao=new KozouDAO();
-				Bean bean = dao.start(emailaddress, productnumber);
-	        	
-	        	if (bean != null && "female".equals(bean.getSex())) {
-	        		
-					request.setAttribute("bean", bean);
-					request.getRequestDispatcher("userhome2.jsp").forward(request, response);
-					
-				} 
-				else if (bean != null && "male".equals(bean.getSex())) {
-					
-					request.setAttribute("bean", bean);
-					request.getRequestDispatcher("userhome.jsp").forward(request, response);
-					
-				}
-		
+				Bean bean = dao.start(emailaddress, productnumber, stock);
+				
 				request.setAttribute("bean", bean);
-				request.getRequestDispatcher("userhome3.jsp").forward(request, response);			
+	        	request.getRequestDispatcher("userhome.jsp").forward(request, response);
+			
 
 		} catch (Exception e) {
 			e.printStackTrace(out);
