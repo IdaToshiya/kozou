@@ -418,4 +418,5 @@ public class KozouDAO extends DAO {
 			return bean;
 		}
 	
+	
 }

@@ -31,6 +31,7 @@ public class SearchServlet extends HttpServlet {
         // 検索キーワードを取得
         String keyword = request.getParameter("keyword");
         String emailaddress = request.getParameter("emailaddress");
+        String sex = request.getParameter("sex");
         
         List<Bean> searchResults = new ArrayList<>();
         DataSource dataSource = null;
@@ -81,7 +82,9 @@ public class SearchServlet extends HttpServlet {
             request.getRequestDispatcher("Adminhome.jsp").forward(request, response);
         }
         System.out.println(emailaddress);
+        
         request.setAttribute("emailaddress", emailaddress);
+        request.setAttribute("sex", sex);
         request.setAttribute("searchResults", searchResults);
         request.getRequestDispatcher("Useritemadd.jsp").forward(request, response);
         
