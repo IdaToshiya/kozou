@@ -44,14 +44,17 @@
                             <!-- 商品追加フォーム -->
                             <form action="Useradd.action" method="post" style="display:inline;">
 	                            <div class="">
+                                
 	                                <input type="number" name="stock" placeholder="個数を入力" size="1" min="1">&nbsp;個
+	                                 <input type="submit" value="追加">
+
 	                            </div>
                                 <!-- メールアドレスを送信 -->
                                 <input type="hidden" name="emailaddress" value="${emailaddress}">
 <!--                                <input type="hidden" name="sex" value="${sex}">-->
                                 <!-- 商品情報（商品番号と商品名）を送信 -->
                                 <input type="hidden" name="productnumber" value="${item.productnumber}">
-                                <input type="submit" value="追加">
+                               
                             </form>
                         </td>
                     </tr>

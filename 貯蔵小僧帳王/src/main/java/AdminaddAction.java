@@ -14,7 +14,8 @@ public class AdminaddAction extends Action {
 		
 		String productnumber=request.getParameter("productnumber");
 		String productname=request.getParameter("productname");
-		String categorynumber=request.getParameter("categorynumber");
+		int categorynumber=Integer.parseInt(request.getParameter("categorynumber"));            
+
 		
 		KozouDAO dao=new KozouDAO();
 		int productline=dao.productinsert(productnumber, productname, categorynumber);

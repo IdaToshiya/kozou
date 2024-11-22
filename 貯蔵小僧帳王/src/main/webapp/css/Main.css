@@ -151,4 +151,22 @@ label {
   margin-left:15px;
 }
 
-
+input[type="number"] {
+  width: 65px; /*--幅--*/
+  padding: 10px; /*--余白--*/
+  font-size: 10px; /*--文字サイズ--*/
+  border: solid 2px #cccccc; /*--ボーダー線--*/
+  border-radius: 5px; /*--角丸--*/
+}
+/*.edit{*/
+/*	border-radius: 0.5rem;*/
+/*	width: 100px;*/
+/*	padding: 10px;*/
+/*	box-sizing: border-box;*/
+/*	background: darkblue;*/
+/*	color: #FFF;*/
+/*	text-decoration: none;*/
+/*	margin: 10px 0;*/
+/*	font-size: 10px;*/
+/*	font-family: "Yuji Syuku", serif;*/
+/*}*/

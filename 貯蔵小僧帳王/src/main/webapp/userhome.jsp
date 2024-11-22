@@ -42,7 +42,7 @@ String password = User.getPassword();
 	<td>
 	<a href="Stockdecrease?emailaddress=${list.emailaddress}&productnumber=${list.productnumber}&stock=${list.stock}">-</a>
 	</td>
-	<td><a href="start?productnumber=${list.productnumber}&emailaddress=${list.emailaddress}">スタート</a></td>
+	<td><a href="start?productnumber=${list.productnumber}&emailaddress=${list.emailaddress}&stock=${list.stock}">スタート</a></td>
 	<td><progress id="progress" max="${list.perioddenominator}" value="${list.periodnumerator}"></progress></td>
 	<td><a href="Delete?id=${list.productnumber}">削除</a></td>
 	</tr>
@@ -72,9 +72,9 @@ String password = User.getPassword();
 	<td>
 	<a href="Stockdecrease?emailaddress=${list.emailaddress}&productnumber=${list.productnumber}&stock=${list.stock}">-</a>
 	</td>
-	<td><a href="Completion?productnumber=${list.productnumber}">スタート</a></td>
+	<td><a href="start?productnumber=${list.productnumber}&emailaddress=${list.emailaddress}&stock=${list.stock}">スタート</a></td>
 	<td><progress id="progress" max="${list.perioddenominator}" value="${list.periodnumerator}"></progress></td>
-	<td><a href="Delete?productnumber=${list.productnumber}">削除</a></td>
+	<td><a href="Delete?id=${list.productnumber}">削除</a></td>
 	</tr>
 </c:forEach>
 </table>

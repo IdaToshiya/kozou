@@ -32,17 +32,17 @@ public class UserDelete extends HttpServlet {
     			request.setAttribute("bean", bean);
     			request.getRequestDispatcher("userhome2.jsp").forward(request, response);
     			
-    		} 
-    		else if (bean != null && "male".equals(bean.getSex())) {
+    		} else if (bean != null && "male".equals(bean.getSex())) {
+    			
+    			request.setAttribute("bean", bean);
+    			request.getRequestDispatcher("userhome.jsp").forward(request, response);
+    			
+    		} else if (bean != null && "empty".equals(bean.getSex())) {
     			
     			request.setAttribute("bean", bean);
     			request.getRequestDispatcher("userhome3.jsp").forward(request, response);
     			
     		}
-
-    		request.setAttribute("bean", bean);
-    		request.getRequestDispatcher("userhome.jsp").forward(request, response);
-
         } catch (Exception e) {
             e.printStackTrace();
             request.setAttribute("errorMessage", "削除に失敗しました。");

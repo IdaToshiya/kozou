@@ -38,7 +38,7 @@ color:#5BC8AC;
 
 .green{
 	border-radius: 0.5rem;
-	width: 200px;
+	width: 250px;
 	padding: 10px;
 	box-sizing: border-box;
 	background: #fff79b;
@@ -51,12 +51,11 @@ color:#5BC8AC;
 	margin: 10px 0;
 	font-size: 25px;
 	font-family: "Hachi Maru Pop", cursive;
-	font-weight: 900
 }
 
 .red{
 	border-radius: 0.5rem;
-	width: 200px;
+	width: 250px;
 	padding: 10px;
 	box-sizing: border-box;
 	background: #cfa7cc;
@@ -69,7 +68,7 @@ color:#5BC8AC;
 	margin: 10px 0;
 	font-size: 25px;
 	font-family: "Hachi Maru Pop", cursive;
-	font-weight: 900;
+
 }
 
 .blue{
@@ -87,7 +86,7 @@ color:#5BC8AC;
 	margin: 10px 0;
 	font-size: 25px;
 	font-family: "Hachi Maru Pop", cursive;
-	font-weight: 900
+
 }
 
 
@@ -183,8 +182,13 @@ label {
 	font-family: "Hachi Maru Pop", cursive;
 	font-weight: 900
 	
-	
-	
+}
+input[type="number"] {
+  width: 65px; /*--幅--*/
+  padding: 10px; /*--余白--*/
+  font-size: 10px; /*--文字サイズ--*/
+  border: solid 2px #cccccc; /*--ボーダー線--*/
+  border-radius: 5px; /*--角丸--*/
 }
 
 /*削除済みボタン*/
