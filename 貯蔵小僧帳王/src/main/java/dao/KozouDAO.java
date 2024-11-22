@@ -1,9 +1,11 @@
 package dao;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -255,34 +257,69 @@ public class KozouDAO extends DAO {
 		Connection con=getConnection();
 		Bean bean=null;
 		
-		int addstock = stock-1;
-		System.out.println(addstock);
+		int decreasestock = stock-1;
+		System.out.println(decreasestock);
 		System.out.println(productnumber);
 		System.out.println(emailaddress);
+		LocalDate today = LocalDate.now();
+		Date sqlDateToday = Date.valueOf(today);
 
 		PreparedStatement st=con.prepareStatement(
-			"UPDATE stock_table SET stock = ? WHERE emailaddress = ? AND productnumber = ?;");
-		st.setInt(1, addstock);
-		st.setString(2, emailaddress);
-		st.setString(3, productnumber);
+			"UPDATE stock_table SET stock = ?, enduse = ? WHERE emailaddress = ? AND productnumber = ?;");
+		st.setInt(1, decreasestock);
+		st.setDate(2, sqlDateToday);
+		st.setString(3, emailaddress);
+		st.setString(4, productnumber);
 		st.executeUpdate();
 		
-		st=con.prepareStatement("select * from user_table LEFT JOIN stock_table ON user_table.emailaddress = stock_table.emailaddress LEFT JOIN product_table ON stock_table.productnumber = product_table.productnumber where user_table.emailaddress = ?");
+		st=con.prepareStatement("select * from user_table LEFT JOIN stock_table ON user_table.emailaddress = stock_table.emailaddress LEFT JOIN product_table ON stock_table.productnumber = product_table.productnumber where user_table.emailaddress = ? AND stock_table.productnumber = ?");
 		st.setString(1, emailaddress);
+		st.setString(2, productnumber);
 		
 		ResultSet rs=st.executeQuery();
 
 		while (rs.next()) {
 			bean =new Bean();
-//			bean.setNickname(rs.getString("nickname"));
-//			bean.setPassword(rs.getString("password"));
-//			bean.setPrefectures(rs.getString("prefectures"));
+			bean.setNickname(rs.getString("nickname"));
+			bean.setPassword(rs.getString("password"));
+			bean.setPrefectures(rs.getString("prefectures"));
 			bean.setSex(rs.getString("sex"));
-//			bean.setDateofbirth(rs.getDate("dateofbirth"));
+			bean.setDateofbirth(rs.getDate("dateofbirth"));
 			bean.setEmailaddress(rs.getString("emailaddress"));
-//			bean.setProductnumber(rs.getString("productnumber"));
-//			bean.setProductname(rs.getString("productname"));
+			bean.setProductnumber(rs.getString("productnumber"));
+			bean.setProductname(rs.getString("productname"));
+			bean.setEnduse(rs.getDate("enduse"));
+			bean.setPeriodnumerator(rs.getInt("periodnumerator"));
 		}
+		
+		Date end = bean.getEnduse();
+		
+		System.out.println(end);
+		LocalDate endday = end.toLocalDate();
+		
+		
+		// 日付の差を計算
+        long daysBetween = ChronoUnit.DAYS.between(today, endday);
+        
+        PreparedStatement stm=con.prepareStatement(
+    			"UPDATE stock_table SET perioddenominator = ? WHERE emailaddress = ? AND productnumber = ?;");
+    		stm.setLong(1, daysBetween);
+    		stm.setString(2, emailaddress);
+    		stm.setString(3, productnumber);
+    		stm.executeUpdate();
+    		
+    		System.out.println(daysBetween);
+    		
+    		int bunsi = bean.getPeriodnumerator();
+    		
+    	if (bunsi == 0) {
+    		PreparedStatement stm1=con.prepareStatement(
+        			"UPDATE stock_table SET periodnumerator = ? WHERE emailaddress = ? AND productnumber = ?;");
+        		stm1.setLong(1, daysBetween);
+        		stm1.setString(2, emailaddress);
+        		stm1.setString(3, productnumber);
+        		stm1.executeUpdate();
+    	}
 		
 		rs.close();
 		st.close();
@@ -291,36 +328,43 @@ public class KozouDAO extends DAO {
 		return bean;
 	}
 
-	public Bean start(String emailaddress, String productnumber)
+	public Bean start(String emailaddress, String productnumber, int stock)
 			throws Exception {
 		Connection con=getConnection();
 		Bean bean=null;
 		
-		var Date = LocalDateTime.now();
-        String Day = "%tm月%td日".formatted(Date, Date);
+		LocalDate today = LocalDate.now();
+		Date sqlDateToday = Date.valueOf(today);
+		int decreasestock = stock-1;
+		
+		System.out.println(decreasestock);
 
 		PreparedStatement st=con.prepareStatement(
-			"UPDATE stock_table SET startusing = ? WHERE emailaddress = ? AND productnumber = ?;");
-		st.setString(1, Day);
-		st.setString(2, emailaddress);
-		st.setString(3, productnumber);
+			"UPDATE stock_table SET startusing = ?, stock = ? WHERE emailaddress = ? AND productnumber = ?;");
+		st.setDate(1, sqlDateToday);
+		st.setInt(2, decreasestock);
+		st.setString(3, emailaddress);
+		st.setString(4, productnumber);
 		st.executeUpdate();
 		
-		st=con.prepareStatement("select * from user_table LEFT JOIN stock_table ON user_table.emailaddress = stock_table.emailaddress LEFT JOIN product_table ON stock_table.productnumber = product_table.productnumber where user_table.emailaddress = ?");
+		st=con.prepareStatement("select * from user_table LEFT JOIN stock_table ON user_table.emailaddress = stock_table.emailaddress LEFT JOIN product_table ON stock_table.productnumber = product_table.productnumber where user_table.emailaddress = ? AND stock_table.productnumber = ?");
 		st.setString(1, emailaddress);
+		st.setString(2, productnumber);
 		
 		ResultSet rs=st.executeQuery();
 
 		while (rs.next()) {
 			bean =new Bean();
-//			bean.setNickname(rs.getString("nickname"));
-//			bean.setPassword(rs.getString("password"));
-//			bean.setPrefectures(rs.getString("prefectures"));
+			bean.setNickname(rs.getString("nickname"));
+			bean.setPassword(rs.getString("password"));
+			bean.setPrefectures(rs.getString("prefectures"));
 			bean.setSex(rs.getString("sex"));
-//			bean.setDateofbirth(rs.getDate("dateofbirth"));
+			bean.setDateofbirth(rs.getDate("dateofbirth"));
 			bean.setEmailaddress(rs.getString("emailaddress"));
-//			bean.setProductnumber(rs.getString("productnumber"));
-//			bean.setProductname(rs.getString("productname"));
+			bean.setProductnumber(rs.getString("productnumber"));
+			bean.setProductname(rs.getString("productname"));
+			bean.setEnduse(rs.getDate("enduse"));
+			bean.setPeriodnumerator(rs.getInt("periodnumerator"));
 		}
 		
 		rs.close();
@@ -329,6 +373,7 @@ public class KozouDAO extends DAO {
 		
 		return bean;
 	}
+
 	
 	public List<Bean> dashboard1(String today)
 			throws Exception {
