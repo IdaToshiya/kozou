@@ -36,12 +36,12 @@ public class UserDelete extends HttpServlet {
     		else if (bean != null && "male".equals(bean.getSex())) {
     			
     			request.setAttribute("bean", bean);
-    			request.getRequestDispatcher("userhome3.jsp").forward(request, response);
+    			request.getRequestDispatcher("userhome.jsp").forward(request, response);
     			
     		}
 
     		request.setAttribute("bean", bean);
-    		request.getRequestDispatcher("userhome.jsp").forward(request, response);
+    		request.getRequestDispatcher("userhome3.jsp").forward(request, response);
 
         } catch (Exception e) {
             e.printStackTrace();

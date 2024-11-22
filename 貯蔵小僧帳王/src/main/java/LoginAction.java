@@ -1,7 +1,6 @@
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
 
 import bean.Bean;
 import dao.KozouDAO;
@@ -11,7 +10,6 @@ public class LoginAction extends Action {
 
 	public String execute(
 			HttpServletRequest request, HttpServletResponse response) throws Exception {
-		HttpSession session = request.getSession();
 
 		String password = request.getParameter("password");
 		String nickname = request.getParameter("nickname");
@@ -44,6 +42,13 @@ public class LoginAction extends Action {
 			request.setAttribute("bean", bean);
 			request.getRequestDispatcher("userhome.jsp").forward(request, response);
 			
+		}
+		
+		else if (bean != null && "empty".equals(bean.getSex())) {
+		
+		request.setAttribute("bean", bean);
+		request.getRequestDispatcher("userhome3.jsp").forward(request, response);
+		
 		}
 
 		// ログイン失敗時の処理
