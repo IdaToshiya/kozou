@@ -1,8 +1,9 @@
 @charset "UTF-8";
-/*その他サンプル2*/
+/*性別その他*/
 body {
-	background-color: #d2cbb4;
+	background-color: #e3d7a3;
 	font-family: "Hina Mincho", serif;
+	}
 
 /* 15px */
 .rainbow {
@@ -22,7 +23,7 @@ body {
 
 .hina-mincho-regular {
    font-family: "Hina Mincho", serif;
-   font-weight: 400;
+   font-weight: 300;
    font-style: normal;
 }
 
@@ -63,9 +64,9 @@ a:visited { /*アクセスしたことのあるリンク*/
 	0 1px 0 #ffffff,  0 -1px 0 #ffffff;
 	text-decoration: none;
 	margin: 10px 0;
-	font-size: 25px;
+	font-size: 20px;
 	font-family: "Hina Mincho", serif;
-	font-weight: 900
+
 }
 
 .red{
@@ -81,9 +82,9 @@ a:visited { /*アクセスしたことのあるリンク*/
 	0 1px 0 #ffffff,  0 -1px 0 #ffffff;
 	text-decoration: none;
 	margin: 10px 0;
-	font-size: 25px;
+	font-size: 20px;
 	font-family: "Hina Mincho", serif;
-	font-weight: 900;
+
 }
 
 .blue{
@@ -196,9 +197,6 @@ label {
 	font-size: 15px;
 	font-family: "Hina Mincho", serif;
 	font-weight: 900
-	
-	
-	
 }
 
 /*削除済みボタン*/
@@ -213,7 +211,8 @@ label {
   margin-left:15px;
 }
 /*追加ボタン*/
-.add{ cursor: pointer;
+.add{ 
+  cursor: pointer;
   font-family: FontAwesome;
   border: none;
   background:#522641;
