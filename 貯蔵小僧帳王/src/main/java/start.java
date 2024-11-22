@@ -27,10 +27,22 @@ public class start extends HttpServlet {
 				
 				KozouDAO dao=new KozouDAO();
 				Bean bean = dao.start(emailaddress, productnumber);
-				
+	        	
+	        	if (bean != null && "female".equals(bean.getSex())) {
+	        		
+					request.setAttribute("bean", bean);
+					request.getRequestDispatcher("userhome2.jsp").forward(request, response);
+					
+				} 
+				else if (bean != null && "male".equals(bean.getSex())) {
+					
+					request.setAttribute("bean", bean);
+					request.getRequestDispatcher("userhome.jsp").forward(request, response);
+					
+				}
+		
 				request.setAttribute("bean", bean);
-	        	request.getRequestDispatcher("userhome.jsp").forward(request, response);
-			
+				request.getRequestDispatcher("userhome3.jsp").forward(request, response);			
 
 		} catch (Exception e) {
 			e.printStackTrace(out);

@@ -28,13 +28,13 @@ public class KozouDAO extends DAO {
 
 		while (rs.next()) {
 			bean =new Bean();
-			bean.setNickname(rs.getString("nickname"));
-			bean.setPassword(rs.getString("password"));
-			bean.setPrefectures(rs.getString("prefectures"));
+//			bean.setNickname(rs.getString("nickname"));
+//			bean.setPassword(rs.getString("password"));
+//			bean.setPrefectures(rs.getString("prefectures"));
 			bean.setSex(rs.getString("sex"));
-			bean.setDateofbirth(rs.getDate("dateofbirth"));
+//			bean.setDateofbirth(rs.getDate("dateofbirth"));
 			bean.setEmailaddress(rs.getString("emailaddress"));
-			bean.setProductnumber(rs.getString("productnumber"));
+//			bean.setProductnumber(rs.getString("productnumber"));
 		}
 		
 		rs.close();
@@ -87,7 +87,7 @@ public class KozouDAO extends DAO {
 			return line;
 		}
 	
-	public int productinsert(String productnumber, String productname, String categorynumber)
+	public int productinsert(String productnumber, String productname, int categorynumber)
 			throws Exception {
 			
 			Connection con=getConnection();
@@ -96,7 +96,7 @@ public class KozouDAO extends DAO {
 			st=con.prepareStatement("insert into product_table(productnumber, productname, categorynumber) values(?, ?, ?) ");
 			st.setString(1, productnumber);
 			st.setString(2, productname);
-			st.setString(3, categorynumber);
+			st.setInt(3, categorynumber);
 //			st.setString(4, numberofregistrations);
 			System.out.println(st);
 			int productline=st.executeUpdate();
@@ -126,7 +126,7 @@ public class KozouDAO extends DAO {
                 return null; // 呼び出し元でエラーを処理
             }
 
-			st=con.prepareStatement("INSERT INTO stock_table (stock, productnumber, activenumber, emailaddress) VALUES (?, ?, 1, ?)");
+			st=con.prepareStatement("INSERT INTO stock_table (stock, productnumber, activenumber, emailaddress, perioddenominator, periodnumerator) VALUES (?, ?, 1, ?, 0, 0)");
 			st.setInt(1, stock); 
 			st.setString(2, productnumber);
 			st.setString(3, emailaddress);
@@ -170,45 +170,45 @@ public class KozouDAO extends DAO {
 			return line;
 		}
 	
-	public Bean usersearch(String productname, String nickname, String password)
-			throws Exception {
-			Bean bean=null;
-			
-			String likename = "%" + productname + "%";
-			
-			Connection con=getConnection();
-
-			PreparedStatement st;
-			st=con.prepareStatement("select * from user_table LEFT JOIN stock_table ON user_table.emailaddress = stock_table.emailaddress LEFT JOIN product_table ON stock_table.productnumber = product_table.productnumber where productname LIKE ? AND nickname = ? AND password = ?");
-			st.setString(1, likename);
-			st.setString(2, nickname);
-			st.setString(3, password);
-			ResultSet rs=st.executeQuery();
-
-			while (rs.next()) {
-				bean =new Bean();
-				bean.setNickname(rs.getString("nickname"));
-				bean.setPassword(rs.getString("password"));
-				bean.setPrefectures(rs.getString("prefectures"));
-				bean.setSex(rs.getString("sex"));
-				bean.setDateofbirth(rs.getDate("dateofbirth"));
-				bean.setEmailaddress(rs.getString("emailaddress"));
-				bean.setProductnumber(rs.getString("productnumber"));
-				bean.setProductname(rs.getString("productname"));
-			}
-			
-			rs.close();
-			st.close();
-			con.close();
-			
-
-			// こんな風にすれば Bean の中身がログに出力できる
-			String bbb =( ToStringBuilder.reflectionToString(bean, ToStringStyle.DEFAULT_STYLE) );
-			System.out.println(bbb);
-
-			return bean;
-		}
-	
+//	public Bean usersearch(String productname, String nickname, String password)
+//			throws Exception {
+//			Bean bean=null;
+//			
+//			String likename = "%" + productname + "%";
+//			
+//			Connection con=getConnection();
+//
+//			PreparedStatement st;
+//			st=con.prepareStatement("select * from user_table LEFT JOIN stock_table ON user_table.emailaddress = stock_table.emailaddress LEFT JOIN product_table ON stock_table.productnumber = product_table.productnumber where productname LIKE ? AND nickname = ? AND password = ?");
+//			st.setString(1, likename);
+//			st.setString(2, nickname);
+//			st.setString(3, password);
+//			ResultSet rs=st.executeQuery();
+//
+//			while (rs.next()) {
+//				bean =new Bean();
+//				bean.setNickname(rs.getString("nickname"));
+//				bean.setPassword(rs.getString("password"));
+//				bean.setPrefectures(rs.getString("prefectures"));
+//				bean.setSex(rs.getString("sex"));
+//				bean.setDateofbirth(rs.getDate("dateofbirth"));
+//				bean.setEmailaddress(rs.getString("emailaddress"));
+//				bean.setProductnumber(rs.getString("productnumber"));
+//				bean.setProductname(rs.getString("productname"));
+//			}
+//			
+//			rs.close();
+//			st.close();
+//			con.close();
+//			
+//
+//			// こんな風にすれば Bean の中身がログに出力できる
+//			String bbb =( ToStringBuilder.reflectionToString(bean, ToStringStyle.DEFAULT_STYLE) );
+//			System.out.println(bbb);
+//
+//			return bean;
+//		}
+//	
 	public Bean add(String emailaddress, String productnumber, int stock)
 			throws Exception {
 		Connection con=getConnection();
@@ -233,14 +233,14 @@ public class KozouDAO extends DAO {
 
 		while (rs.next()) {
 			bean =new Bean();
-			bean.setNickname(rs.getString("nickname"));
-			bean.setPassword(rs.getString("password"));
-			bean.setPrefectures(rs.getString("prefectures"));
+//			bean.setNickname(rs.getString("nickname"));
+//			bean.setPassword(rs.getString("password"));
+//			bean.setPrefectures(rs.getString("prefectures"));
 			bean.setSex(rs.getString("sex"));
-			bean.setDateofbirth(rs.getDate("dateofbirth"));
+//			bean.setDateofbirth(rs.getDate("dateofbirth"));
 			bean.setEmailaddress(rs.getString("emailaddress"));
-			bean.setProductnumber(rs.getString("productnumber"));
-			bean.setProductname(rs.getString("productname"));
+//			bean.setProductnumber(rs.getString("productnumber"));
+//			bean.setProductname(rs.getString("productname"));
 		}
 		
 		rs.close();
@@ -274,14 +274,14 @@ public class KozouDAO extends DAO {
 
 		while (rs.next()) {
 			bean =new Bean();
-			bean.setNickname(rs.getString("nickname"));
-			bean.setPassword(rs.getString("password"));
-			bean.setPrefectures(rs.getString("prefectures"));
+//			bean.setNickname(rs.getString("nickname"));
+//			bean.setPassword(rs.getString("password"));
+//			bean.setPrefectures(rs.getString("prefectures"));
 			bean.setSex(rs.getString("sex"));
-			bean.setDateofbirth(rs.getDate("dateofbirth"));
+//			bean.setDateofbirth(rs.getDate("dateofbirth"));
 			bean.setEmailaddress(rs.getString("emailaddress"));
-			bean.setProductnumber(rs.getString("productnumber"));
-			bean.setProductname(rs.getString("productname"));
+//			bean.setProductnumber(rs.getString("productnumber"));
+//			bean.setProductname(rs.getString("productname"));
 		}
 		
 		rs.close();
@@ -313,14 +313,14 @@ public class KozouDAO extends DAO {
 
 		while (rs.next()) {
 			bean =new Bean();
-			bean.setNickname(rs.getString("nickname"));
-			bean.setPassword(rs.getString("password"));
-			bean.setPrefectures(rs.getString("prefectures"));
+//			bean.setNickname(rs.getString("nickname"));
+//			bean.setPassword(rs.getString("password"));
+//			bean.setPrefectures(rs.getString("prefectures"));
 			bean.setSex(rs.getString("sex"));
-			bean.setDateofbirth(rs.getDate("dateofbirth"));
+//			bean.setDateofbirth(rs.getDate("dateofbirth"));
 			bean.setEmailaddress(rs.getString("emailaddress"));
-			bean.setProductnumber(rs.getString("productnumber"));
-			bean.setProductname(rs.getString("productname"));
+//			bean.setProductnumber(rs.getString("productnumber"));
+//			bean.setProductname(rs.getString("productname"));
 		}
 		
 		rs.close();
