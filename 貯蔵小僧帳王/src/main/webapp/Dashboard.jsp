@@ -53,7 +53,6 @@
 	<!-- グラフを描画するキャンバス -->
     <canvas id="productChart2"></canvas>
 	<!-- Chart.js -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.2.0/chart.min.js"></script>
     <script>
 	    // サーバーからのデータを JavaScript 形式に変換
 	    const productbeans = [
