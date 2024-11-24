@@ -1,8 +1,9 @@
 @charset "UTF-8";
 /*性別その他*/
 body {
-	background-color: #e3d7a3;
+	background-color: #FFFAF4;
 	font-family: "Hina Mincho", serif;
+	color: #553501;
 	}
 
 /* 15px */
@@ -33,26 +34,26 @@ body {
 }
 
 p{
-	text-align: center;
+  text-align: center;
 }
 
 h1 {
-	font-size: 50px;
-	text-align: center;
+  font-size: 50px;
+  text-align: center;
 }
 
 
 input{
-	text-align: center;
-	vertical-align:top;
+  text-align: center;
+  vertical-align:top;
 }
 
 a:link { /*アクセスしたことのないリンク*/
-	color:#9d8e87;
+  color:#9d8e87;
 }
 
 a:visited { /*アクセスしたことのあるリンク*/
-	color:#5BC8AC;
+  color:#5BC8AC;
 }
 
 .green{
@@ -131,9 +132,10 @@ label {
 .box{
 	padding: 0.5em 1em;
 	margin: 2em 0;
-	color: #2c2c2f;
+	color: #553501;
 	background: #FFFFFF;
 	width: 700px;
+	border-radius: 0.75em;
 	}
 .box p {
 	margin: 0; 
@@ -142,35 +144,35 @@ label {
 	
 /*検索フォーム*/
 .search_container{
-  box-sizing: border-box;
-  display: inline-block;
+    box-sizing: border-box;
+    display: inline-block;
 }
 
 .search_container input[type="text"]{
-  background: #FFFFFF;
-  border: none;
-  height: 35px;
-  width: 380px;
+    background: #FFFFFF;
+    border: none;
+    height: 35px;
+    width: 380px;
 }
 .search_container input[type="text"]:focus {
-  outline: 0;
+    outline: 0;
 }
 .search_container input[type="submit"]{
-  cursor: pointer;
-  font-family: FontAwesome;
-  border: none;
-  background: #6cae97;
-  color: #ffffff;
-  outline : none;
-  width: 4.0em;
-  height: 37px;
-  margin-left:15px;
+   cursor: pointer;
+   font-family: FontAwesome;
+   border: none;
+   background: #6cae97;
+   color: #ffffff;
+   outline : none;
+   width: 4.0em;
+   height: 37px;
+   margin-left:15px;
 }
 
 
 .edit{
-	border-radius: 0.5rem;
-	width: 200px;
+    border-radius: 0.5rem;
+    width: 200px;
 	padding: 8px;
 	box-sizing: border-box;
 	background: #fabd05;
@@ -188,27 +190,26 @@ label {
 }
 
 /*削除済みボタン*/
-.del{ cursor: pointer;
-  font-family: FontAwesome;
-  border: none;
-  background: #6cae97;
-  color: #ffffff;
-  outline : none;
-  width: 10.0em;
-  height: 30px;
-  margin-left:15px;
-}
+/*.del{ cursor: pointer;*/
+/*  font-family: FontAwesome;*/
+/*  border: none;*/
+/*  background: #6cae97;*/
+/*  color: #ffffff;*/
+/*  outline : none;*/
+/*  width: 10.0em;*/
+/*  height: 30px;*/
+/*  margin-left:15px;*/
+/*}*/
 /*追加ボタン*/
-.add{ 
-  cursor: pointer;
-  font-family: FontAwesome;
-  border: none;
-  background:#522641;
-  color: #ffffff;
-  outline : none;
-  width: 4.0em;
-  height: 30px;
-  margin-left:15px;
-}
-
+/*.add{ */
+/*  cursor: pointer;*/
+/*  font-family: FontAwesome;*/
+/*  border: none;*/
+/*  background:#522641;*/
+/*  color: #ffffff;*/
+/*  outline : none;*/
+/*  width: 4.0em;*/
+/*  height: 30px;*/
+/*  margin-left:15px;*/
+/*}*/
 

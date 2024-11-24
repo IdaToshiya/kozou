@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>貯蔵小僧帳王</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/sub2.css" type="text/css" media="all">
 </head>
 <body >
