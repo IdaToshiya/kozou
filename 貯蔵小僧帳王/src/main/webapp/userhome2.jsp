@@ -32,14 +32,15 @@ session.setAttribute("sex", sex);// リクエストスコープに格納
 	</div>
 
 	<sql:query var="list" dataSource="jdbc/kozou">
-		select * FROM stock_table LEFT JOIN product_table ON stock_table.productnumber = product_table.productnumber
-		 where emailaddress = '${emailaddress}' AND stock <= 1 AND activenumber = 1;
-	</sql:query>
-	
-		<div class="box">
-			<p>なくなりそうなもの</p>
-			<table>
-				<c:forEach var="list" items="${list.rows}">
+    
+	select * FROM stock_table LEFT JOIN product_table ON stock_table.productnumber = product_table.productnumber
+	 where emailaddress = '${emailaddress}' AND stock <= 1 AND activenumber = 1;
+</sql:query>
+
+	<div class="box">
+		<td>なくなりそうなもの</td>
+		<table cellpadding="5">
+			<c:forEach var="list" items="${list.rows}">
 				    <tr>
 				        <td>${list.productname}</td>
 				        <td>${list.stock}</td>

@@ -37,8 +37,8 @@ session.setAttribute("sex", sex);// リクエストスコープに格納
 </sql:query>
 
 	<div class="box">
-		<p>なくなりそうなもの</p>
-		<table>
+		<td>なくなりそうなもの</td>
+		<table cellpadding="5">
 			<c:forEach var="list" items="${list.rows}">
 				<tr>
 					<td>${list.productname}</td>
