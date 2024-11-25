@@ -9,6 +9,9 @@
 
 <h1>新しい商品を使用する</h1>
 <p>1商品づつ追加してください</p>
+<% if (request.getAttribute("errorMessage") != null) { %>
+    <p style="color: red;"><%= request.getAttribute("errorMessage") %></p>
+<% } %>
 <section>
 	<form action="" method="post" class="center">
 		<!-- 検索フォーム -->

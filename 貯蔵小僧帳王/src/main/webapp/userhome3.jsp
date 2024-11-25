@@ -50,8 +50,11 @@ session.setAttribute("sex", sex);// リクエストスコープに格納
 						href="Stockdecrease?emailaddress=${list.emailaddress}&productnumber=${list.productnumber}&stock=${list.stock}">－</a>
 					</td>
 					<td><a href="start?productnumber=${list.productnumber}&emailaddress=${list.emailaddress}&stock=${list.stock}">スタート</a></td>
-					<td><progress id="progress" max="${list.perioddenominator}"
-							value="${list.periodnumerator}"></progress></td>
+					<td>
+			            <!-- Progress bar with debugging output -->
+			            <progress class="progress-bar" max="${list.perioddenominator}" value="${list.periodnumerator}"></progress>
+			            <p>Max: ${list.perioddenominator}, Value: ${list.periodnumerator}</p>
+			        </td>
 					<td><a href="UserDelete?emailaddress=${list.emailaddress}&productnumber=${list.productnumber}&activenumber=2">削除</a></td>
 				</tr>
 			</c:forEach>
@@ -74,12 +77,65 @@ session.setAttribute("sex", sex);// リクエストスコープに格納
 						href="Stockdecrease?emailaddress=${list.emailaddress}&productnumber=${list.productnumber}&stock=${list.stock}">－</a>
 					</td>&nbsp;
 					<td><a href="start?productnumber=${list.productnumber}&emailaddress=${list.emailaddress}&stock=${list.stock}">スタート</a></td>
-					<td><progress id="progress" max="${list.perioddenominator}"
-							value="${list.periodnumerator}"></progress></td>
+					<td>
+			            <!-- Progress bar with debugging output -->
+			            <progress class="progress-bar" max="${list.perioddenominator}" value="${list.periodnumerator}"></progress>
+			            <p>Max: ${list.perioddenominator}, Value: ${list.periodnumerator}</p>
+			        </td>
 					<td><a href="UserDelete?emailaddress=${list.emailaddress}&productnumber=${list.productnumber}&activenumber=2">削除</a></td>
 				</tr>
 			</c:forEach>
 		</table>
+		<script>
+		    document.addEventListener("DOMContentLoaded", function () {
+		        const progressBars = document.querySelectorAll(".progress-bar");
+		
+		        progressBars.forEach(progress => {
+		            const max = parseInt(progress.getAttribute("max"), 10);
+		            const value = parseInt(progress.getAttribute("value"), 10);
+		
+		            if (isNaN(max) || isNaN(value) || max <= 0) {
+		                console.error("Invalid progress attributes", { max, value });
+		                return;
+		            }
+		
+		            if (value / max <= 0.2) {
+		                progress.classList.add("low"); // 低い値の場合にクラス追加
+		            }
+		        });
+		    });
+		</script>
+		
+		<style>
+		    progress[value] {
+		        width: 100%;
+		        height: 20px;
+		        appearance: none; /* デフォルトのブラウザスタイルを無効化 */
+		    }
+		    
+		    /* プログレスバーの背景 */
+		    progress[value]::-webkit-progress-bar {
+		        background-color: #eee;
+		        border-radius: 10px;
+		    }
+		
+		    /* プログレスバーの値（通常） */
+		    progress[value]::-webkit-progress-value {
+		        background-color: green; /* デフォルト緑 */
+		        border-radius: 10px;
+		    }
+		
+		    /* 低い値（20%以下）の場合に赤色を適用 */
+		    progress[value].low::-webkit-progress-value {
+		        background-color: red !important; /* 赤色 */
+		    }
+		
+		    /* Firefox用 */
+		    progress.low {
+		        accent-color: red; /* Firefoxのアクセントカラーを赤に設定 */
+		    }
+		</style>
+		
 	</div>
 </div>
 <hr class="rainbow">
