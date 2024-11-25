@@ -1,7 +1,7 @@
 @charset "UTF-8";
 body{
 	background-color: #F4F5F7;
-	font-family: "Yuji Syuku", serif;
+	font-family: "HGS行書体", serif;
 	color: #333333;
 	}
 
@@ -130,10 +130,12 @@ label {
 .box{
 	padding: 0.5em 1em;
 	margin: 2em 0;
-	color: #2c2c2f;
+	color: #333333;
 	background: #FFFFFF;
 	width: 700px;
-	}
+	border-radius: 20px;	
+}	
+	
 .box p {
 	margin: 0; 
 	padding: 0;

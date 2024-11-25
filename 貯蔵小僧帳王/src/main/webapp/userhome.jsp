@@ -31,8 +31,8 @@ session.setAttribute("sex", sex);// リクエストスコープに格納
 </sql:query>
 
 	<div class="box">
-		<p>なくなりそうなもの</p>
-		<table>
+		<td>なくなりそうなもの</td>
+		<table cellpadding="5">
 			<c:forEach var="list" items="${list.rows}">
 				<tr>
 					<td>${list.productname}</td>
@@ -41,7 +41,7 @@ session.setAttribute("sex", sex);// リクエストスコープに格納
 						href="Stockadd?emailaddress=${list.emailaddress}&productnumber=${list.productnumber}&stock=${list.stock}">＋</a>
 					</td>
 					<td><a
-						href="Stockdecrease?emailaddress=${list.emailaddress}&productnumber=${list.productnumber}&stock=${list.stock}">-</a>
+						href="Stockdecrease?emailaddress=${list.emailaddress}&productnumber=${list.productnumber}&stock=${list.stock}">－</a>
 					</td>
 					<td><a href="start?productnumber=${list.productnumber}&emailaddress=${list.emailaddress}&stock=${list.stock}">スタート</a></td>
 					<td><progress id="progress" max="${list.perioddenominator}"
@@ -54,9 +54,9 @@ session.setAttribute("sex", sex);// リクエストスコープに格納
 		<sql:query var="list" dataSource="jdbc/kozou">
 			select * FROM stock_table LEFT JOIN product_table ON stock_table.productnumber = product_table.productnumber where emailaddress = '${emailaddress}' AND activenumber = 1;
 		</sql:query>
-
-		<p>日用品一覧</p>
-		<table>
+<br>
+		<td>日用品一覧</td>
+		<table cellpadding="5">
 			<c:forEach var="list" items="${list.rows}">
 				<tr>
 					<td>${list.productname}</td>

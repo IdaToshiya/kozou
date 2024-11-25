@@ -2,7 +2,7 @@
 <%@include file="../header.html" %>
 <%@taglib prefix="sql" uri="jakarta.tags.sql" %>
 <%@taglib prefix="c" uri="jakarta.tags.core" %>
-	<form action="" method="post"  class="center">	
+	<div class="center">
 <sql:query var="list" dataSource="jdbc/kozou">
 	select * from stock_table LEFT JOIN product_table ON stock_table.productnumber = product_table.productnumber where emailaddress = '${emailaddress}' AND activenumber = 2;
 </sql:query>
@@ -13,7 +13,7 @@
 <% } %>
 <div class="box">
     <p><b>一覧/検索結果 表示</b></p>
-    <table class="center">
+    <table class="center" cellpadding="10">
         <tr>
             <th>商品番号</th>
             <th>商品名</th>
@@ -38,5 +38,5 @@
 	</table>
 </div>
 
-
+</div>
 <%@include file="../footer.html" %>

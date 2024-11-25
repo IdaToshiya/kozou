@@ -192,26 +192,3 @@ input[type="number"] {
   border-radius: 5px; /*--角丸--*/
 }
 
-/*削除済みボタン*/
-/*.del{ cursor: pointer;*/
-/*  font-family: FontAwesome;*/
-/*  border: none;*/
-/*  background: #90CE9C;*/
-/*  color: #ffffff;*/
-/*  outline : none;*/
-/*  width: 10.0em;*/
-/*  height: 30px;*/
-/*  margin-left:15px;*/
-/*}*/
-/*追加ボタン*/
-/*.add{ cursor: pointer;*/
-/*  font-family: FontAwesome;*/
-/*  border: none;*/
-/*  background:#cfa7cc;*/
-/*  color: #ffffff;*/
-/*  outline : none;*/
-/*  width: 4.0em;*/
-/*  height: 30px;*/
-/*  margin-left:15px;*/
-/*}*/
-	
