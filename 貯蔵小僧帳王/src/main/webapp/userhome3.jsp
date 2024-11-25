@@ -37,7 +37,7 @@ session.setAttribute("sex", sex);// リクエストスコープに格納
 </sql:query>
 
 	<div class="box">
-		<td>なくなりそうなもの</td>
+		<td><b>なくなりそうなもの</b></td>
 		<table cellpadding="5">
 			<c:forEach var="list" items="${list.rows}">
 				<tr>
@@ -63,9 +63,9 @@ session.setAttribute("sex", sex);// リクエストスコープに格納
 		<sql:query var="list" dataSource="jdbc/kozou">
 			select * FROM stock_table LEFT JOIN product_table ON stock_table.productnumber = product_table.productnumber where emailaddress = '${emailaddress}' AND activenumber = 1;
 		</sql:query>
-
-		<p>日用品一覧</p>
-		<table>
+<br>
+		<td><b>日用品一覧</b></td>
+		<table cellpadding="5">
 			<c:forEach var="list" items="${list.rows}">
 				<tr>
 					<td>${list.productname}</td>

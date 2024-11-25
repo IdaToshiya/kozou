@@ -101,8 +101,14 @@ a:visited { /*アクセスしたことのあるリンク*/
 	transition: .4s;
 }
 
+.btn-flat-logo a,
+.btn-flat-logo a:visited {
+	color: #FFFFFF;
+}
+
 .btn-flat-logo:hover {
-	background: #A1A3A6;
+	background: #FFFAF4;
+	color:#553501
 }
 
 .newfont{

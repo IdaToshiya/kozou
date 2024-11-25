@@ -49,11 +49,11 @@ input{
 }
 
 a:link { /*アクセスしたことのないリンク*/
-  color:#9d8e87;
+  color:#ffffff;
 }
 
 a:visited { /*アクセスしたことのあるリンク*/
-  color:#5BC8AC;
+  color:#ffffff;
 }
 
 .green{
@@ -102,12 +102,18 @@ a:visited { /*アクセスしたことのあるリンク*/
 	padding: 0.25em 0.5em;
 	text-decoration: none;
 	color: #FFF;
-	background: #A1A3A6;
+	background: #553501;
 	transition: .4s;
 }
 
+.btn-flat-logo a,
+.btn-flat-logo a:visited {
+	color: #FFFFFF;
+}
+
 .btn-flat-logo:hover {
-	background: #A1A3A6;
+	background: #FFFAF4;
+	color:#553501
 }
 
 .newfont{
@@ -137,6 +143,15 @@ label {
 	width: 700px;
 	border-radius: 0.75em;
 	}
+	
+.box a:link { /*アクセスしたことのないリンク*/
+	  color:#9d8e87;
+	}
+
+.box a:visited { /*アクセスしたことのあるリンク*/
+	  color:#5BC8AC;
+	}
+	
 .box p {
 	margin: 0; 
 	padding: 0;
