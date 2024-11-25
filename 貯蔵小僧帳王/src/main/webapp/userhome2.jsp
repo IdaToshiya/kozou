@@ -11,6 +11,11 @@ session.setAttribute("emailaddress", emailaddress);
 String sex = User.getSex();
 session.setAttribute("sex", sex);// リクエストスコープに格納
 %>
+
+<a href="Logout" class="btn-flat-logo">
+  <i class="fa fa-chevron-right"></i> Logout
+</a>
+
 <h1>HOME</h1>
 <div style="text-align: center" class="center">
 	<div style="display: inline-flex">
