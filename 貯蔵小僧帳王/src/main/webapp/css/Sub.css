@@ -1,9 +1,9 @@
 @charset "UTF-8";
 /*girl*/
 body{
-/*	background-color: #d2cbb4;*/
 	background-image: url("lace3.png");
 	font-family: "Hachi Maru Pop", serif;
+	color: #333333;
 }
 
 .hachi-maru-pop-regular {
@@ -29,16 +29,16 @@ input{
 }
 
 a:link { /*アクセスしたことのないリンク*/
-color:#9d8e87;
+	color:#9d8e87;
 }
 
 a:visited { /*アクセスしたことのあるリンク*/
-color:#5BC8AC;
+	color:#5BC8AC;
 }
 
-.green{
-	border-radius: 0.5rem;
-	width: 250px;
+.green{ /*削除済みボタン*/
+	border-radius: 20px;
+	width: 260px;
 	padding: 10px;
 	box-sizing: border-box;
 	background: #fff79b;
@@ -49,12 +49,12 @@ color:#5BC8AC;
 	0 1px 0 #ffffff,  0 -1px 0 #ffffff;
 	text-decoration: none;
 	margin: 10px 0;
-	font-size: 25px;
+	font-size: 30px;
 	font-family: "Hachi Maru Pop", cursive;
 }
 
-.red{
-	border-radius: 0.5rem;
+.red{ /*追加ボタン*/
+	border-radius: 20px;
 	width: 250px;
 	padding: 10px;
 	box-sizing: border-box;
@@ -66,13 +66,13 @@ color:#5BC8AC;
 	0 1px 0 #ffffff,  0 -1px 0 #ffffff;
 	text-decoration: none;
 	margin: 10px 0;
-	font-size: 25px;
+	font-size: 30px;
 	font-family: "Hachi Maru Pop", cursive;
 
 }
 
 .blue{
-	border-radius: 0.5rem;
+	border-radius: 20px;
 	width: 200px;
 	padding: 10px;
 	box-sizing: border-box;
@@ -90,7 +90,7 @@ color:#5BC8AC;
 }
 
 
-.btn-flat-logo {
+.btn-flat-logo {/*HOMEボタン*/
 	position: relative;
 	display: inline-block;
 	font-weight: bold;
@@ -115,7 +115,7 @@ color:#5BC8AC;
 
 .center {
 	width: fit-content;
-	  margin: auto;
+	margin: auto;
 }
 
 label {
@@ -130,6 +130,7 @@ label {
 	color: #2c2c2f;
 	background: #FFFFFF;
 	width: 700px;
+	border-radius: 20px;
 	}
 .box p {
 	margin: 0; 
@@ -138,29 +139,29 @@ label {
 	
 /*検索フォーム*/
 .search_container{
-  box-sizing: border-box;
-  display: inline-block;
+  	box-sizing: border-box;
+  	display: inline-block;
 }
 
 .search_container input[type="text"]{
-  background: #FFFFFF;
-  border: none;
-  height: 35px;
-  width: 380px;
+  	background: #FFFFFF;
+  	border: none;
+  	height: 35px;
+  	width: 380px;
 }
 .search_container input[type="text"]:focus {
-  outline: 0;
+  	outline: 0;
 }
 .search_container input[type="submit"]{
-  cursor: pointer;
-  font-family: FontAwesome;
-  border: none;
-  background: #5BC8AC;
-  color: #ffffff;
-  outline : none;
-  width: 4.0em;
-  height: 37px;
-  margin-left:15px;
+  	cursor: pointer;
+  	font-family: FontAwesome;
+  	border: none;
+  	background: #5BC8AC;
+  	color: #ffffff;
+  	outline : none;
+  	width: 4.0em;
+  	height: 37px;
+  	margin-left:15px;
 }
 
 
@@ -192,25 +193,25 @@ input[type="number"] {
 }
 
 /*削除済みボタン*/
-.del{ cursor: pointer;
-  font-family: FontAwesome;
-  border: none;
-  background: #90CE9C;
-  color: #ffffff;
-  outline : none;
-  width: 10.0em;
-  height: 30px;
-  margin-left:15px;
-}
+/*.del{ cursor: pointer;*/
+/*  font-family: FontAwesome;*/
+/*  border: none;*/
+/*  background: #90CE9C;*/
+/*  color: #ffffff;*/
+/*  outline : none;*/
+/*  width: 10.0em;*/
+/*  height: 30px;*/
+/*  margin-left:15px;*/
+/*}*/
 /*追加ボタン*/
-.add{ cursor: pointer;
-  font-family: FontAwesome;
-  border: none;
-  background:#cfa7cc;
-  color: #ffffff;
-  outline : none;
-  width: 4.0em;
-  height: 30px;
-  margin-left:15px;
-}
+/*.add{ cursor: pointer;*/
+/*  font-family: FontAwesome;*/
+/*  border: none;*/
+/*  background:#cfa7cc;*/
+/*  color: #ffffff;*/
+/*  outline : none;*/
+/*  width: 4.0em;*/
+/*  height: 30px;*/
+/*  margin-left:15px;*/
+/*}*/
 	

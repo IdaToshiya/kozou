@@ -2,6 +2,7 @@
 body{
 	background-color: #F4F5F7;
 	font-family: "Yuji Syuku", serif;
+	color: #333333;
 	}
 
 .yuji-syuku-regular {
@@ -25,13 +26,13 @@ input{
 	vertical-align:top;
 }
 
-a:link { /*アクセスしたことのないリンク*/
-	color:darkblue;
-}
+/*a:link { アクセスしたことのないリンク*/
+/*	color:darkblue;*/
+/*}*/
 
-a:visited { /*アクセスしたことのあるリンク*/
-	color:green;
-}
+/*a:visited { アクセスしたことのあるリンク*/
+/*	color:green;*/
+/*}*/
 
 
 .green{
@@ -39,12 +40,13 @@ a:visited { /*アクセスしたことのあるリンク*/
 	width: 250px;
 	padding: 10px;
 	box-sizing: border-box;
-	background: green;
+	background: #3d5943;
 	color: #FFF;
 	text-decoration: none;
 	margin: 10px 0;
 	font-size: 25px;
 	font-family: "Yuji Syuku", serif;
+	box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
 }
 
 .red{
@@ -52,24 +54,26 @@ a:visited { /*アクセスしたことのあるリンク*/
 	width: 250px;
 	padding: 10px;
 	box-sizing: border-box;
-	background: firebrick;
+	background: #9e3030;
 	color: #FFF;
 	text-decoration: none;
 	margin: 10px 0;
 	font-size: 25px;
 	font-family: "Yuji Syuku", serif;
+	box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
 }
 .blue{
 	border-radius: 0.5rem;
 	width: 250px;
 	padding: 10px;
 	box-sizing: border-box;
-	background: darkblue;
+	background: #2615d1;
 	color: #FFF;
 	text-decoration: none;
 	margin: 10px 0;
 	font-size: 25px;
 	font-family: "Yuji Syuku", serif;
+	box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
 }
 
 
@@ -109,16 +113,19 @@ a.btn-flat-logo:after {
 .center {
 	width: fit-content;
 	margin: auto;
-}
+	}	
+
 
 label {
     display: inline-block;
     width: 130px;
     vertical-align: top;
+
 }
 .center2 {
 	margin-right: 20px;
 }
+
 /*枠線*/
 .box{
 	padding: 0.5em 1em;
@@ -131,6 +138,14 @@ label {
 	margin: 0; 
 	padding: 0;
 	}
+.box2{
+    padding: 0.5em 1em;
+    margin: 2em 0;
+	color: #333333;
+    background: white;
+    border-top: solid 5px 	#565565;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+	}	
 	
 /*検索フォーム*/
 .search_container{
@@ -159,6 +174,7 @@ label {
   margin-left:15px;
 }
 
+
 /*追加画面の文字やフォームの調整*/
 .number {
   width: 80px; /*--幅--*/
@@ -167,10 +183,20 @@ label {
   border: solid 2px #cccccc; /*--ボーダー線--*/
   border-radius: 5px; /*--角丸--*/
 }
-.useradd input,
-.useradd submit{
+.useradd input {
 	vertical-align:middle;
 }
+.useradd input[type="submit"] {
+	vertical-align:middle;
+	background-color: #9e3030;
+	}
+.clear input[type="submit"] {
+	background-color: #3d5943;
+}
+
+
+
+
 
 /*.edit{*/
 /*	border-radius: 0.5rem;*/
