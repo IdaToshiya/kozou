@@ -2,7 +2,13 @@
 <%@include file="../header.html" %>
 <%@taglib prefix="sql" uri="jakarta.tags.sql" %>
 <%@taglib prefix="c" uri="jakarta.tags.core" %>
-	<form action="" method="post"  class="center">	
+
+<!--ホームボタン-->
+<a href="User?emailaddress=${emailaddress}&sex=${sex}" class="btn-flat-logo">
+  <i class="fa fa-chevron-right"></i> HOME
+</a>
+
+<div class="center">
 <sql:query var="list" dataSource="jdbc/kozou">
 	select * from stock_table LEFT JOIN product_table ON stock_table.productnumber = product_table.productnumber where emailaddress = '${emailaddress}' AND activenumber = 2;
 </sql:query>
@@ -26,17 +32,12 @@
 	            <td>${list.productname}</td>
 				<td>${list.stock}</td>
 				<td>
-	              <form action="UserDelete" method="post" style="display:inline;">
-	                <input type="hidden" name="emailaddress" value="${emailaddress}">
-	                <input type="hidden" name="productnumber" value="${list.productnumber}">
-	                <input type="hidden" name="activenumber" value=1>
-	                <input type="submit" value="戻す">
-	              </form>
+	              <a href="UserDelete?emailaddress=${list.emailaddress}&productnumber=${list.productnumber}&activenumber=1">戻す</a>
 	             </td>
 			</tr>
 		</c:forEach>
 	</table>
 </div>
-
+</div>
 
 <%@include file="../footer.html" %>

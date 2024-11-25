@@ -2,6 +2,11 @@
 <%@taglib prefix="c" uri="jakarta.tags.core"%>
 <%@include file="../header.html"%>
 
+<!--ホームボタン-->
+<a href="User?emailaddress=${emailaddress}&sex=${sex}" class="btn-flat-logo">
+  <i class="fa fa-chevron-right"></i> HOME
+</a>
+
 <h1>新しい商品を使用する</h1>
 <p>1商品づつ追加してください</p>
 <section>
@@ -49,18 +54,12 @@
 							<td>
 								<!-- 商品追加フォーム -->
 								<div class="useradd">
-									<form action="Useradd.action" method="post"
-										style="display: inline;">
-
-										<input type="number" name="stock" placeholder="個数を入力" size="1"
-											min="1" class="number">&nbsp;&nbsp;個<input
-											type="submit" value="追加">
-								</div> <!-- メールアドレスを送信 --> <input type="hidden" name="emailaddress"
-								value="${emailaddress}"> <!--                                <input type="hidden" name="sex" value="${sex}">-->
-								<!-- 商品情報（商品番号と商品名）を送信 --> <input type="hidden"
-								name="productnumber" value="${item.productnumber}">
-
-								</form>
+									<form action="Useradd.action" method="post" style="display: inline;">
+										<input type="number" name="stock" placeholder="個数を入力" size="1" min="1" class="number">&nbsp;&nbsp;個<input type="submit" value="追加">
+								 		<input type="hidden" name="emailaddress" value="${emailaddress}">
+								 		<input type="hidden" name="productnumber" value="${item.productnumber}">
+									</form>
+								</div>
 							</td>
 						</tr>
 					</c:forEach>

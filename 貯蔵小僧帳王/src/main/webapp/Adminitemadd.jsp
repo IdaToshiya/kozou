@@ -4,6 +4,9 @@
 <a href="<%= request.getContextPath() %>/SearchServlet" class="btn-flat-logo">
   <i class="fa fa-chevron-right">HOME</i>
 </a>
+<a href="Logout" class="btn-flat-logo">
+  <i class="fa fa-chevron-right"></i> Logout
+</a>
 
 <h1>商品登録</h1>
 <section>

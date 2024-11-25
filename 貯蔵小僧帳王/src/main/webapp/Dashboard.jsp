@@ -2,10 +2,12 @@
 <%@include file="../header.html" %>
 <%@ page import="java.util.List, bean.Bean" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <!--ホームボタン-->
 <a href="<%= request.getContextPath() %>/SearchServlet" class="btn-flat-logo">
   <i class="fa fa-chevron-right">HOME</i>
 </a>
+
 <h1>ダッシュボード</h1>
 	<!--	ダッシュボード横並び-->
 	
