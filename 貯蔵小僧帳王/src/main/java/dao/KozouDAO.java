@@ -27,40 +27,44 @@ public class KozouDAO extends DAO {
 		st.setString(1, nickname);
 		st.setString(2, hashedPassword);
 		ResultSet rs=st.executeQuery();
-
-		while (rs.next()) {
-			bean =new Bean();
-			bean.setNickname(rs.getString("nickname"));
-			bean.setPassword(rs.getString("password"));
-			bean.setSex(rs.getString("sex"));
-			bean.setStartusing(rs.getDate("startusing"));
-			bean.setEmailaddress(rs.getString("emailaddress"));
-			bean.setProductnumber(rs.getString("productnumber"));
-			System.out.println("productnumber"+bean.getProductnumber()+"start"+bean.getStartusing());
-		}
 		
-//		String email = bean.getEmailaddress();
-//		
-//		LocalDate today = LocalDate.now();
-//		
-//		Date start = bean.getStartusing();
-//		
-//		int n = 10;
-//		while(n > 0) {
-//			System.out.println("productnumber"+bean.getProductnumber()+"start"+bean.getStartusing());
-//			n--;
-//		}
-//		
-//		LocalDate startday = start.toLocalDate();
-//		
-//		// 日付の差を計算
-//        long daysBetween = ChronoUnit.DAYS.between(startday, today);
-//		
-//		PreparedStatement stm=con.prepareStatement(
-//				"UPDATE stock_table SET periodnumerator = ? WHERE emailaddress = ?;");
-//			stm.setLong(1, daysBetween);
-//			stm.setString(2, email);
-//			stm.executeUpdate();
+		String updateQuery = "UPDATE stock_table SET periodnumerator = ? WHERE emailaddress = ? AND productnumber = ?;";
+		
+		PreparedStatement updateStmt = con.prepareStatement(updateQuery);
+		System.out.println(nickname);
+		
+		if ("管理人".equals(nickname)) {
+			while (rs.next()) {
+				bean =new Bean();
+				bean.setNickname(rs.getString("nickname"));
+				bean.setPassword(rs.getString("password"));
+				bean.setSex(rs.getString("sex"));
+				bean.setEmailaddress(rs.getString("emailaddress"));
+			}
+		}else {
+			while (rs.next()) {
+				bean =new Bean();
+				bean.setNickname(rs.getString("nickname"));
+				bean.setPassword(rs.getString("password"));
+				bean.setSex(rs.getString("sex"));
+				bean.setStartusing(rs.getDate("startusing"));
+				bean.setEmailaddress(rs.getString("emailaddress"));
+				bean.setProductnumber(rs.getString("productnumber"));
+				System.out.println("productnumber"+bean.getProductnumber()+"start"+bean.getStartusing());
+				
+				LocalDate today = LocalDate.now();
+				Date start = bean.getStartusing();
+				LocalDate startday = start.toLocalDate();
+				long daysBetween = ChronoUnit.DAYS.between(startday, today);
+				System.out.println("aaaaaaaaaaa"+daysBetween);
+				String email = bean.getEmailaddress();
+				String num = bean.getProductnumber();
+				updateStmt.setLong(1, daysBetween);
+			    updateStmt.setString(2, email);
+			    updateStmt.setString(3, num);
+			    updateStmt.executeUpdate();
+			}
+		}
 		
 		rs.close();
 		st.close();
