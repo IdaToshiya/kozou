@@ -53,12 +53,12 @@ public class UseraddAction extends Action {
 		} catch (NumberFormatException e) {
 	        // 数値変換エラー処理
 	        request.setAttribute("errorMessage", "無効な個数が入力されました。");
-	        request.getRequestDispatcher("error.jsp").forward(request, response);
+	        request.getRequestDispatcher("Useritemadd.jsp").forward(request, response);
 	        return null;
 	    } catch (Exception e) {
 	        e.printStackTrace();
 	        request.setAttribute("errorMessage", "商品を追加する際にエラーが発生しました。");
-	        request.getRequestDispatcher("error.jsp").forward(request, response);
+	        request.getRequestDispatcher("Useritemadd.jsp").forward(request, response);
 	        return null;
 	    }
 	}
