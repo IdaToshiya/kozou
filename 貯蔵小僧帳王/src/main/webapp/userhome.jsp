@@ -31,9 +31,9 @@ session.setAttribute("sex", sex);// リクエストスコープに格納
 	</div>
 
 	<sql:query var="list" dataSource="jdbc/kozou">
-	select * FROM stock_table LEFT JOIN product_table ON stock_table.productnumber = product_table.productnumber
-	 where emailaddress = '${emailaddress}' AND stock <= 1 AND activenumber = 1;
-</sql:query>
+		select * FROM stock_table LEFT JOIN product_table ON stock_table.productnumber = product_table.productnumber
+		 where emailaddress = '${emailaddress}' AND stock <= 1 AND activenumber = 1;
+	</sql:query>
 
 	<div class="box">
 		<td>なくなりそうなもの</td>

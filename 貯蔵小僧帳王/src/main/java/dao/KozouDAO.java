@@ -154,12 +154,32 @@ public class KozouDAO extends DAO {
                 // 商品がすでに存在する場合
                 return null; // 呼び出し元でエラーを処理
             }
+            
+            rs.close();
+            st.close();
 
-			st=con.prepareStatement("INSERT INTO stock_table (stock, productnumber, activenumber, emailaddress, perioddenominator, periodnumerator) VALUES (?, ?, 1, ?, 0, 0)");
+            // 2. product_table から perioddenominator を取得
+            String periodQuery = "SELECT perioddenominator FROM product_table WHERE productnumber = ?";
+            st = con.prepareStatement(periodQuery);
+            st.setString(1, productnumber);
+            rs = st.executeQuery();
+
+            int perioddenominator = 0; // デフォルト値
+            if (rs.next()) {
+                perioddenominator = rs.getInt("perioddenominator");
+            } else {
+                throw new Exception("Product number not found in product_table: " + productnumber);
+            }
+            rs.close();
+            st.close();
+            
+            st=con.prepareStatement("INSERT INTO stock_table (stock, productnumber, activenumber, emailaddress, perioddenominator, periodnumerator) VALUES (?, ?, 1, ?, ?, 0)");
 			st.setInt(1, stock); 
 			st.setString(2, productnumber);
 			st.setString(3, emailaddress);
+			st.setInt(4, perioddenominator);
 			st.executeUpdate();
+			st.close();
 	
 		    // SELECT文の準備：すでに存在するデータを取得
 		    st = con.prepareStatement("SELECT stock_table.emailaddress, user_table.sex FROM stock_table "
