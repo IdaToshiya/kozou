@@ -2,8 +2,8 @@
 <%@include file="../header.html" %>
 
 <!--ホームボタン-->
-<a href=SearchServlet.java class="btn-flat-logo">
-  <i class="fa fa-chevron-right"></i> HOME
+<a href="<%= request.getContextPath() %>/SearchServlet" class="btn-flat-logo">
+  <i class="fa fa-chevron-right">HOME</i>
 </a>
 
 <h1>商品編集画面</h1>

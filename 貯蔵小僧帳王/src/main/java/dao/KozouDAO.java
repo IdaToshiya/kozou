@@ -74,7 +74,7 @@ public class KozouDAO extends DAO {
 		return bean;
 	}
 	
-	public int instert(String nickname, String hashedPassword, String emailAddress, String dateOfBirth, String sex, String prefectures)
+	public int insert(String nickname, String hashedPassword, String emailAddress, String dateOfBirth, String sex, String prefectures)
 			throws Exception {
 			
 			System.out.println(hashedPassword);

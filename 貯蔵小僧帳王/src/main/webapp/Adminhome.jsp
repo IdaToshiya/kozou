@@ -2,6 +2,10 @@
 <%@taglib prefix="c" uri="jakarta.tags.core"%>
 <%@include file="../header.html"%>
 
+<a href="Logout" class="btn-flat-logo">
+  <i class="fa fa-chevron-right"></i> Logout
+</a>
+
 	<h1>貯蔵小僧帳王 管理画面</h1>
     <div style="text-align: center" class="center">
         <input class="red" type="button" value="商品登録"

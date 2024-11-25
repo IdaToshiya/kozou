@@ -28,7 +28,7 @@ public class InsertAction extends Action {
 		String prefectures=request.getParameter("prefectures");
 		
 		KozouDAO dao=new KozouDAO();
-		int line=dao.instert(nickname, hashedPassword, emailAddress, dateOfBirth, sex, prefectures);
+		int line=dao.insert(nickname, hashedPassword, emailAddress, dateOfBirth, sex, prefectures);
 
 		if (line>0) {
 			return "Login.jsp";
