@@ -37,7 +37,7 @@ session.setAttribute("sex", sex);// リクエストスコープに格納
 </sql:query>
 
 	<div class="box">
-		<td>なくなりそうなもの</td>
+		<td><b>なくなりそうなもの</b></td>
 		<table cellpadding="5">
 			<c:forEach var="list" items="${list.rows}">
 				<tr>
@@ -47,7 +47,7 @@ session.setAttribute("sex", sex);// リクエストスコープに格納
 						href="Stockadd?emailaddress=${list.emailaddress}&productnumber=${list.productnumber}&stock=${list.stock}">＋</a>
 					</td>
 					<td><a
-						href="Stockdecrease?emailaddress=${list.emailaddress}&productnumber=${list.productnumber}&stock=${list.stock}">-</a>
+						href="Stockdecrease?emailaddress=${list.emailaddress}&productnumber=${list.productnumber}&stock=${list.stock}">－</a>
 					</td>
 					<td><a href="start?productnumber=${list.productnumber}&emailaddress=${list.emailaddress}&stock=${list.stock}">スタート</a></td>
 					<td><progress id="progress" max="${list.perioddenominator}"
@@ -61,7 +61,7 @@ session.setAttribute("sex", sex);// リクエストスコープに格納
 			select * FROM stock_table LEFT JOIN product_table ON stock_table.productnumber = product_table.productnumber where emailaddress = '${emailaddress}' AND activenumber = 1;
 		</sql:query>
 <br>
-		<td>日用品一覧</td>
+		<td><b>日用品一覧</b></td>
 		<table cellpadding="5">
 			<c:forEach var="list" items="${list.rows}">
 				<tr>
