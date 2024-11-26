@@ -44,7 +44,7 @@ session.setAttribute("sex", sex);// リクエストスコープに格納
 	</sql:query>
 
 	<div class="box">
-		<td>なくなりそうなもの</td>
+		<p><b>なくなりそうなもの</b></p>
 		<table cellpadding="5">
 			<c:forEach var="list" items="${list.rows}">
 				<tr>
@@ -66,9 +66,9 @@ session.setAttribute("sex", sex);// リクエストスコープに格納
 		        periodnumerator, startusing FROM stock_table LEFT JOIN product_table ON stock_table.productnumber = product_table.productnumber
 		       WHERE stock_table.emailaddress = '${emailaddress}' AND stock_table.activenumber = 1;
 		</sql:query>
-
-		<p>日用品一覧</p>
-		<table>
+        <br>
+		<p><b>日用品一覧</b></p>
+		<table  cellpadding="4">
 			<c:forEach var="list" items="${list.rows}">
 				<tr>
 					<td>${list.product_name}</td>
@@ -101,36 +101,6 @@ session.setAttribute("sex", sex);// リクエストスコープに格納
 		        });
 		    });
 		</script>
-		
-		<style>
-		    progress[value] {
-		        width: 100%;
-		        height: 20px;
-		        appearance: none; /* デフォルトのブラウザスタイルを無効化 */
-		    }
-		    
-		    /* プログレスバーの背景 */
-		    progress[value]::-webkit-progress-bar {
-		        background-color: #eee;
-		        border-radius: 10px;
-		    }
-		
-		    /* プログレスバーの値（通常） */
-		    progress[value]::-webkit-progress-value {
-		        background-color: green; /* デフォルト緑 */
-		        border-radius: 10px;
-		    }
-		
-		    /* 低い値（20%以下）の場合に赤色を適用 */
-		    progress[value].low::-webkit-progress-value {
-		        background-color: red !important; /* 赤色 */
-		    }
-		
-		    /* Firefox用 */
-		    progress.low {
-		        accent-color: red; /* Firefoxのアクセントカラーを赤に設定 */
-		    }
-		</style>
 				
 	</div>
 </div>
