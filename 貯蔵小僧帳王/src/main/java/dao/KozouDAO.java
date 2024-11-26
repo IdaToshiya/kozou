@@ -41,7 +41,7 @@ public class KozouDAO extends DAO {
 				bean.setSex(rs.getString("sex"));
 				bean.setEmailaddress(rs.getString("emailaddress"));
 			}
-		}else {
+		} else {
 			while (rs.next()) {
 				bean =new Bean();
 				bean.setNickname(rs.getString("nickname"));
@@ -50,34 +50,38 @@ public class KozouDAO extends DAO {
 				bean.setStartusing(rs.getDate("startusing"));
 				bean.setEmailaddress(rs.getString("emailaddress"));
 				bean.setProductnumber(rs.getString("productnumber"));
-				bean.setPeriodnumerator(rs.getInt("periodnumerator"));
 				System.out.println("productnumber"+bean.getProductnumber()+"start"+bean.getStartusing());
+				
 				LocalDate today = LocalDate.now();
 				Date start = bean.getStartusing();
-				LocalDate startday = start.toLocalDate();
-				long daysBetween = ChronoUnit.DAYS.between(startday, today);
-				System.out.println("aaaaaaaaaaa"+daysBetween);
-				long bunsi = bean.getPeriodnumerator();
-				long newbunsi = bunsi - daysBetween;
-				String email = bean.getEmailaddress();
-				String num = bean.getProductnumber();
-				updateStmt.setLong(1, newbunsi);
-			    updateStmt.setString(2, email);
-			    updateStmt.setString(3, num);
-			    updateStmt.executeUpdate();
-			}
-		}
-		
-		rs.close();
-		st.close();
-		con.close();
-		
+				long daysBetween = 0;
+				// startusingがnullでない場合のみ計算を実行
+	            if (start != null) {
+	                LocalDate startday = start.toLocalDate();
+	                daysBetween = ChronoUnit.DAYS.between(startday, today);
+	            }
 
-		// こんな風にすれば Bean の中身がログに出力できる
-		String bbb =( ToStringBuilder.reflectionToString(bean, ToStringStyle.DEFAULT_STYLE) );
-		System.out.println(bbb);
+	            System.out.println("Days Between: " + daysBetween);
 
-		return bean;
+	            String email = bean.getEmailaddress();
+	            String num = bean.getProductnumber();
+	            updateStmt.setLong(1, daysBetween);
+	            updateStmt.setString(2, email);
+	            updateStmt.setString(3, num);
+	            updateStmt.executeUpdate();
+	        }
+	    }
+
+	    rs.close();
+	    st.close();
+	    updateStmt.close();
+	    con.close();
+
+	    // Beanの中身をログに出力
+	    String beanDetails = ToStringBuilder.reflectionToString(bean, ToStringStyle.DEFAULT_STYLE);
+	    System.out.println(beanDetails);
+
+	    return bean;
 	}
 	
 	public int insert(String nickname, String hashedPassword, String emailAddress, String dateOfBirth, String sex, String prefectures)
@@ -306,96 +310,105 @@ public class KozouDAO extends DAO {
 	}
 
 	public Bean start(String emailaddress, String productnumber, int stock)
-			throws Exception {
-		Connection con=getConnection();
-		Bean bean=null;
+			   throws Exception {
+			  Connection con=getConnection();
+			  Bean bean=null;
+			  
+			  LocalDate today = LocalDate.now();
+			  Date sqlDateToday = Date.valueOf(today);
+			  int decreasestock = stock-1;
+			  
+			  System.out.println(decreasestock);
+			  
+			  PreparedStatement st = con.prepareStatement("UPDATE stock_table SET enduse = ?, stock = ? WHERE emailaddress = ? AND productnumber = ?;");
+				    st.setDate(1, sqlDateToday);
+				    st.setLong(2, decreasestock);
+				    st.setString(3, emailaddress);
+				    st.setString(4, productnumber);
+				    st.executeUpdate();
+				    st.close();
+				    
+			  st=con.prepareStatement("select * from user_table LEFT JOIN stock_table ON user_table.emailaddress = stock_table.emailaddress LEFT JOIN product_table ON stock_table.productnumber = product_table.productnumber where user_table.emailaddress = ? AND stock_table.productnumber = ?");
+				    st.setString(1, emailaddress);
+				    st.setString(2, productnumber);
+				    ResultSet rs=st.executeQuery();
+				    while (rs.next()) {
+						bean =new Bean();
+						bean.setSex(rs.getString("sex"));
+						bean.setEmailaddress(rs.getString("emailaddress"));
+						bean.setStartusing(rs.getDate("startusing"));
+						bean.setEnduse(rs.getDate("enduse"));
+					}
+					st.close();
+			  
+			  Date StartUsing1 = bean.getStartusing();
+			  System.out.println(StartUsing1);
+			  
+			  if (StartUsing1 == null) {
+				  PreparedStatement st1=con.prepareStatement("UPDATE stock_table SET startusing = ?,periodnumerator = 0 WHERE emailaddress = ? AND productnumber = ?;");
+				    st1.setDate(1, sqlDateToday);
+				    st1.setString(2, emailaddress);
+				    st1.setString(3, productnumber);
+				    st1.executeUpdate();
+				    st1.close();
+				    
+				    st=con.prepareStatement("select * from user_table LEFT JOIN stock_table ON user_table.emailaddress = stock_table.emailaddress LEFT JOIN product_table ON stock_table.productnumber = product_table.productnumber where user_table.emailaddress = ? AND stock_table.productnumber = ?");
+				    st.setString(1, emailaddress);
+				    st.setString(2, productnumber);
+				    ResultSet rs1=st.executeQuery();
+				  
+				    while (rs1.next()) {
+						bean =new Bean();
+						bean.setSex(rs1.getString("sex"));
+						bean.setEmailaddress(rs1.getString("emailaddress"));
+						bean.setStartusing(rs1.getDate("startusing"));
+						bean.setEnduse(rs1.getDate("enduse"));
+						
+					}
+				    return bean;
+					  
+			  } else {
+			  
+				  st=con.prepareStatement("select * from user_table LEFT JOIN stock_table ON user_table.emailaddress = stock_table.emailaddress LEFT JOIN product_table ON stock_table.productnumber = product_table.productnumber where user_table.emailaddress = ? AND stock_table.productnumber = ?");
+				  st.setString(1, emailaddress);
+				  st.setString(2, productnumber);
+				  ResultSet rs1=st.executeQuery();
+				  
+				  while (rs1.next()) {
+						bean =new Bean();
+						bean.setSex(rs1.getString("sex"));
+						bean.setEmailaddress(rs1.getString("emailaddress"));
+						bean.setStartusing(rs1.getDate("startusing"));
+						bean.setEnduse(rs1.getDate("enduse"));
+						
+					}
+				  
+				  long daysBetween = 0;
+			            Date StartUsing2 = bean.getStartusing();
+			            Date endUse = bean.getEnduse();
+			            if (StartUsing2 != null && endUse != null) {
+			                daysBetween = java.time.temporal.ChronoUnit.DAYS.between(
+			                    StartUsing2.toLocalDate(), endUse.toLocalDate());
+			            }
+	
+			        System.out.println("Days Between: " + daysBetween);
+	
+			        // perioddenominatorの平均を計算して更新
+			        PreparedStatement st2 = con.prepareStatement("UPDATE stock_table SET perioddenominator = (perioddenominator + ?) / 2,periodnumerator = 0, startusing = ?  WHERE emailaddress = ? AND productnumber = ?");
+				        st2.setLong(1, daysBetween);
+				        st2.setDate(2, sqlDateToday);
+				        st2.setString(3, emailaddress);
+				        st2.setString(4, productnumber);
+				        st2.executeUpdate();
+				        st2.close();
+				        
+				        st.close();
+				        rs.close();
+				        rs1.close();
+						con.close();
 		
-		LocalDate today = LocalDate.now();
-		Date sqlDateToday = Date.valueOf(today);
-		int decreasestock = stock-1;
-		
-		System.out.println(decreasestock);
-		
-		PreparedStatement st=con.prepareStatement(
-				"UPDATE stock_table SET enduse = ?, stock = ? WHERE emailaddress = ? AND productnumber = ?;");
-			st.setDate(1, sqlDateToday);
-			st.setLong(2, decreasestock);
-			st.setString(3, emailaddress);
-			st.setString(4, productnumber);
-			st.executeUpdate();
-			st.close();
-		
-		st=con.prepareStatement("select * from user_table LEFT JOIN stock_table ON user_table.emailaddress = stock_table.emailaddress LEFT JOIN product_table ON stock_table.productnumber = product_table.productnumber where user_table.emailaddress = ? AND stock_table.productnumber = ?");
-		st.setString(1, emailaddress);
-		st.setString(2, productnumber);
-		ResultSet rs=st.executeQuery();
-		
-		while (rs.next()) {
-			bean =new Bean();
-			bean.setSex(rs.getString("sex"));
-			bean.setEmailaddress(rs.getString("emailaddress"));
-			bean.setStartusing(rs.getDate("startusing"));
-			bean.setEnduse(rs.getDate("enduse"));
-		}
-		st.close();
-		
-		Date sta = bean.getStartusing();
-		System.out.println(sta);
-		
-		if (sta == null) {
-			PreparedStatement st1=con.prepareStatement(
-					"UPDATE stock_table SET startusing = ? WHERE emailaddress = ? AND productnumber = ?;");
-				st1.setDate(1, sqlDateToday);
-				st1.setString(2, emailaddress);
-				st1.setString(3, productnumber);
-				st1.executeUpdate();
-				st1.close();
-				System.out.println("aaaaaaaaaaaaaaaaaaaa");
-		}
-		
-		st=con.prepareStatement("select * from user_table LEFT JOIN stock_table ON user_table.emailaddress = stock_table.emailaddress LEFT JOIN product_table ON stock_table.productnumber = product_table.productnumber where user_table.emailaddress = ? AND stock_table.productnumber = ?");
-		st.setString(1, emailaddress);
-		st.setString(2, productnumber);
-		ResultSet rs1=st.executeQuery();
-		
-		while (rs1.next()) {
-			bean =new Bean();
-			bean.setSex(rs1.getString("sex"));
-			bean.setEmailaddress(rs1.getString("emailaddress"));
-			bean.setStartusing(rs1.getDate("startusing"));
-			bean.setEnduse(rs1.getDate("enduse"));
-		}
-		st.close();
-		
-		Date end = bean.getEnduse();
-		LocalDate endday = end.toLocalDate();
-		Date start = bean.getStartusing();
-		System.out.println(start);
-		LocalDate startday = start.toLocalDate();
-		long daysBetween = ChronoUnit.DAYS.between(startday, endday);
-		System.out.println("kikann"+daysBetween);
-		
-		PreparedStatement st2=con.prepareStatement(
-				"UPDATE stock_table SET startusing = ?, perioddenominator = ? WHERE emailaddress = ? AND productnumber = ?;");
-			st2.setDate(1, sqlDateToday);
-			st2.setLong(2, daysBetween);
-			st2.setString(3, emailaddress);
-			st2.setString(4, productnumber);
-			st2.executeUpdate();
-			st2.close();
-			
-		PreparedStatement stm1=con.prepareStatement(
-    			"UPDATE stock_table SET periodnumerator = ? WHERE emailaddress = ? AND productnumber = ?;");
-    		stm1.setLong(1, daysBetween);
-    		stm1.setString(2, emailaddress);
-    		stm1.setString(3, productnumber);
-    		stm1.executeUpdate();
-    		stm1.close();
-		
-		rs.close();
-		con.close();
-		
-		return bean;
+					   return bean;
+				 }
 	}
 
 	public List<Bean> dashboard1(String today)
@@ -458,7 +471,7 @@ public class KozouDAO extends DAO {
 			Connection con=getConnection();
 			
 			PreparedStatement st=con.prepareStatement(
-				"UPDATE stock_table SET activenumber = ? WHERE emailaddress = ? AND productnumber = ?;");
+				"UPDATE stock_table SET activenumber = ?, startusing = null, periodnumerator = 0 WHERE emailaddress = ? AND productnumber = ?;");
 			st.setInt(1, activenumber);
 			st.setString(2, emailaddress);
 			st.setString(3, productnumber);
