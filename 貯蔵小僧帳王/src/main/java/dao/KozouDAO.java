@@ -50,16 +50,18 @@ public class KozouDAO extends DAO {
 				bean.setStartusing(rs.getDate("startusing"));
 				bean.setEmailaddress(rs.getString("emailaddress"));
 				bean.setProductnumber(rs.getString("productnumber"));
+				bean.setPeriodnumerator(rs.getInt("periodnumerator"));
 				System.out.println("productnumber"+bean.getProductnumber()+"start"+bean.getStartusing());
-				
 				LocalDate today = LocalDate.now();
 				Date start = bean.getStartusing();
 				LocalDate startday = start.toLocalDate();
 				long daysBetween = ChronoUnit.DAYS.between(startday, today);
 				System.out.println("aaaaaaaaaaa"+daysBetween);
+				long bunsi = bean.getPeriodnumerator();
+				long newbunsi = bunsi - daysBetween;
 				String email = bean.getEmailaddress();
 				String num = bean.getProductnumber();
-				updateStmt.setLong(1, daysBetween);
+				updateStmt.setLong(1, newbunsi);
 			    updateStmt.setString(2, email);
 			    updateStmt.setString(3, num);
 			    updateStmt.executeUpdate();
