@@ -2,6 +2,7 @@
 /*girl*/
 body{
 	background-image: url("lace3.png");
+	background-size:750px auto;
 	font-family: "Hachi Maru Pop", serif;
 	color: #333333;
 }
@@ -29,16 +30,17 @@ input{
 }
 
 a:link { /*アクセスしたことのないリンク*/
-	color:#9d8e87;
+	color:#ffffff;
 }
 
 a:visited { /*アクセスしたことのあるリンク*/
-	color:#5BC8AC;
+	color:#ffffff;
 }
 
-.green{ /*削除済みボタン*/
+/*削除済みボタン*/
+.green{
 	border-radius: 20px;
-	width: 260px;
+	width: 250px;
 	padding: 10px;
 	box-sizing: border-box;
 	background: #fff79b;
@@ -49,11 +51,12 @@ a:visited { /*アクセスしたことのあるリンク*/
 	0 1px 0 #ffffff,  0 -1px 0 #ffffff;
 	text-decoration: none;
 	margin: 10px 0;
-	font-size: 30px;
+	font-size: 25px;
 	font-family: "Hachi Maru Pop", cursive;
 }
 
-.red{ /*追加ボタン*/
+/*追加ボタン*/
+.red{ 
 	border-radius: 20px;
 	width: 250px;
 	padding: 10px;
@@ -66,38 +69,20 @@ a:visited { /*アクセスしたことのあるリンク*/
 	0 1px 0 #ffffff,  0 -1px 0 #ffffff;
 	text-decoration: none;
 	margin: 10px 0;
-	font-size: 30px;
-	font-family: "Hachi Maru Pop", cursive;
-
-}
-
-.blue{
-	border-radius: 20px;
-	width: 200px;
-	padding: 10px;
-	box-sizing: border-box;
-	background: #d3def1;
-	color: #f4acac;
-	text-shadow: 1px 1px 0 #ffffff, -1px -1px 0 #ffffff,
-	-1px 1px 0 #ffffff,  1px -1px 0 #ffffff,
-	1px 0 0 #ffffff, -1px  0 0 #ffffff,
-	0 1px 0 #ffffff,  0 -1px 0 #ffffff;
-	text-decoration: none;
-	margin: 10px 0;
 	font-size: 25px;
 	font-family: "Hachi Maru Pop", cursive;
 
 }
 
-
-.btn-flat-logo {/*HOMEボタン*/
+/*HOME/ログアウトボタン*/
+.btn-flat-logo {
 	position: relative;
 	display: inline-block;
 	font-weight: bold;
 	padding: 0.25em 0.5em;
 	text-decoration: none;
 	color: #FFF;
-	background: #A1A3A6;
+	background: #cfa7cc;
 	transition: .4s;
 }
 
@@ -105,10 +90,9 @@ a:visited { /*アクセスしたことのあるリンク*/
 .btn-flat-logo a:visited {
 	color: #FFFFFF;
 }
-
 .btn-flat-logo:hover {
 	background: #FFFAF4;
-	color:#553501
+	color:#333333
 }
 
 .newfont{
@@ -137,64 +121,52 @@ label {
 	background: #FFFFFF;
 	width: 700px;
 	border-radius: 20px;
+	text-align: left;
 	}
+.box a:link { /*アクセスしたことのないリンク*/
+    color:#9d8e87;
+	}
+
+.box a:visited { /*アクセスしたことのあるリンク*/
+    color:#5BC8AC;
+	}
+		
 .box p {
 	margin: 0; 
 	padding: 0;
+	text-align: center;
 	}
-	
-/*検索フォーム*/
-.search_container{
-  	box-sizing: border-box;
-  	display: inline-block;
-}
 
-.search_container input[type="text"]{
-  	background: #FFFFFF;
-  	border: none;
-  	height: 35px;
-  	width: 380px;
-}
-.search_container input[type="text"]:focus {
-  	outline: 0;
-}
-.search_container input[type="submit"]{
-  	cursor: pointer;
-  	font-family: FontAwesome;
-  	border: none;
-  	background: #5BC8AC;
-  	color: #ffffff;
-  	outline : none;
-  	width: 4.0em;
-  	height: 37px;
-  	margin-left:15px;
-}
-
-
-.edit{
-	border-radius: 0.5rem;
-	width: 200px;
-	padding: 8px;
-	box-sizing: border-box;
-	background: #fff79b;
-	color: #cfa7cc;
-	text-shadow: 1px 1px 0 #ffffff, -1px -1px 0 #ffffff,
-	-1px 1px 0 #ffffff,  1px -1px 0 #ffffff,
-	1px 0 0 #ffffff, -1px  0 0 #ffffff,
-	0 1px 0 #ffffff,  0 -1px 0 #ffffff;
-	text-decoration: none;
-	margin: 10px 0;
-	padding-top:0.5px;
-	font-size: 15px;
-	font-family: "Hachi Maru Pop", cursive;
-	font-weight: 900
-	
-}
 input[type="number"] {
-  width: 65px; /*--幅--*/
-  padding: 10px; /*--余白--*/
-  font-size: 10px; /*--文字サイズ--*/
-  border: solid 2px #cccccc; /*--ボーダー線--*/
-  border-radius: 5px; /*--角丸--*/
+    width: 65px; /*--幅--*/
+    padding: 10px; /*--余白--*/
+    font-size: 10px; /*--文字サイズ--*/
+    border: solid 2px #cccccc; /*--ボーダー線--*/
+    border-radius: 5px; /*--角丸--*/
 }
 
+/*プログレスバー*/
+.progress-bar[value] {
+     width: 100%;
+     height: 20px;
+     appearance: none; /* デフォルトのブラウザスタイルを無効化 */
+} 
+/* プログレスバーの背景 */
+.progress-bar[value]::-webkit-progress-bar {
+      background-color: #eee;
+      border-radius: 10px;	    
+}
+	
+/* プログレスバーの値（通常） */
+.progress-bar[value]::-webkit-progress-value {
+      background-color: #5BC8AC; /* デフォルト緑 */
+      border-radius: 10px;
+}
+/* 低い値（20%以下）の場合に赤色を適用 */
+.progress-bar[value].low::-webkit-progress-value {
+      background-color: red !important; /* 赤色 */
+	    }
+/* Firefox用 */
+.progress-bar.low {
+      accent-color: red; /* Firefoxのアクセントカラーを赤に設定 */
+	    }

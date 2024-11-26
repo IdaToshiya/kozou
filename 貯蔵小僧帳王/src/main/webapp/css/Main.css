@@ -26,15 +26,6 @@ input{
 	vertical-align:top;
 }
 
-/*a:link { アクセスしたことのないリンク*/
-/*	color:darkblue;*/
-/*}*/
-
-/*a:visited { アクセスしたことのあるリンク*/
-/*	color:green;*/
-/*}*/
-
-
 .green{
 	border-radius: 0.5rem;
 	width: 250px;
@@ -77,7 +68,7 @@ input{
 }
 
 
-
+/*ログアウト・HOMEボタン*/
 .btn-flat-logo {
 	position: relative;
 	display: inline-block;
@@ -98,8 +89,14 @@ a.btn-flat-logo:after {
   background-size: contain;
   vertical-align: middle;
 }
+.btn-flat-logo a,
+.btn-flat-logo a:visited {
+	color: #FFFFFF;
+}
+
 .btn-flat-logo:hover {
-	background: #A1A3A6;
+	background: #FFFAF4;
+	color:#333333;
 }
 
 .newfont{
@@ -133,12 +130,17 @@ label {
 	color: #333333;
 	background: #FFFFFF;
 	width: 700px;
-	border-radius: 20px;	
+	border-radius: 20px;
+	text-align: left;	
 }	
 	
+.box th {
+	text-align: center;
+}
 .box p {
 	margin: 0; 
 	padding: 0;
+	text-align: center;
 	}
 .box2{
     padding: 0.5em 1em;
@@ -149,6 +151,14 @@ label {
     box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
 	}	
 	
+.box a:link { /*アクセスしたことのないリンク*/
+ 	 color: #2615d1;
+		}
+
+.box a:visited { /*アクセスしたことのあるリンク*/
+	color:#3d5943;
+	}
+		
 /*検索フォーム*/
 .search_container{
   box-sizing: border-box;
@@ -195,20 +205,32 @@ label {
 .clear input[type="submit"] {
 	background-color: #3d5943;
 }
+/*プログレスバー*/
 
-
-
-
-
-/*.edit{*/
-/*	border-radius: 0.5rem;*/
-/*	width: 100px;*/
-/*	padding: 10px;*/
-/*	box-sizing: border-box;*/
-/*	background: darkblue;*/
-/*	color: #FFF;*/
-/*	text-decoration: none;*/
-/*	margin: 10px 0;*/
-/*	font-size: 10px;*/
-/*	font-family: "Yuji Syuku", serif;*/
-/*}*/
+.progress-bar[value] {
+     width: 100%;
+     height: 20px;
+     appearance: none; /* デフォルトのブラウザスタイルを無効化 */
+	 }
+	    
+/* プログレスバーの背景 */
+.progress-bar[value]::-webkit-progress-bar {
+      background-color: #eee;
+      border-radius: 10px;
+	    }
+	
+ /* プログレスバーの値（通常） */
+.progress-bar[value]::-webkit-progress-value {
+      background-color: green; /* デフォルト緑 */
+      border-radius: 10px;
+	    }
+	
+ /* 低い値（20%以下）の場合に赤色を適用 */
+.progress-bar[value].low::-webkit-progress-value {
+      background-color: red !important; /* 赤色 */
+	    }
+	
+  /* Firefox用 */
+.progress-bar.low {
+      accent-color: red; /* Firefoxのアクセントカラーを赤に設定 */
+	    }
