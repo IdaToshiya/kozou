@@ -50,34 +50,38 @@ public class KozouDAO extends DAO {
 				bean.setStartusing(rs.getDate("startusing"));
 				bean.setEmailaddress(rs.getString("emailaddress"));
 				bean.setProductnumber(rs.getString("productnumber"));
-				bean.setPeriodnumerator(rs.getInt("periodnumerator"));
 				System.out.println("productnumber"+bean.getProductnumber()+"start"+bean.getStartusing());
+				
 				LocalDate today = LocalDate.now();
 				Date start = bean.getStartusing();
-				LocalDate startday = start.toLocalDate();
-				long daysBetween = ChronoUnit.DAYS.between(startday, today);
-				System.out.println("aaaaaaaaaaa"+daysBetween);
-				long bunsi = bean.getPeriodnumerator();
-				long newbunsi = bunsi - daysBetween;
-				String email = bean.getEmailaddress();
-				String num = bean.getProductnumber();
-				updateStmt.setLong(1, newbunsi);
-			    updateStmt.setString(2, email);
-			    updateStmt.setString(3, num);
-			    updateStmt.executeUpdate();
-			}
-		}
-		
-		rs.close();
-		st.close();
-		con.close();
-		
+				long daysBetween = 0;
+				// startusingがnullでない場合のみ計算を実行
+	            if (start != null) {
+	                LocalDate startday = start.toLocalDate();
+	                daysBetween = ChronoUnit.DAYS.between(startday, today);
+	            }
 
-		// こんな風にすれば Bean の中身がログに出力できる
-		String bbb =( ToStringBuilder.reflectionToString(bean, ToStringStyle.DEFAULT_STYLE) );
-		System.out.println(bbb);
+	            System.out.println("Days Between: " + daysBetween);
 
-		return bean;
+	            String email = bean.getEmailaddress();
+	            String num = bean.getProductnumber();
+	            updateStmt.setLong(1, daysBetween);
+	            updateStmt.setString(2, email);
+	            updateStmt.setString(3, num);
+	            updateStmt.executeUpdate();
+	        }
+	    }
+
+	    rs.close();
+	    st.close();
+	    updateStmt.close();
+	    con.close();
+
+	    // Beanの中身をログに出力
+	    String beanDetails = ToStringBuilder.reflectionToString(bean, ToStringStyle.DEFAULT_STYLE);
+	    System.out.println(beanDetails);
+
+	    return bean;
 	}
 	
 	public int insert(String nickname, String hashedPassword, String emailAddress, String dateOfBirth, String sex, String prefectures)
