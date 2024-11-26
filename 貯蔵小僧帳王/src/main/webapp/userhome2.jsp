@@ -31,60 +31,54 @@ session.setAttribute("sex", sex);// リクエストスコープに格納
 		</form>
 	</div>
 
+	
+	<% if (request.getAttribute("errorMessage") != null) { %>
+    <p style="color: red;"><%= request.getAttribute("errorMessage") %></p>
+	<% } %>
+
 	<sql:query var="list" dataSource="jdbc/kozou">
-    
-	select * FROM stock_table LEFT JOIN product_table ON stock_table.productnumber = product_table.productnumber
-	 where emailaddress = '${emailaddress}' AND stock <= 1 AND activenumber = 1;
-</sql:query>
+		SELECT stock_table.productnumber AS stock_productnumber, stock_table.perioddenominator AS stock_perioddenominator,
+		        stock_table.emailaddress AS stock_emailaddress, stock_table.stock AS stock_stock, product_table.productname AS product_name,
+		        periodnumerator, startusing FROM stock_table LEFT JOIN product_table ON stock_table.productnumber = product_table.productnumber
+		    WHERE stock_table.emailaddress = '${emailaddress}' AND stock_table.stock <= 1 AND stock_table.activenumber = 1;
+	</sql:query>
 
 	<div class="box">
 		<td>なくなりそうなもの</td>
 		<table cellpadding="5">
 			<c:forEach var="list" items="${list.rows}">
-				    <tr>
-				        <td>${list.productname}</td>
-				        <td>${list.stock}</td>
-				        <td>
-				            <a href="Stockadd?emailaddress=${list.emailaddress}&productnumber=${list.productnumber}&stock=${list.stock}">＋</a>
-				        </td>
-				        <td>
-				            <a href="Stockdecrease?emailaddress=${list.emailaddress}&productnumber=${list.productnumber}&stock=${list.stock}">－</a>
-				        </td>
-				        <td>
-				            <a href="start?productnumber=${list.productnumber}&emailaddress=${list.emailaddress}&stock=${list.stock}">スタート</a>
-				        </td>
-				        <td>
-				            <!-- Progress bar with debugging output -->
-				            <progress class="progress-bar" max="${list.perioddenominator}" value="${list.periodnumerator}"></progress>
-				            <p>Max: ${list.perioddenominator}, Value: ${list.periodnumerator}</p>
-				        </td>
-				        <td>
-				            <a href="UserDelete?emailaddress=${list.emailaddress}&productnumber=${list.productnumber}&activenumber=2">削除</a>
-				        </td>
-				    </tr>
-				</c:forEach>
-			</table>
+				<tr>
+					<td>${list.product_name}</td>
+					<td>${list.stock_stock}</td>
+					<td><a href="Stockadd?emailaddress=${list.stock_emailaddress}&productnumber=${list.stock_productnumber}&stock=${list.stock_stock}">＋</a></td>
+					<td><a href="Stockdecrease?emailaddress=${list.stock_emailaddress}&productnumber=${list.stock_productnumber}&stock=${list.stock_stock}&sex=${sex}">－</a></td>&nbsp;
+					<td><a href="start?productnumber=${list.stock_productnumber}&emailaddress=${list.stock_emailaddress}&stock=${list.stock_stock}&sex=${sex}">スタート</a></td>
+					<td><progress class="progress-bar" max="${list.stock_perioddenominator}" value="${list.stock_perioddenominator - list.periodnumerator}"></progress>
+		                <p>Max: ${list.stock_perioddenominator}, Start: ${list.startusing}</p></td>
+					<td><a href="UserDelete?emailaddress=${list.stock_emailaddress}&productnumber=${list.stock_productnumber}&activenumber=2">削除</a></td>
+				</tr>
+			</c:forEach>
+		</table>
 
 		<sql:query var="list" dataSource="jdbc/kozou">
-			select * FROM stock_table LEFT JOIN product_table ON stock_table.productnumber = product_table.productnumber where emailaddress = '${emailaddress}' AND activenumber = 1;
+		    SELECT stock_table.productnumber AS stock_productnumber, stock_table.perioddenominator AS stock_perioddenominator,
+		        stock_table.emailaddress AS stock_emailaddress, stock_table.stock AS stock_stock, product_table.productname AS product_name,
+		        periodnumerator, startusing FROM stock_table LEFT JOIN product_table ON stock_table.productnumber = product_table.productnumber
+		       WHERE stock_table.emailaddress = '${emailaddress}' AND stock_table.activenumber = 1;
 		</sql:query>
 
 		<p>日用品一覧</p>
 		<table>
 			<c:forEach var="list" items="${list.rows}">
 				<tr>
-					<td>${list.productname}</td>
-					<td>${list.stock}</td>
-					<td><a
-						href="Stockadd?emailaddress=${list.emailaddress}&productnumber=${list.productnumber}&stock=${list.stock}">＋</a>
-					</td>
-					<td><a
-						href="Stockdecrease?emailaddress=${list.emailaddress}&productnumber=${list.productnumber}&stock=${list.stock}">－</a>
-					</td>&nbsp;
-					<td><a href="start?productnumber=${list.productnumber}&emailaddress=${list.emailaddress}&stock=${list.stock}">スタート</a></td>
-					<td><progress class="progress-bar" max="${list.perioddenominator}" value="${list.periodnumerator}"></progress>
-				        <p>Max: ${list.perioddenominator}, Value: ${list.periodnumerator}</p></td>
-					<td><a href="UserDelete?emailaddress=${list.emailaddress}&productnumber=${list.productnumber}&activenumber=2">削除</a></td>
+					<td>${list.product_name}</td>
+					<td>${list.stock_stock}</td>
+					<td><a href="Stockadd?emailaddress=${list.stock_emailaddress}&productnumber=${list.stock_productnumber}&stock=${list.stock_stock}">＋</a></td>
+					<td><a href="Stockdecrease?emailaddress=${list.stock_emailaddress}&productnumber=${list.stock_productnumber}&stock=${list.stock_stock}&sex=${sex}">－</a></td>&nbsp;
+					<td><a href="start?productnumber=${list.stock_productnumber}&emailaddress=${list.stock_emailaddress}&stock=${list.stock_stock}&sex=${sex}">スタート</a></td>
+					<td><progress class="progress-bar" max="${list.stock_perioddenominator}" value="${list.stock_perioddenominator - list.periodnumerator}"></progress>
+		                <p>Max: ${list.stock_perioddenominator}, Start: ${list.startusing}</p></td>
+					<td><a href="UserDelete?emailaddress=${list.stock_emailaddress}&productnumber=${list.stock_productnumber}&activenumber=2">削除</a></td>
 				</tr>
 			</c:forEach>
 		</table>
@@ -137,6 +131,7 @@ session.setAttribute("sex", sex);// リクエストスコープに格納
 		        accent-color: red; /* Firefoxのアクセントカラーを赤に設定 */
 		    }
 		</style>
+				
 	</div>
 </div>
-<%@include file="../footer.html"%>
+<%@include file="../footer.html" %>
