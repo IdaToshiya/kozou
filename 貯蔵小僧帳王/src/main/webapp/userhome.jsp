@@ -37,8 +37,7 @@ session.setAttribute("sex", sex);// リクエストスコープに格納
 	<sql:query var="list" dataSource="jdbc/kozou">
 		SELECT stock_table.productnumber AS stock_productnumber, stock_table.perioddenominator AS stock_perioddenominator,
 		        stock_table.emailaddress AS stock_emailaddress, stock_table.stock AS stock_stock, product_table.productname AS product_name,
-		        periodnumerator, startusing ,sex FROM stock_table LEFT JOIN product_table ON stock_table.productnumber = product_table.productnumber
-		        JOIN user_table ON stock_table.emailaddress = user_table.emailaddress
+		        periodnumerator, startusing FROM stock_table LEFT JOIN product_table ON stock_table.productnumber = product_table.productnumber
 		    WHERE stock_table.emailaddress = '${emailaddress}' AND stock_table.stock <= 1 AND stock_table.activenumber = 1;
 	</sql:query>
 
@@ -62,9 +61,8 @@ session.setAttribute("sex", sex);// リクエストスコープに格納
 		<sql:query var="list" dataSource="jdbc/kozou">
 		    SELECT stock_table.productnumber AS stock_productnumber, stock_table.perioddenominator AS stock_perioddenominator,
 		        stock_table.emailaddress AS stock_emailaddress, stock_table.stock AS stock_stock, product_table.productname AS product_name,
-		        periodnumerator, startusing ,sex FROM stock_table LEFT JOIN product_table ON stock_table.productnumber = product_table.productnumber
-		        JOIN user_table ON stock_table.emailaddress = user_table.emailaddress
-		    WHERE stock_table.emailaddress = '${emailaddress}' AND stock_table.activenumber = 1;
+		        periodnumerator, startusing FROM stock_table LEFT JOIN product_table ON stock_table.productnumber = product_table.productnumber
+		       WHERE stock_table.emailaddress = '${emailaddress}' AND stock_table.activenumber = 1;
 		</sql:query>
 
 		<p>日用品一覧</p>
