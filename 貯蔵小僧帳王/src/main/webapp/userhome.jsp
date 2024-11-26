@@ -3,6 +3,7 @@
 <%@taglib prefix="sql" uri="jakarta.tags.sql" %>
 <%@taglib prefix="c" uri="jakarta.tags.core" %>
 <%@ page import="java.util.List, bean.Bean" %>
+
 <%
 Bean User = (Bean) request.getAttribute("bean");
 String emailaddress = User.getEmailaddress();

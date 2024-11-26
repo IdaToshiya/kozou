@@ -3,6 +3,7 @@
 <%@taglib prefix="c" uri="jakarta.tags.core"%>
 <%@ page import="java.util.List, bean.Bean"%>
 <%@include file="../header-2.html"%>
+
 <%
 Bean User = (Bean) request.getAttribute("bean");
 String emailaddress = User.getEmailaddress();
