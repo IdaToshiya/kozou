@@ -1,10 +1,14 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@include file="../header.html"%>
 <a href=Login.jsp class="btn-flat-logo"> <i
-	class="fa fa-chevron-right">HOME</i></a>
+	class="fa fa-chevron-right">Login</i></a>
 <section>
 	<form action="Insert.action" method="post" class="center">
 		<h1>新規登録</h1>
+		
+		<% if (request.getAttribute("errorMessage") != null) { %>
+		    <p style="color: red;"><%= request.getAttribute("errorMessage") %></p>
+		<% } %>
 
 		<div class="">
 			<label>ニックネーム</label> <input type="text" name="nickname"

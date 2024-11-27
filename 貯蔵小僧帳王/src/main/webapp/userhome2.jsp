@@ -39,7 +39,7 @@ session.setAttribute("sex", sex);// リクエストスコープに格納
 		SELECT stock_table.productnumber AS stock_productnumber, stock_table.perioddenominator AS stock_perioddenominator,
 		        stock_table.emailaddress AS stock_emailaddress, stock_table.stock AS stock_stock, product_table.productname AS product_name,
 		        periodnumerator, startusing FROM stock_table LEFT JOIN product_table ON stock_table.productnumber = product_table.productnumber
-		    WHERE stock_table.emailaddress = '${emailaddress}' AND stock_table.stock <= 1 AND stock_table.activenumber = 1;
+		    WHERE stock_table.emailaddress = '${emailaddress}'AND stock_table.stock <= 1 AND stock_table.activenumber = 1;
 	</sql:query>
 
 	<div class="box">
@@ -63,7 +63,7 @@ session.setAttribute("sex", sex);// リクエストスコープに格納
 		    SELECT stock_table.productnumber AS stock_productnumber, stock_table.perioddenominator AS stock_perioddenominator,
 		        stock_table.emailaddress AS stock_emailaddress, stock_table.stock AS stock_stock, product_table.productname AS product_name,
 		        periodnumerator, startusing FROM stock_table LEFT JOIN product_table ON stock_table.productnumber = product_table.productnumber
-		       WHERE stock_table.emailaddress = '${emailaddress}' AND stock_table.activenumber = 1;
+		       WHERE stock_table.emailaddress = '${emailaddress}'AND stock_table.stock > 1 AND stock_table.activenumber = 1;
 		</sql:query>
         <br>
 		<p><b>日用品一覧</b></p>
