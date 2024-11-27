@@ -11,14 +11,14 @@
 			<br>
 			<div class="">
 				<label>パスワード</label>
-				<input type="text" name="password"min="1" minlength="12" maxlength="20" pattern="^[0-9A-Za-z!-~]+$" required placeholder='12文字以上 / 半角英数記号'>
+				<input type="password" name="password"min="1" minlength="12" maxlength="20" pattern="^[0-9A-Za-z!-~]+$" required placeholder='12文字以上 / 半角英数記号'>
 			</div>
 			<br>
 			<div class="" style="text-align:center">
 				<input type="submit" value="ログイン" class="green">
 			</div>
-			<% if (request.getAttribute("error") != null) { %>
-		    <p style="color: red;"><%= request.getAttribute("error") %></p>
+			<% if (request.getAttribute("errorMessage") != null) { %>
+		    <p style="color: red;"><%= request.getAttribute("errorMessage") %></p>
 			<% } %>
 	</form>	
 	<form action="">

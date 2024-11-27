@@ -52,7 +52,7 @@ public class LoginAction extends Action {
 		}
 
 		// ログイン失敗時の処理
-		request.setAttribute("error", "ニックネームまたはパスワードが正しくありません。");
+		request.setAttribute("errorMessage", "ニックネームまたはパスワードが正しくありません。");
 		return "Login.jsp";
     
 	}
