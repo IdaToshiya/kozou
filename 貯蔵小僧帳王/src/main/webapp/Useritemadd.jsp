@@ -58,7 +58,7 @@
 								<!-- 商品追加フォーム -->
 								<div class="useradd">
 									<form action="Useradd.action" method="post" style="display: inline;">
-										<input type="number" name="stock" placeholder="個数を入力" size="1" min="1" class="number">&nbsp;&nbsp;個<input type="submit" value="追加">
+										<input type="number" name="stock" placeholder="個数を入力" size="1" min="1" class="number" required>&nbsp;&nbsp;個<input type="submit" value="追加">
 								 		<input type="hidden" name="emailaddress" value="${emailaddress}">
 								 		<input type="hidden" name="productnumber" value="${item.productnumber}">
 									</form>
